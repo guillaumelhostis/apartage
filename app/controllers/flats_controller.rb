@@ -3,23 +3,23 @@ class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
-    # @flats = policy_scope(Flat)
-    @flats = Flat.all
+    @flats = policy_scope(Flat)
+    # @flats = Flat.all
   end
 
   def show
-    # authorize @flat
+    authorize @flat
   end
 
   def new
     @flat = Flat.new
-    # authorize @flat
+    authorize @flat
   end
 
   def create
     @flat = Flat.new(flat_params)
     @flat.user_id = current_user.id
-    # authorize @flat
+    authorize @flat
     @flat.save
 
     redirect_to flat_path(@flat)
@@ -47,6 +47,7 @@ class FlatsController < ApplicationController
 
   def set_flat
     @flat = Flat.find(params[:id])
+    authorize @flat
   end
 
   def flat_params
