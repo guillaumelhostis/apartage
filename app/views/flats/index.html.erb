@@ -8,8 +8,9 @@
           <h1>All flats</h1>
         </div>
         <div class="text-center mb-5">
-        <%= if policy(Flat).create? %>
+        <% if policy(Flat).create? %>
           <a href="<%= new_flat_path %>" class="btn btn-primary"> New Flat </a>
+          <% end %>
         </div>
         <% @flats.each do |f| %>
           <ul class="list-unstyled">

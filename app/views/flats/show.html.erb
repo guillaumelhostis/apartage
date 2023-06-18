@@ -11,10 +11,11 @@
 
 <div class="btn-align-center">
 
-  <%= if policy(@flat).edit? %>
+  <% if policy(@flat).edit? %>
     <a href="<%= edit_flat_path(@flat) %>" class="btn btn-primary">Edit</a>
-  <%= if policy(@flat).destroy? %>
+    <% end %>
+  <% if policy(@flat).destroy? %>
     <%= button_to "Destroy", @flat, method: :delete, class: "btn btn-danger" %>
-  <%= if policy(@flat).index? %>
+    <% end %>
      <a href="<%= flats_path %>" class="btn btn-primary">All Flats</a>
 </div>
