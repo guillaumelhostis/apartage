@@ -3,6 +3,7 @@ class FlatsController < ApplicationController
   skip_before_action :authenticate_user!, only: [:index, :show]
 
   def index
+    raise
     @flats = policy_scope(Flat)
     # @flats = Flat.all
   end
