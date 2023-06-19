@@ -1,9 +1,9 @@
-<div class="container text-center mt-5 mb-5">
+<div class="container text-center mt-3 mb-3">
   <div>
     <h1>Apart'Agé</h1>
   </div>
   <div class="mt-4">
-    <h2>La colocation intergénérationnelle</h2>
+    <div class=""><h2>Je me connecte</h2></div>
   </div>
 </div>
 
@@ -11,9 +11,10 @@
   <div class="row">
     <div class="col-6 m-auto">
       <div class="focus-space">
-      <div class="text-center"><h2>Je me connecte</h2></div>
+
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-          <div class="form-inputs">
+          <div class="form-row d-flex justify-content-between">
+
             <%= f.input :email,
                         required: false,
                         autofocus: true,
@@ -28,7 +29,7 @@
             <%= f.submit "Se connecter", class: "btn btn-primary" %>
           </div>
         <% end %>
-          <div class="text-center mb-3">
+          <div class="mb-1 d-flex justify-content-between">
             <%= render "devise/shared/links" %>
           </div>
       </div>
