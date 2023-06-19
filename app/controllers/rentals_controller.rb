@@ -1,5 +1,6 @@
 class RentailsController < ApplicationController
   before_action :set_rental, only: %i[ show edit update destroy ]
+  
   def new
     @rental = Rental.new
     authorize @rental

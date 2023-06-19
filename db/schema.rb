@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_19_120047) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_19_155806) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -36,6 +36,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_120047) do
     t.bigint "flat_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "status", default: 0
     t.index ["flat_id"], name: "index_rentals_on_flat_id"
     t.index ["user_id"], name: "index_rentals_on_user_id"
   end
@@ -60,7 +61,20 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_120047) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  create_table "your_spaces", force: :cascade do |t|
+    t.boolean "tv"
+    t.boolean "bathroom"
+    t.boolean "terrasse"
+    t.boolean "wifi"
+    t.boolean "toilet"
+    t.bigint "flat_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flat_id"], name: "index_your_spaces_on_flat_id"
+  end
+
   add_foreign_key "flats", "users"
   add_foreign_key "rentals", "flats"
   add_foreign_key "rentals", "users"
+  add_foreign_key "your_spaces", "flats"
 end
