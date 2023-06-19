@@ -1,2 +1,20 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="container text-center mt-5 mb-5">
+  <div>
+    <h1>Apart'Agé</h1>
+  </div>
+  <div class="mt-4">
+    <h2>La colocation intergénérationnelle</h2>
+  </div>
+</div>
+
+<div class="container focus-space">
+
+    <div class="d-flex justify-content-around">
+      <div class="interactive-icon">
+        <%= link_to image_tag("friend.png"), new_user_session_path %>
+      </div>
+      <div class="interactive-icon">
+        <%= link_to image_tag("home.png"), new_user_session_path %>
+      </div>
+    </div>
+</div>
