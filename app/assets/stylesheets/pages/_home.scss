@@ -1,1 +1,27 @@
 // Specific CSS for your home-page
+
+.focus-space {
+  background-color: rgba(76, 201, 240, 0.1);
+
+  border-radius: 7px;
+  padding: 30px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.focus-space img {
+  width: 120px;
+}
+
+.interactive-icon {
+  padding: 30px;
+  border-radius: 7px;
+  box-sizing: border-box;
+  border: 10px solid transparent;
+}
+
+.interactive-icon:hover {
+  border: white 10px solid;
+  padding: 30px;
+  border-radius: 7px;
+  transition: 0.1s;
+}

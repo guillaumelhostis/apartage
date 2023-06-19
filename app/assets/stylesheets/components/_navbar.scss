@@ -1,6 +1,14 @@
 .navbar-lewagon {
-  justify-content: space-between;
-  background: white;
+
+  justify-content: center;
+  background: rgb(247,37,133);
+  background: linear-gradient(0deg, rgba(247,37,133,1) 35%, rgba(247,37,133,0.26234243697478987) 100%);
+  width: 100vw;
+  height: 120px;
+  // overflow: hidden;
+  position: fixed;
+  bottom: 0;
+
 }
 
 .navbar-lewagon .navbar-collapse {
@@ -8,5 +16,80 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 90px;
+
+  margin-left: 20px;
+  margin-right:20px;
+}
+
+
+.big-btn-backward {
+  font-size: 50px;
+  background: rgb(114,9,183);
+  background: linear-gradient(0deg, rgba(114,9,183,1) 35%, rgba(114,9,183,0.4023984593837535) 100%);
+  color: white;
+  width: 90px;
+  height: 90px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  border: white 4px solid;
+  margin-right:50px;
+}
+
+.big-btn-backward a {
+  color:white;
+}
+
+.big-btn-backward a:visited {
+  color:white;
+}
+
+.big-btn-backward:hover {
+  width: 97px;
+  height: 97px;
+  font-size: 57px;
+  transition: 0.3s;
+}
+
+
+.big-btn-forward {
+  font-size: 50px;
+  background: rgb(114,9,183);
+  background: linear-gradient(0deg, rgba(114,9,183,1) 35%, rgba(114,9,183,0.4023984593837535) 100%);
+  color: white;
+  width: 90px;
+  height: 90px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  border: white 4px solid;
+  margin-left: 50px;
+}
+
+.big-btn-forward a {
+  color:white;
+}
+
+.big-btn-forward a:visited {
+  color:white;
+}
+
+.big-btn-forward:hover {
+  width: 97px;
+  height: 97px;
+  font-size: 57px;
+  transition: 0.3s;
+}
+
+
+.big-btn-login {
+  font-size: 30px;
+  background-color: rgba(76, 201, 240, 0.7);
+
+  width: 120px;
+  height: 90px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+  margin-left: 20px;
+  margin-right:20px;
+  border: white 4px solid;
 }
