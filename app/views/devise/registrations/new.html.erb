@@ -1,25 +1,56 @@
-<h2>Sign up</h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: { turbo: :false }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+<div class="container text-center mt-5 mb-5">
+  <div>
+    <h1>Apart'Agé</h1>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+  <div class="mt-4">
+    <h2>La colocation intergénérationnelle</h2>
   </div>
-<% end %>
+</div>
 
-<%= render "devise/shared/links" %>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-8 m-auto">
+      <div class="focus-space">
+        <div class="text-center mb-3"><h2>Je crée mon compte</h2></div>
+        <%= simple_form_for(resource,   as: resource_name, url: registration_path(resource_name), ) do |f| %>
+        <div class="form-row d-flex justify-content-between">
+          <%= f.error_notification %>
+          <div class="col-5">
+            <%= f.input :email,
+                        required: true,
+                        autofocus: true,
+                        input_html: { autocomplete: "email" } %>
+
+            <%= f.input :first_name,
+                        :label => "Prénom",
+                        required: true,
+                        autofocus: true%>
+            <%= f.input :last_name,
+                        :label => "Nom",
+                        required: true,
+                        autofocus: true%>
+          </div>
+          <div class="col-5">
+              <%= f.input :password,
+                          :label => "Mot de passe",
+                          required: true,
+                          hint: ("#{@minimum_password_length} lettres minimum" if @minimum_password_length),
+                          input_html: { autocomplete: "new-password" } %>
+              <%= f.input :password_confirmation,
+                          :label => "Confirmation de mot de passe",
+                          required: true,
+                          input_html: { autocomplete: "new-password" } %>
+          </div>
+        </div>
+          <div class="form-actions text-center mb-3 mt-2">
+            <%= f.submit "Créer mon compte", class: "btn btn-primary" %>
+          </div>
+
+        <% end %>
+        <div class="text-center">
+          <%= render "devise/shared/links" %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
