@@ -1,6 +1,6 @@
 class RentailsController < ApplicationController
   before_action :set_rental, only: %i[ show edit update destroy ]
-  
+
   def new
     @rental = Rental.new
     authorize @rental
@@ -11,7 +11,7 @@ class RentailsController < ApplicationController
     @rental.user_id = current_user[:id]
     @rental = Flat.find(params[:flat_id])
     @rental.flat_id = @flat[:id]
-    @rental.status = "Waiting for approval"
+    @rental.status = @rental.pending
     authorize @rental
 
     @rental.save
@@ -22,9 +22,9 @@ class RentailsController < ApplicationController
     authorize @rental
   end
 
-  def index
-    @rentals = policy_scope(Rental)
-  end
+  # def index
+  #   @rentals = policy_scope(Rental)
+  # end
 
   def edit
     authorize @rental
@@ -52,6 +52,6 @@ class RentailsController < ApplicationController
   end
 
   def rental_params
-    params.require(:rental).permit(:check_in)
+    params.require(:rental).permit(:check_in, :status)
   end
 end

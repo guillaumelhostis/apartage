@@ -3,12 +3,15 @@ Rails.application.routes.draw do
   get 'rentals/new'
   devise_for :users
   root to: "pages#home"
-  get 'pages/my_dashboard'
+  get 'pages/my_dashboard', to: 'pages#my_dashboard'
 
+  get 'pages/accept_rental', to: 'pages#accept_rental'
+  get 'pages/refuse_rental', to: 'pages#refuse_rental'
 
-  resources :your_spaces
+  resources :flats
+  resources :your_spaces, only: [:show, :new, :create, :edit, :update]
 
-  resources :rentals
+  resources :rentals, only: [:show, :new, :create, :edit, :update, :destroy]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

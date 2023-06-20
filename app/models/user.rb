@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :flats
   has_many :rentals
+  has_many :receivedrentals, through: :flats, source: :rentals
 end
