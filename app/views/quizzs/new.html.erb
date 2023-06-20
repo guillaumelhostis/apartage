@@ -1,0 +1,25 @@
+<div class="jumbotron d-flex align-items-center min-vh-100">
+   <div class="container mb-5 pb-5">
+    <div class="text-center mb-3"><h2>Quelques questions pour mieux se connaitre</h2></div>
+    <div class="row">
+      <div class="col-6 m-auto">
+        <div class="focus-space">
+              <%= simple_form_for(@quizz) do |f| %>
+              <div class="step 1">
+                <%= f.input :smoker, :label => "Tu fumes?", as: :check_boxes, collection: [['Je suis fumeur','A'], ['Je fume occasionnelement','B'], ['Je ne fume pas','C']], input_html: { class: "toggle" } %>
+              </div>
+              <div class="d-none">
+                <%= f.input :guest, :guest => "Ramène tu des amis?", as: :check_boxes, collection: [['Je fais la fête tout le temps','A'], ['Mes amis viennent pour étudier','B'], ["Je n'ai pas d'amis",'C']], input_html: { class: "toggle" } %>
+              </div>
+              <div class="d-none">
+                <%= f.input :talker, :guest => "Es tu sociable?", as: :check_boxes, collection: [["J'adore parler",'A'], ['Un petit café de temps en temps','B'], ["Je suis introverti",'C']], input_html: { class: "tag-selector" }, item_wrapper_class: 'tag-item' %>
+              </div>
+              <div class="text-center">
+                <%= f.submit 'Valider mes réponses', class: "btn btn-primary text-white"%>
+              </div>
+              <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
