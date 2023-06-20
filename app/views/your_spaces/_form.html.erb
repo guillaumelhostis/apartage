@@ -1,4 +1,4 @@
-<%= simple_form_for(yourspace) do |f| %>
+<%= simple_form_for [@flat, @yourspace] do |f| %>
 <%= f.input :tv %>
 <%= f.input :bathroom %>
 <%= f.input :terrasse %>
@@ -6,3 +6,5 @@
 <%= f.input :toilet %>
   <%= f.submit "Submit your space detail", class: "btn btn-primary" %>
 <% end %>
+
+

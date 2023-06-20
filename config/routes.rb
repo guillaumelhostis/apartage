@@ -8,10 +8,13 @@ Rails.application.routes.draw do
   get 'pages/accept_rental', to: 'pages#accept_rental'
   get 'pages/refuse_rental', to: 'pages#refuse_rental'
 
-  resources :flats
-  resources :your_spaces, only: [:new, :create, :edit, :update]
 
-  resources :rentals, only: [:show, :new, :create, :edit, :update, :destroy]
+  resources :flats do
+    resources :your_spaces, only: [:new, :create]
+    resources :rentals, only: [:new, :create]
+  end
+  resources :your_spaces, only: [:edit, :update]
+  resources :rentals, only: [:show, :edit, :update, :destroy]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

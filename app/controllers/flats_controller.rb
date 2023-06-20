@@ -22,7 +22,7 @@ class FlatsController < ApplicationController
     authorize @flat
     @flat.save
 
-    redirect_to new_your_space_path
+    redirect_to new_flat_your_space_path(@flat)
   end
 
   def edit

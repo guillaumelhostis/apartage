@@ -3,6 +3,7 @@ class YourSpacesController < ApplicationController
 
   def new
     @yourspace = YourSpace.new
+    @flat = Flat.find(params[:flat_id])
     authorize @yourspace
   end
 
@@ -47,7 +48,7 @@ class YourSpacesController < ApplicationController
     @yourspace = YourSpace.find(params[:id])
   end
 
-  def your_space_params
-    params.require(:rental).permit(:tv, :bathroom, :terrasse, :wifi, :toilet)
+  def yourspace_params
+    params.require(:your_space).permit(:tv, :bathroom, :terrasse, :wifi, :toilet)
   end
 end

@@ -1,21 +1,23 @@
-class RentailsController < ApplicationController
+class RentalsController < ApplicationController
   before_action :set_rental, only: %i[ show edit update destroy ]
 
   def new
     @rental = Rental.new
+    @flat = Flat.find(params[:flat_id])
     authorize @rental
   end
 
   def create
     @rental = Rental.new(rental_params)
-    @rental.user_id = current_user[:id]
-    @rental = Flat.find(params[:flat_id])
-    @rental.flat_id = @flat[:id]
-    @rental.status = @rental.pending
+    # @rental.user_id = current_user[:id]
+    @flat = Flat.find(params[:flat_id])
+    @rental.flat = @flat
+    @rental.user = current_user
+    @rental.status = 2
     authorize @rental
 
     @rental.save
-    redirect_to pages_dashboard_path
+    redirect_to my_dashboard_path
   end
 
   def show
@@ -52,6 +54,6 @@ class RentailsController < ApplicationController
   end
 
   def rental_params
-    params.require(:rental).permit(:check_in, :status)
+    params.require(:rental).permit(:check_in)
   end
 end
