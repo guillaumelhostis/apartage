@@ -1,9 +1,9 @@
 <div class="container margin-top-negative">
   <div class ="container text-center elegant-bottom-lign ">
-    <h1>My Dashboard</h1>
+    <h1>My Dashboard / Applications</h1>
   </div>
   <div class="container mt-4">
-    <% if current_user.role == "renter" %>
+    <% if current_user.role == "junior" %>
 
     <!-- your requests -->
       <div class="container mt-4">
@@ -18,8 +18,8 @@
               <div class="flat-card">
 
                 <div class="d-flex align-items-center">
-                  <% if User.find(Flat.find(rental.flat_id).owner_id).image.attached? %>
-                      <%= link_to image_tag(User.find(Flat.find(rental.flat_id).owner_id).image) %>
+                  <% if User.find(Flat.find(rental.flat_id).user_id).image.attached? %>
+                      <%= link_to image_tag(User.find(Flat.find(rental.flat_id).user_id).image) %>
                     <% else %>
                         <%= image_tag "https://static.vecteezy.com/ti/gratis-vector/p3/7319933-black-avatar-person-icons-user-profile-icon-vector.jpg", class: "avatar m-2"%>
                     <% end %>
@@ -28,11 +28,11 @@
                   <div class="rental-status-pending">
                     <span class="p-2"><%= rental.status %></span>
                   </div>
-                <% elsif rental.accepted? %>
+                <% elsif rental.status == 'accepted'? %>
                   <div class="rental-status-accepted">
                     <span class="p-2"><%= rental.status %></span>
                   </div>
-                <% elsif rental.refused? %>
+                <% elsif rental.status == 'refused'? %>
                   <div class="rental-status-refused">
                     <span class="p-2"><%= rental.status %></span>
                   </div>
@@ -65,15 +65,15 @@
              <% @rentals_requests.each do |request| %>
               <div class="col-md-4">
                 <div class="flat-card">
-                   <% if request.pending? %>
+                   <% if request.status == 'pending'? %>
                   <div class="rental-status-pending">
                     <span class="p-2"><%= request.status %></span>
                   </div>
-                  <% elsif request.accepted? %>
+                  <% elsif request.status == 'accepted'? %>
                     <div class="rental-status-accepted">
                       <span class="p-2"><%= request.status %></span>
                     </div>
-                  <% elsif request.refused? %>
+                  <% elsif request.status == 'refused'? %>
                     <div class="rental-status-refused">
                       <span class="p-2"><%= request.status %></span>
                     </div>
@@ -84,8 +84,8 @@
                     </div>
                     <div class="d-flex align-items-center">
                       <div class="">
-                        <% if User.find(request.customer_id).image.attached? %>
-                          <%= link_to image_tag(User.find(request.customer_id).image, class: "avatar-white-border"), pages_user_profil_path(User.find(request.customer_id)) %>
+                        <% if User.find(request.user_id).image.attached? %>
+                          <%= link_to image_tag(User.find(request.user_id).image, class: "avatar-white-border"), pages_user_profil_path(User.find(request.user_id)) %>
                         <% else %>
                           <%= image_tag "https://static.vecteezy.com/ti/gratis-vector/p3/7319933-black-avatar-person-icons-user-profile-icon-vector.jpg", class: "avatar m-2"%>
                         <% end %>

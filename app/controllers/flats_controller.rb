@@ -32,14 +32,12 @@ class FlatsController < ApplicationController
   def update
     # authorize @flat
     @flat.update(flat_params)
-    # No need for app/views/restaurants/update.html.erb
     redirect_to flats_path
   end
 
   def destroy
     # authorize @flat
     @flat.destroy
-    # No need for app/views/restaurants/destroy.html.erb
     redirect_to flats_path, status: :see_other
   end
 

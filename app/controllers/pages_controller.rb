@@ -16,13 +16,13 @@ class PagesController < ApplicationController
 
   def accept_rental
     @rental = Rental.find(params[:format].to_i)
-    @rental.accepted
+    @rental.status == "accepted"
     redirect_to pages_dashboard_path
   end
 
   def refuse_rental
     @rental = Rental.find(params[:format].to_i)
-    @rental.refused
+    @rental.status == "refused"
     redirect_to pages_dashboard_path
   end
 
