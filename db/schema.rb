@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_19_155806) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_20_093043) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -28,6 +28,16 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_155806) do
     t.string "type_of_flat"
     t.string "title"
     t.index ["user_id"], name: "index_flats_on_user_id"
+  end
+
+  create_table "quizzs", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "smoker"
+    t.string "talker"
+    t.string "guest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_quizzs_on_user_id"
   end
 
   create_table "rentals", force: :cascade do |t|
@@ -74,6 +84,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_19_155806) do
   end
 
   add_foreign_key "flats", "users"
+  add_foreign_key "quizzs", "users"
   add_foreign_key "rentals", "flats"
   add_foreign_key "rentals", "users"
   add_foreign_key "your_spaces", "flats"

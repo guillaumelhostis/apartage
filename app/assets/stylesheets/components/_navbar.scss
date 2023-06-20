@@ -4,7 +4,7 @@
   background: rgb(247,37,133);
   background: linear-gradient(0deg, rgba(247,37,133,1) 35%, rgba(247,37,133,0.26234243697478987) 100%);
   width: 100vw;
-  height: 120px;
+  height: 100px;
   // overflow: hidden;
   position: fixed;
   bottom: 0;
@@ -24,12 +24,12 @@
 
 
 .big-btn-backward {
-  font-size: 50px;
+  font-size: 40px;
   background: rgb(114,9,183);
   background: linear-gradient(0deg, rgba(114,9,183,1) 35%, rgba(114,9,183,0.4023984593837535) 100%);
   color: white;
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
   border: white 4px solid;
@@ -40,25 +40,31 @@
   color:white;
 }
 
+.logo-appartage img {
+  width: 90px;
+  height: 90px;
+  box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
 .big-btn-backward a:visited {
   color:white;
 }
 
 .big-btn-backward:hover {
-  width: 97px;
-  height: 97px;
-  font-size: 57px;
+  width: 75px;
+  height: 75px;
+  font-size: 45px;
   transition: 0.3s;
 }
 
 
 .big-btn-forward {
-  font-size: 50px;
+  font-size: 40px;
   background: rgb(114,9,183);
   background: linear-gradient(0deg, rgba(114,9,183,1) 35%, rgba(114,9,183,0.4023984593837535) 100%);
   color: white;
-  width: 90px;
-  height: 90px;
+  width: 70px;
+  height: 70px;
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
   border: white 4px solid;
@@ -74,9 +80,9 @@
 }
 
 .big-btn-forward:hover {
-  width: 97px;
-  height: 97px;
-  font-size: 57px;
+  width: 75px;
+  height: 75px;
+  font-size: 45px;
   transition: 0.3s;
 }
 

@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'rentals/new'
   devise_for :users
   root to: "pages#home"
+
   get 'pages/my_dashboard', to: 'pages#my_dashboard', as: 'my_dashboard'
 
   get 'pages/accept_rental', to: 'pages#accept_rental'
@@ -16,8 +17,9 @@ Rails.application.routes.draw do
   resources :your_spaces, only: [:edit, :update]
   resources :rentals, only: [:show, :edit, :update, :destroy]
 
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  resources :quizzs
+  get 'pages/compatibily', to: 'pages#compatibily'
+  get 'pages/senior_dashboard', to: 'pages#senior_dashboard'
+  get 'pages/your_criterias', to: 'pages#your_criterias'
 
-  # Defines the root path route ("/")
-  # root "articles#index"
 end

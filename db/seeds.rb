@@ -4,6 +4,7 @@ puts "cleaning DB...."
 # Quizz.delete_all
 # Rental.delete_all
 # Your_space.delete_all
+Quizz.delete_all
 Flat.delete_all
 User.delete_all
 
@@ -87,4 +88,13 @@ marie_flat = Flat.create(
   monthly_price: 100,
   type_of_flat: "appartement",
   capacity: 1
+)
+
+puts "creating a quizz for Paul"
+
+paul_quizz = Quizz.create(
+  smoker: "A",
+  talker: "B",
+  guest: "C",
+  user_id: paul[:id]
 )
