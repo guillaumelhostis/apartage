@@ -1,6 +1,6 @@
 class YourSpacesController < ApplicationController
   before_action :set_rental, only: %i[ show edit update destroy ]
-  
+
   def new
     @yourspace = YourSpace.new
     authorize @yourspace
@@ -8,18 +8,19 @@ class YourSpacesController < ApplicationController
 
   def create
     @yourspace = YourSpace.new(yourspace_params)
-    @yourspace.user_id = current_user[:id]
-    @yourspace = Flat.find(params[:flat_id])
-    @yourspace.flat_id = @flat[:id]
+    # @yourspace.user_id = current_user[:id]
+    @flat = Flat.find(params[:flat_id])
+    # @yourspace.flat_id = @flat[:id]
+    @yourspace.flat = @flat
     authorize @yourspace
 
     @yourspace.save
-    redirect_to pages_dashboard_path
+    redirect_to new_quizz_path
   end
 
-  def show
-    authorize @yourspace
-  end
+  # def show
+  #   authorize @yourspace
+  # end
 
   def edit
     authorize @yourspace
@@ -37,7 +38,7 @@ class YourSpacesController < ApplicationController
     authorize @yourspace
     @yourspace.destroy
 
-    redirect_to pages_dashboard_path
+    redirect_to my_dashboard_path
   end
 
   private
@@ -47,6 +48,6 @@ class YourSpacesController < ApplicationController
   end
 
   def your_space_params
-    params.require(:rental).permit(:tb, :bathroom, :terrasse, :wifi, :toilet)
+    params.require(:rental).permit(:tv, :bathroom, :terrasse, :wifi, :toilet)
   end
 end

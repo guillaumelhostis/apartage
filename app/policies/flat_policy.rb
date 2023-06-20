@@ -9,8 +9,12 @@ class FlatPolicy < ApplicationPolicy
       user.admin? ? scope.all : scope.where(user: user)
     end
   end
-  
+
   def show?
+    true
+  end
+
+  def new
     true
   end
 

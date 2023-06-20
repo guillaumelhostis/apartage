@@ -22,7 +22,7 @@ class FlatsController < ApplicationController
     authorize @flat
     @flat.save
 
-    redirect_to flat_path(@flat)
+    redirect_to new_your_space_path
   end
 
   def edit
@@ -33,7 +33,7 @@ class FlatsController < ApplicationController
     # authorize @flat
     @flat.update(flat_params)
     # No need for app/views/restaurants/update.html.erb
-    redirect_to flat_path(@flat)
+    redirect_to flats_path
   end
 
   def destroy
