@@ -11,11 +11,8 @@ class QuizzsController < ApplicationController
   end
 
   def create
-
     @quizz = Quizz.new(quizz_params)
-
     @quizz.user_id = current_user.id
-
     authorize @quizz
     @quizz.save
     redirect_to pages_senior_dashboard_path
@@ -26,6 +23,7 @@ class QuizzsController < ApplicationController
 
   def update
     @quizz.update(quizz_params)
+    redirect_to pages_senior_dashboard_path
   end
 
   private
