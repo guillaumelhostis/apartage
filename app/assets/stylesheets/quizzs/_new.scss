@@ -73,6 +73,7 @@
 }
 
 .quizz-btns {
+  color: white;
   border-radius: 8px !important;
   background: rgb(30,221,136)!important;
   background: linear-gradient(90deg, rgba(30,221,136,1) 35%, rgba(30,221,136,0.4556197478991597) 100%)!important;
@@ -86,4 +87,5 @@
   background: linear-gradient(278deg, rgba(30,221,136,1) 35%, rgba(30,221,136,0.6488970588235294) 100%)!important;
   transition: opacity 0.25s ease;
   opacity: 0.7;
+  color: white;
 }

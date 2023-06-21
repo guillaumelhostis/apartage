@@ -22,7 +22,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if current_user.quizzs.present?
-      stored_location_for(resource) || pages_compatibily_path
+      stored_location_for(resource) || pages_senior_dashboard_path
     else
       stored_location_for(resource) || new_quizz_path
     end
