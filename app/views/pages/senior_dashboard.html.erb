@@ -1,0 +1,69 @@
+
+<div class="jumbotron d-flex align-items-center min-vh-100">
+
+    <div class="container mb-5 pb-5">
+      <div class="container text-center mt-3 mb-5">
+        <div>
+          <h1>Mon logement</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="container focus-space col-8 mb-5">
+          <div class="d-flex justify-content-around">
+
+
+            <div class="interactive-icon">
+              <%= link_to image_tag("home.png"), new_user_session_path %>
+            </div>
+
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="container mb-5 pb-5">
+      <div class="container text-center mt-3 mb-5">
+        <div>
+          <h1>Mes candidatures</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="container focus-space col-8 mb-5">
+          <div class="d-flex justify-content-around">
+            <div class="interactive-icon">
+              <%= link_to image_tag("friend.png"), new_user_session_path %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="text-center">
+      <%= link_to "Je me deconnecte", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary text-white"%>
+      </div>
+    </div>
+
+
+
+
+    <div class="container mb-5 pb-5">
+      <div class="container text-center mt-3 mb-5">
+        <div>
+          <h1>Mes critères</h1>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="container focus-space col-8 mb-5">
+          <div class="d-flex justify-content-around">
+            <div class="interactive-icon">
+              <%= link_to image_tag("criterias.png"), edit_quizz_path(@quizz)%>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+</div>
