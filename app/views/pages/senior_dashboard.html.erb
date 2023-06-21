@@ -40,9 +40,7 @@
           </div>
         </div>
       </div>
-      <div class="text-center">
-      <%= link_to "Je me deconnecte", destroy_user_session_path, data: {turbo_method: :delete}, class: "btn btn-primary text-white"%>
-      </div>
+
     </div>
 
 
@@ -59,7 +57,7 @@
         <div class="container focus-space col-8 mb-5">
           <div class="d-flex justify-content-around">
             <div class="interactive-icon">
-              <%= link_to image_tag("criterias.png"), edit_quizz_path(@quizz)%>
+              <%= link_to image_tag("criterias.png"), pages_your_criterias_path%>
             </div>
           </div>
         </div>

@@ -89,3 +89,12 @@ marie_flat = Flat.create(
   type_of_flat: "appartement",
   capacity: 1
 )
+
+puts "creating a quizz for Paul"
+
+paul_quizz = Quizz.create(
+  smoker: "A",
+  talker: "B",
+  guest: "C",
+  user_id: paul[:id]
+)
