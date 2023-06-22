@@ -99,3 +99,15 @@ paul_quizz = Quizz.create(
   guest: "C",
   user_id: paul[:id]
 )
+
+
+puts "creating your space for Paul appartement"
+
+YourSpace.create(
+  tv: true,
+  bathroom: true,
+  wifi: true,
+  toilet: true,
+  terrasse: true,
+  flat_id: paul_flat[:id]
+)

@@ -7,6 +7,13 @@
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
 
+.invisible-div {
+
+  border-radius: 7px;
+  padding: 30px;
+
+}
+
 .focus-space img {
   width: 120px;
 }
@@ -45,5 +52,63 @@
   margin-right: 15px;
   border-radius: 50%;
   border: #CDF0EA 12px solid;
+}
 
+#big-apartage h1 {
+
+  font-size: 70px;
+}
+
+#big-apartage h2 {
+
+  font-size: 30px;
+}
+
+
+.image-home {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  width: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.image-home-large {
+  background-size: cover;
+  background-position: center;
+  height: 180px;
+  width: 600px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 24px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.blue-div {
+  background-color: #CDF0EA;
+  border-radius: 10px;
+
+}
+
+.blue-div:hover {
+ opacity: 0.7;
+}
+
+.blue-div .btn {
+  background-color: #CDF0EA;
+  border-radius: 10px;
+  font-size: 20px ;
 }
