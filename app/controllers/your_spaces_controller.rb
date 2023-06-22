@@ -31,8 +31,11 @@ class YourSpacesController < ApplicationController
     authorize @yourspace
 
     @yourspace.update(yourspace_params)
-
-    redirect_to pages_dashboard_path
+    if current_user.role == "senior"
+      redirect_to pages_senior_dashboard_path
+    elsif current_user.role == "junior"
+      redirect_to pages_junior_dashboard_path
+    end
   end
 
   def destroy

@@ -30,9 +30,11 @@ class FlatsController < ApplicationController
   end
 
   def update
-    # authorize @flat
     @flat.update(flat_params)
-    redirect_to flats_path
+    authorize @flat
+    @your_space = YourSpace.find_by(flat_id: @flat.id)
+    raise
+    redirect_to edit_your_space_path(@your_space)
   end
 
   def destroy

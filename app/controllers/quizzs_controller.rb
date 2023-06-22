@@ -15,7 +15,11 @@ class QuizzsController < ApplicationController
     @quizz.user_id = current_user.id
     authorize @quizz
     @quizz.save
-    redirect_to pages_senior_dashboard_path
+    if current_user.role == "senior"
+      redirect_to pages_senior_dashboard_path
+    elsif current_user.role == "junior"
+      redirect_to pages_junior_dashboard_path
+    end
   end
 
   def edit
