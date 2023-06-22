@@ -1,9 +1,9 @@
 
-<div class="jumbotron d-flex align-items-center min-vh-100">
-  <div class="container mb-5 pb-5">
+<div class="d-flex align-items-center min-vh-100">
+  <div class="container-xxl mb-5 pb-5">
     <div class="container text-center mt-3 mb-3 row d-flex justify-content-center">
 
-      <h1 id="apartage-brand">Apart'Agé</h1>
+      <h1>Apart'Agé</h1>
 
       <div class="mt-3">
         <h2>La colocation intergénérationnelle</h2>
@@ -11,17 +11,16 @@
     </div>
 
     <div class="row">
-      <div class="container focus-space col-6 mb-5">
+      <div class="container-lg focus-space col-8 ">
         <div class="d-flex justify-content-around">
-          <div class="interactive-icon">
-            <%= link_to image_tag("junior.png"), new_user_session_path %>
 
-          </div>
+            <%= link_to image_tag("junior.png"), new_user_session_path, class: "icon-roles" %>
 
-          <div class="interactive-icon">
-            <%= link_to image_tag("senior.png"), new_user_session_path %>
 
-          </div>
+
+
+            <%= link_to image_tag("senior.png"), new_user_session_path, class: "icon-roles" %>
+
 
 
         </div>
