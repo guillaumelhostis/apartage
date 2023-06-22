@@ -1,23 +1,26 @@
-<h1>Your Flat</h1>
+<div class="focus-space">
 
-<ul>
-  <li><%= @flat.title %></li>
-  <li><%= @flat.address %></li>
-  <li><%= @flat.city%></li>
-  <li><%= @flat.monthly_price%></li>
-  <li><%= @flat.type_of_flat%></li>
-</ul>
+  <h1>Your Flat</h1>
+
+  <ul>
+    <li><%= @flat.title %></li>
+    <li><%= @flat.address %></li>
+    <li><%= @flat.city%></li>
+    <li><%= @flat.monthly_price%></li>
+    <li><%= @flat.type_of_flat%></li>
+  </ul>
 
 
-<div class="btn-align-center">
+  <div class="btn-align-center">
 
-  <% if policy(@flat).edit? %>
-    <a href="<%= edit_flat_path(@flat) %>" class="btn btn-primary">Edit</a>
-    <% end %>
-  <% if policy(@flat).destroy? %>
-    <%= button_to "Destroy", @flat, method: :delete, class: "btn btn-danger" %>
-    <% end %>
-     <a href="<%= flats_path %>" class="btn btn-primary">All Flats</a>
+    <% if policy(@flat).edit? %>
+      <a href="<%= edit_flat_path(@flat) %>" class="btn btn-primary">Edit</a>
+      <% end %>
+    <% if policy(@flat).destroy? %>
+      <%= button_to "Destroy", @flat, method: :delete, class: "btn btn-danger" %>
+      <% end %>
+      <a href="<%= flats_path %>" class="btn btn-primary">All Flats</a>
+  </div>
 </div>
 
 <%# <%= render "rentals/form", rental: @rental %>
