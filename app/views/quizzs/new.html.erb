@@ -9,7 +9,7 @@
         <div class="focus-space" data-controller="quizz-wizzard">
               <%= simple_form_for(@quizz) do |f| %>
               <ul class="list-unstyled">
-               <%# This is my first question %>
+
                 <li class="active">
                   <div class="progress mb-3">
                     <div class="progress-bar bg-success" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
@@ -19,7 +19,7 @@
                     <button type="button" class="btn btn-primary text-white p-3" data-action="click->quizz-wizzard#next">Suivant </button>
                   </div>
                 </li>
-                <%# This is my second question with target action %>
+
                 <li class="d-none">
                   <div class="progress mb-3">
                     <div class="progress-bar btn-success" role="progressbar" style="width: 33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
@@ -35,7 +35,8 @@
                       </div>
                     </div>
                 </li>
-                 <%# This is my last question with target action %>
+
+                 <%# This is the start of a question %>
                 <li class="d-none">
                   <div class="progress mb-3">
                     <div class="progress-bar bg-success" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
@@ -50,6 +51,10 @@
                       </div>
                   </div>
                 </li>
+
+                <%# This is this end of a question%>
+
+
                  <%# This is my submit button %>
                 <li class="text-center d-none">
                   <div class="progress mb-3">
