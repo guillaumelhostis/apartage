@@ -4,7 +4,8 @@
     <% if user_signed_in? %>
         <li class="nav-item dropdown">
           <a href="#" class="" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            <%= image_tag "logo-screenshot", class: "logo-screenshot ", alt: "dropdown menu" %>
+            <%= image_tag "logo-apartage", id: "apartage-brand", alt: "dropdown menu" %>
+
           </a>
             <div class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="navbarDropdown">
               <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>

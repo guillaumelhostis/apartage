@@ -1,11 +1,10 @@
 // Specific CSS for your home-page
 
 .focus-space {
-  background-color: rgba(76, 201, 240, 0.1);
-
+  background-color: #F9F9F9;
   border-radius: 7px;
   padding: 30px;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
 
 .focus-space img {
@@ -26,17 +25,25 @@
   transition: 0.1s;
 }
 
-.interactive-icon p {
-font-size: larger;
+.icon-roles {
+  border: transparent 5px solid;
+  border-radius: 50%;
+
+}
+
+.icon-roles:hover {
+  border: #BEAEE2 5px solid;
+  border-radius: 50%;
+  transition: 0.2s;
+
 }
 
 
 #apartage-brand {
-  width: 300px ;
-  color: white;
-  border-radius: 9px;
-  padding: 30px;
-  background: rgb(247,37,133);
-  background: linear-gradient(0deg, rgba(247,37,133,1) 35%, rgba(247,37,133,0.26234243697478987) 100%);
+  width: 80px;
+  margin-top: 15px;
+  margin-right: 15px;
+  border-radius: 50%;
+  border: #CDF0EA 12px solid;
 
 }

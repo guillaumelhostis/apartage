@@ -1,5 +1,3 @@
-require 'levenshtein'
-
 class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
@@ -18,6 +16,7 @@ class PagesController < ApplicationController
   def senior_dashboard
     @user = current_user
     @quizz = Quizz.find_by(user_id: current_user.id)
+    @flat = Flat.find_by(user_id: current_user.id )
   end
 
   def your_criterias
