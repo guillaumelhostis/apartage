@@ -27,10 +27,18 @@ class ApplicationController < ActionController::Base
 # Après s'être connecté, si le User n'a pas rempli le formulaire il n'accède pas à la search ou a son dashboard
 
   def after_sign_in_path_for(resource)
-    if current_user.quizzs.present?
-      stored_location_for(resource) || pages_senior_dashboard_path
-    else
-      stored_location_for(resource) || new_quizz_path
+    if current_user.role == "senior"
+      if current_user.quizzs.present?
+        stored_location_for(resource) || pages_senior_dashboard_path
+      else
+        stored_location_for(resource) || new_flat_path
+      end
+    elsif current_user.role == "junior"
+      if current_user.quizzs.present?
+        stored_location_for(resource) || pages_senior_dashboard_path  # changer en junior dashboard
+      else
+        stored_location_for(resource) || new_quizz_path
+      end
     end
   end
 end

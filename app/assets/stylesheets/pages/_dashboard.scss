@@ -7,8 +7,6 @@
 }
 
 
-.dashboard-geocoder{
-}
 
 .flat-card img {
   width: 300px;
@@ -76,16 +74,12 @@
   width: 50px;
 }
 
-.see-more:hover {
-  position: absolute;
-  left:0;
-  right:0;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
+.card-candidat:hover .see-more {
   opacity: 1;
   transition: 0.5s;
-}
+ }
+
+
 
 
 .edit-button {

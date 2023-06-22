@@ -9,7 +9,6 @@ Rails.application.routes.draw do
   get 'pages/accept_rental', to: 'pages#accept_rental'
   get 'pages/refuse_rental', to: 'pages#refuse_rental'
 
-
   resources :flats do
     resources :your_spaces, only: [:new, :create]
     resources :rentals, only: [:new, :create]
@@ -20,6 +19,6 @@ Rails.application.routes.draw do
   resources :quizzs
   get 'pages/compatibily', to: 'pages#compatibily'
   get 'pages/senior_dashboard', to: 'pages#senior_dashboard'
+  get 'pages/junior_dashboard', to: 'pages#junior_dashboard'
   get 'pages/your_criterias', to: 'pages#your_criterias'
-
 end

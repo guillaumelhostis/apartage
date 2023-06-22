@@ -40,6 +40,13 @@ class PagesController < ApplicationController
     @flat = Flat.find_by(user_id: current_user.id )
   end
 
+  def junior_dashboard
+    @user = current_user
+    @quizz = Quizz.find_by(user_id: current_user.id)
+
+  end
+
+
   def your_criterias
     @user = current_user
     @quizz = Quizz.find_by(user_id: current_user.id)
