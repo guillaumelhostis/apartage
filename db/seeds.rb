@@ -4,6 +4,7 @@ puts "cleaning DB...."
 # Quizz.delete_all
 # Rental.delete_all
 # Your_space.delete_all
+YourSpace.delete_all
 Quizz.delete_all
 Flat.delete_all
 User.delete_all
