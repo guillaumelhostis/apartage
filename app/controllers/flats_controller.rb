@@ -9,6 +9,8 @@ class FlatsController < ApplicationController
 
   def show
     authorize @flat
+    @user = @flat.user
+    @your_space = @flat.your_spaces.first
   end
 
   def new
