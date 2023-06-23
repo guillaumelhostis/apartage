@@ -11,6 +11,7 @@ class FlatsController < ApplicationController
     authorize @flat
     @user = @flat.user
     @your_space = @flat.your_spaces.first
+    @rental = Rental.new
   end
 
   def new

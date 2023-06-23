@@ -49,15 +49,16 @@
    <div class="d-flex justify-content-center">
     <div class="col-6 mt-4"> <!-- css : height :  100px -->
               <div class="mb-3">
-                  <div class="dashboard-space mb-2"> <!-- css : height :  100px -->
+                  <div class="dashboard-space mb-2 mr-2"> <!-- css : height :  100px -->
                       <h2>Information principale</h2>
                       <ul>
                       <li><%= @flat.address %></li>
                       <li><%= @flat.city%></li>
                       <li><%= @flat.type_of_flat%></li>
+                      <li> Loyer mensuel : <%= @flat.monthly_price%> €</li>
                       </ul>
                   </div>
-                  <div class="dashboard-space"> <!-- css : height :  100px -->
+                  <div class="dashboard-space mr-2"> <!-- css : height :  100px -->
                       <h2>Equipement</h2>
                       <% if @your_space.tv %>tv
                       <% elsif @your_space.bathroom %>bathroom
@@ -70,10 +71,10 @@
     </div>
 
 <!-- 4ème block -->
-    <div class="dashboard-space col-5 mt-5"> <!-- css : height :  100px -->
-      <p>Loyer mensuel <%= @flat.monthly_price%> €</p>
+    <div class="dashboard-space col-6 mt-4 ml-2"> <!-- css : height :  100px -->
       <%# <%=render "controller/_partial", variable: @variblae %>
-      <%= link_to "Réserver", new_flat_rental_path(@flat), class: 'btn btn-primary'  %>
+      <%= render "rentals/form", rental: @rental %>
+      
     </div>
   </div>
  </div>
