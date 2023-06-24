@@ -3,5 +3,6 @@
   <%# <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
   <%= f.input :check_in, label: "Date d'arrivée" %>
+  <%= f.input :message, label: "Personnalise ton message à l'attention de #{@flat.user.first_name}" %>
   <%= f.submit "Réserver", class: "btn btn-primary" %>
 <% end %>

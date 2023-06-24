@@ -6,10 +6,7 @@
   <div class="row">
         <div class="col-12 dashboard-space mb-2">
           <div class="d-flex justify-content-between">
-            <div>
-            <%= "Découvre le logement de" %>
-            <a href="<%= my_dashboard_path %>" class="btn btn-primary"><%=@user.first_name%></a>
-            </div>
+            <p>Découvre le logement de <strong><%= link_to  @user.first_name, my_dashboard_path, class: "bold-name" %></strong></p>
             <div>
             <a href="<%= flats_path %>" class="btn btn-primary">Tous les logements</a>
             </div>
@@ -22,7 +19,7 @@
      <div class="col-12 h-800"> <!-- css : min-height :  100px -->
 
       <!-- carousel -->
-      <div id="carouselExample" class="carousel slide">
+      <div id="flatCarousel" class="carousel slide">
         <div class="carousel-inner">
           <div class="carousel-item active">
             <img src="https://fr.europa-bed-breakfast.com/PicBig/PicBig12000/suite-edouard-herriot_11754_1.jpg" class="d-block w-100" alt="...">
@@ -60,11 +57,15 @@
                   </div>
                   <div class="dashboard-space mr-2"> <!-- css : height :  100px -->
                       <h2>Equipement</h2>
-                      <% if @your_space.tv %>tv
-                      <% elsif @your_space.bathroom %>bathroom
+                      <% if @your_space.tv %>
+                        <i class="fa-solid fa-tv"></i>
+                      <% elsif @your_space.bathroom %>
+                        <i class="fa-solid fa-shower"></i>
                       <% elsif @your_space.terrasse %>terrasse
-                      <% elsif @your_space.wifi %>wifi
-                      <% elsif @your_space.toilet %>toilet
+                      <% elsif @your_space.wifi %>
+                        <i class="fa-solid fa-wifi"></i>
+                      <% elsif @your_space.toilet %>
+                        <i class="fa-solid fa-toilet"></i>
                       <% end %>
                   </div>
               </div>
@@ -72,9 +73,10 @@
 
 <!-- 4ème block -->
     <div class="dashboard-space col-6 mt-4 ml-2"> <!-- css : height :  100px -->
+      <h2>Espace de réservation</h2>
       <%# <%=render "controller/_partial", variable: @variblae %>
       <%= render "rentals/form", rental: @rental %>
-      
+
     </div>
   </div>
  </div>
