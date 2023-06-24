@@ -54,6 +54,6 @@ class RentalsController < ApplicationController
   end
 
   def rental_params
-    params.require(:rental).permit(:check_in)
+    params.require(:rental).permit(:check_in, :message)
   end
 end

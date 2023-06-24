@@ -1,8 +1,9 @@
-<%= simple_form_for [@flat, @rental] do |f| %>
+<%= simple_form_for [@flat, @rental], data: { controller: 'flatpickr' } do |f| %>
   <%# <%= f.error_notification %>
   <%# <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
 
-  <%= f.input :check_in, label: "Date d'arrivée" %>
-  <%= f.input :message, label: "Personnalise ton message à l'attention de #{@flat.user.first_name}", required: false %>
+  <%# <%= f.input :check_in, label: "Date d'arrivée" %>
+  <%= f.input :check_in, as: :string, input_html: { data: { flatpickr_target: "checkin" } } %>
+  <%= f.input :message, as: :text, label: "Personnalise ton message à l'attention de #{@flat.user.first_name}", required: false %>
   <%= f.submit "Réserver", class: "btn btn-primary" %>
 <% end %>
