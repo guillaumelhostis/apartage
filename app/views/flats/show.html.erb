@@ -1,9 +1,10 @@
+<div class="container">
 <div class="focus-space">
 
   <h1><%= @flat.title %></h1>
 
   <!-- 1er block -->
-  <div class="row">
+  <div class="row mx-0">
         <div class="col-12 dashboard-space mb-2">
           <div class="d-flex justify-content-between">
             <p>Découvre le logement de <strong><%= link_to  @user.first_name, my_dashboard_path, class: "bold-name" %></strong></p>
@@ -43,10 +44,10 @@
 
 <!-- 3ème block -->
  <div class="row">
-   <div class="d-flex justify-content-center">
+
     <div class="col-6 mt-4"> <!-- css : height :  100px -->
               <div class="mb-3">
-                  <div class="dashboard-space mb-2 mr-2"> <!-- css : height :  100px -->
+                  <div id="maininformation" class="dashboard-space"> <!-- css : height :  100px -->
                       <h2>Information principale</h2>
                       <ul>
                       <li><%= @flat.address %></li>
@@ -61,7 +62,8 @@
                         <i class="fa-solid fa-tv"></i>
                       <% elsif @your_space.bathroom %>
                         <i class="fa-solid fa-shower"></i>
-                      <% elsif @your_space.terrasse %>terrasse
+                      <% elsif @your_space.terrasse %>
+                        <%= image_tag "balcony-image.png", alt: "Terrasse", width: 20 %>
                       <% elsif @your_space.wifi %>
                         <i class="fa-solid fa-wifi"></i>
                       <% elsif @your_space.toilet %>
@@ -72,13 +74,13 @@
     </div>
 
 <!-- 4ème block -->
-    <div class="dashboard-space col-6 mt-4 ml-2"> <!-- css : height :  100px -->
+    <div class="dashboard-space col-6 mt-4"> <!-- css : height :  100px -->
       <h2>Espace de réservation</h2>
       <%# <%=render "controller/_partial", variable: @variblae %>
       <%= render "rentals/form", rental: @rental %>
 
     </div>
-  </div>
+
  </div>
   <div class="btn-align-center">
 
@@ -89,6 +91,7 @@
       <%= button_to "Destroy", @flat, method: :delete, class: "btn btn-danger" %>
       <% end %>
   </div>
+</div>
 </div>
 
 <%# <%= render "rentals/form", rental: @rental %>
