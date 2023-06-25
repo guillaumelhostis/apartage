@@ -9,8 +9,11 @@
             <ul class="navbar-nav  me-auto">
                 <li class="nav-item dropup">
                   <a href="#" class="" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar", alt: "dropdown menu" %>
-                  </a>
+<% if current_user.image.attached? %>
+            <%= image_tag(current_user.image, style: "width: 100px; height: 100px; object-fit: cover; border-radius: 50%", alt: "dropdown menu") %>
+          <% else %>
+            <%= image_tag "https://static.vecteezy.com/ti/gratis-vector/p3/7319933-black-avatar-person-icons-user-profile-icon-vector.jpg", class: "avatar", alt: "dropdown menu" %>
+          <% end %>                  </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                       <%= link_to "Action", "#", class: "dropdown-item" %>
                       <%= link_to "Another action", "#", class: "dropdown-item" %>
