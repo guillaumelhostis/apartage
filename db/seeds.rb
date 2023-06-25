@@ -1,3 +1,5 @@
+require 'open-uri'
+
 # cleaning DB
 
 puts "cleaning DB...."
@@ -6,6 +8,11 @@ puts "cleaning DB...."
 # Your_space.delete_all
 Flat.delete_all
 User.delete_all
+
+urls = [
+  "https://res.cloudinary.com/dtpxg9mp5/image/upload/v1687722525/development/c5pbzfabvrvjgvggv9l2z6qgwxp8.jpg",
+  "https://res.cloudinary.com/dtpxg9mp5/image/upload/v1687722523/development/cy3md27sms1ezsktescyeff907fo.jpg"
+]
 
 puts "creating 2 seniors...."
 
@@ -88,3 +95,12 @@ marie_flat = Flat.create(
   type_of_flat: "appartement",
   capacity: 1
 )
+
+all_flats = Flat.all
+
+all_flats.each do |flat|
+  urls.each do |url|
+    file = URI.open(url)
+    flat.photos.attach(io: file, filename: "#{SecureRandom.hex}.jpg", content_type: "image/jpeg")
+  end
+end

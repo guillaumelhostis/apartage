@@ -1,6 +1,9 @@
 <h1>Your Flat</h1>
 
 <ul>
+ <% @flat.photos.each do |photo| %>
+    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+  <% end %>
   <li><%= @flat.title %></li>
   <li><%= @flat.address %></li>
   <li><%= @flat.city%></li>
