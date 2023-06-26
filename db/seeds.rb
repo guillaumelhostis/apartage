@@ -6,6 +6,8 @@ puts "cleaning DB...."
 # Quizz.delete_all
 # Rental.delete_all
 # Your_space.delete_all
+YourSpace.delete_all
+Quizz.delete_all
 Flat.delete_all
 User.delete_all
 
@@ -104,3 +106,24 @@ all_flats.each do |flat|
     flat.photos.attach(io: file, filename: "#{SecureRandom.hex}.jpg", content_type: "image/jpeg")
   end
 end
+
+puts "creating a quizz for Paul"
+
+paul_quizz = Quizz.create(
+  smoker: "A",
+  talker: "B",
+  guest: "C",
+  user_id: paul[:id]
+)
+
+
+puts "creating your space for Paul appartement"
+
+YourSpace.create(
+  tv: true,
+  bathroom: true,
+  wifi: true,
+  toilet: true,
+  terrasse: true,
+  flat_id: paul_flat[:id]
+)

@@ -1,0 +1,68 @@
+<div class="jumbotron d-flex align-items-center min-vh-100">
+   <div class="container mb-5 pb-5">
+    <div class="text-center mb-3"><h2>Changes tes critères</h2></div>
+    <div class="row">
+      <div class="col-6 m-auto">
+
+      <%# This is the quizz with a stimulus controller %>
+
+        <div class="focus-space" data-controller="quizz-wizzard">
+              <%= simple_form_for(@quizz) do |f| %>
+              <ul class="list-unstyled">
+               <%# This is my first question %>
+                <li class="active">
+                  <div class="progress mb-3">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <%= f.input :smoker, :label => "Tu fumes?", as: :radio_buttons, collection: [["Je fume comme un pompier","A"],["Je fume juste en soirée pour frimer","B"],["Je n'ai pas besoin de cigarette pour conclure en soirée","C"]], input_html: { class: "toggle" } %>
+                  <div class="text-center">
+                    <button type="button" class="btn quizz-btns text-white p-3" data-action="click->quizz-wizzard#next">Suivant </button>
+                  </div>
+                </li>
+                <%# This is my second question with target action %>
+                <li class="d-none">
+                  <div class="progress mb-3">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 33%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+
+                  <%= f.input :guest, :guest => "Ramène tu des amis?", as: :radio_buttons, collection: [['Je fais la fête tout le temps','A'], ['Mes amis viennent pour étudier','B'], ["Je n'ai pas d'amis",'C']], input_html: { class: "toggle" }%>
+                    <div class="d-flex justify-content-center">
+                      <div class="text-center" data-quizz-wizzard-target="previous">
+                        <button type="button" class="btn quizz-btns text-white p-3 me-3" data-action="click->quizz-wizzard#previous">Précédent </button>
+                      </div>
+                      <div class="text-center">
+                        <button type="button" class="btn quizz-btns text-white p-3 ms-3" data-action="click->quizz-wizzard#next">Suivant </button>
+                      </div>
+                    </div>
+                </li>
+                 <%# This is my last question with target action %>
+                <li class="d-none">
+                  <div class="progress mb-3">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <%= f.input :talker, :guest => "Es tu sociable?", as: :radio_buttons, collection: [["J'adore parler",'A'], ['Un petit café de temps en temps','B'], ["Je suis introverti",'C']], input_html: { class: "tag-selector " }, item_wrapper_class: 'tag-item'%>
+                  <div class="d-flex justify-content-center">
+                      <div class="text-center" data-quizz-wizzard-target="previous">
+                        <button type="button" class="btn quizz-btns text-white p-3 me-3" data-action="click->quizz-wizzard#previous">Précédent </button>
+                      </div>
+                      <div class="text-center">
+                          <button type="button" class="btn quizz-btns text-white p-3 ms-3" data-action="click->quizz-wizzard#next">Suivant </button>
+                      </div>
+                  </div>
+                </li>
+                 <%# This is my submit button %>
+                <li class="text-center d-none">
+                  <div class="progress mb-3">
+                    <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                  </div>
+                  <%= f.submit 'Valider mes réponses', class: "btn btn-primary text-white p-3"%>
+                </li>
+              </ul>
+              <% end %>
+        </div>
+      <%# This is the end of the quizz %>
+
+      </div>
+    </div>
+  </div>
+</div>

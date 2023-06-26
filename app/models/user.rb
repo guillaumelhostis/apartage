@@ -6,4 +6,10 @@ class User < ApplicationRecord
 
   has_many :flats
   has_one_attached :image
+
+  has_many :rentals
+  has_many :receivedrentals, through: :flats, source: :rentals
+
+  has_many :quizzs
+
 end

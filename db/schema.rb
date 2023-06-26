@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_23_191343) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_20_093043) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -58,6 +58,27 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_23_191343) do
     t.index ["user_id"], name: "index_flats_on_user_id"
   end
 
+  create_table "quizzs", force: :cascade do |t|
+    t.bigint "user_id", null: false
+    t.string "smoker"
+    t.string "talker"
+    t.string "guest"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_quizzs_on_user_id"
+  end
+
+  create_table "rentals", force: :cascade do |t|
+    t.date "check_in"
+    t.bigint "user_id", null: false
+    t.bigint "flat_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "status", default: 0
+    t.index ["flat_id"], name: "index_rentals_on_flat_id"
+    t.index ["user_id"], name: "index_rentals_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -80,5 +101,22 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_23_191343) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
+
+  create_table "your_spaces", force: :cascade do |t|
+    t.boolean "tv"
+    t.boolean "bathroom"
+    t.boolean "terrasse"
+    t.boolean "wifi"
+    t.boolean "toilet"
+    t.bigint "flat_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["flat_id"], name: "index_your_spaces_on_flat_id"
+  end
+
   add_foreign_key "flats", "users"
+  add_foreign_key "quizzs", "users"
+  add_foreign_key "rentals", "flats"
+  add_foreign_key "rentals", "users"
+  add_foreign_key "your_spaces", "flats"
 end

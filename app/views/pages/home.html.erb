@@ -1,21 +1,44 @@
-<div class="container text-center mt-3 mb-3">
-  <div>
-    <h1>Apart'Agé</h1>
-  </div>
-  <div class="mt-4">
-    <h2>La colocation intergénérationnelle</h2>
-  </div>
-</div>
+<div class="d-flex justify-content-around ">
 
-<div class="row">
-  <div class="container focus-space col-8">
-    <div class="d-flex justify-content-around">
-      <div class="interactive-icon">
-        <%= link_to image_tag("friend.png"), new_user_session_path %>
+            <%# <%= link_to image_tag("junior.png"), new_user_session_path, class: "icon-roles" %>
+  <div class="row"></div>
+    <div class="invisible-div col-6 mt-5">
+      <div class="dashboard-space mb-3">
+        <div id="big-apartage">
+          <h1>Apart'Agé</h1>
+          <h2>La collocation solidaire qui unit les générations</h2>
+        </div>
       </div>
-      <div class="interactive-icon">
-        <%= link_to image_tag("home.png"), new_user_session_path %>
+      <div class="d-flex justify-content-around ">
+        <div class="image-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://content.gallup.com/origin/gallupinc/GallupSpaces/Production/Cms/EDUCMS/tz7n-7vqceaq86dprdnzag.jpg)">
+
+        </div>
+        <div class="image-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.astongardens.com/wp-content/uploads/2022/12/senior-couple-hugging-in-a-nursing-home.jpg)">
+
+        </div>
       </div>
+
     </div>
+
+    <div class="focus-space col-6 mt-5 ">
+
+      <div class="d-flex justify-content-center">
+        <div class="image-home-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_1920,h_1080/q_auto,f_auto/3843-38/the-reserve-at-town-center-apartments-exterior)">
+        </div>
+      </div>
+
+
+      <div class="invisible-div  text-center mt-5">
+        <div class="blue-div">
+          <%= link_to "Je crée mon compte", new_user_registration_path, class: "btn btn-success"%>
+        </div>
+      </div>
+
+
+    </div>
+
   </div>
+
+
+            <%# <%= link_to image_tag("senior.png"), new_user_session_path, class: "icon-roles" %>
 </div>
