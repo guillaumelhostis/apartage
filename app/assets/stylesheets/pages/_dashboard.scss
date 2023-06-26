@@ -6,7 +6,11 @@
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
 }
 
-
+.bold-name{
+  text-decoration: none;
+  font-size: 1.3em;
+  color: black;
+}
 
 .flat-card img {
   width: 300px;
@@ -93,9 +97,21 @@
 
 .dashboard-space {
   position: relative;
+  i {
+    font-size: 20px
+  }
+}
+
+#maininformation {
+  margin-bottom: 13px;
 }
 
 .dashboard-space:hover .edit-button{
   opacity: 1;
   transition: 0.5s;
+}
+
+#flatCarousel .carousel-inner {
+  height: 700px;
+  width: 100%;
 }
