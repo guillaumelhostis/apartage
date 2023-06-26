@@ -29,15 +29,7 @@
         <%= image_tag "edit"%>
       </div>
       <h2>Carte</h2>
-
-    </div>
-  </div>
-  <div class="dashboard-space col-5 mt-5">
-    <div>
-      <h2>Logement proposés</h2>
-    </div>
-
-    <% @flats.each do |flat| %>
+       <% @flats.each do |flat| %>
       <div class="card-candidat">
         <div class="see-more">
           <%= link_to image_tag("play-btn"), flat_path(flat)%>
@@ -49,6 +41,15 @@
       </div>
       </div>
     <% end %>
+
+    </div>
+  </div>
+  <div class="dashboard-space col-5 mt-5">
+    <div>
+      <h2>Mes demandes en attentes</h2>
+    </div>
+
+
 
 
   </div>
