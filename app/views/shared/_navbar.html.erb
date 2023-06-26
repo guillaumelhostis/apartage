@@ -8,7 +8,11 @@
         <div class="d-flex justify-content-center mb-5">
 
             <div class="navigation-avatars-role">
-              <%= image_tag "https://static.vecteezy.com/ti/gratis-vector/p3/7319933-black-avatar-person-icons-user-profile-icon-vector.jpg", class: "avatar-navbar"%>
+            <% if current_user.image.attached? %>
+            <%= image_tag(current_user.image, style: "width: 100px; height: 100px; object-fit: cover; border-radius: 50%", alt: "dropdown menu") %>
+          <% else %>
+            <%= image_tag "https://static.vecteezy.com/ti/gratis-vector/p3/7319933-black-avatar-person-icons-user-profile-icon-vector.jpg", class: "avatar", alt: "dropdown menu" %>
+          <% end %>
               <div class="navigation-role"><%= image_tag "junior.png", class: "mini-icon-role"%></div>
             </div>
 
@@ -19,11 +23,7 @@
             <ul class="navbar-nav  me-auto">
                 <li class="nav-item dropup">
                   <a href="#" class="" id="navbarDropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-<% if current_user.image.attached? %>
-            <%= image_tag(current_user.image, style: "width: 100px; height: 100px; object-fit: cover; border-radius: 50%", alt: "dropdown menu") %>
-          <% else %>
-            <%= image_tag "https://static.vecteezy.com/ti/gratis-vector/p3/7319933-black-avatar-person-icons-user-profile-icon-vector.jpg", class: "avatar", alt: "dropdown menu" %>
-          <% end %>                  </a>
+                                 </a>
                     <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                       <%= link_to "Action", "#", class: "dropdown-item" %>
                       <%= link_to "Another action", "#", class: "dropdown-item" %>
