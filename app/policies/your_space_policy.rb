@@ -1,19 +1,20 @@
 class YourSpacePolicy < ApplicationPolicy
   class Scope < Scope
     # NOTE: Be explicit about which records you allow access to!
-    # def resolve
-    #   scope.all
-    # end
-    def new
-      true
+    def resolve
+      user.admin? ? scope.all : scope.where(user: user)
     end
+  end
 
-    def create?
-      true
-    end
+  def new
+    true
+  end
 
-    def update?
-      record.user == user || user.admin
-    end
+  def create?
+    true
+  end
+
+  def update?
+    record.flat.user == user || user.admin
   end
 end
