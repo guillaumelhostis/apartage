@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_06_20_093043) do
+ActiveRecord::Schema[7.0].define(version: 2023_06_24_093307) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -37,6 +37,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_06_20_093043) do
     t.string "guest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "motivation"
+    t.string "gender"
+    t.string "music"
+    t.string "animal"
+    t.string "guest_animal"
+    t.string "junior_smoker"
     t.index ["user_id"], name: "index_quizzs_on_user_id"
   end
 
