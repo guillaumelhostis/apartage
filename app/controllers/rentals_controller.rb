@@ -17,7 +17,7 @@ class RentalsController < ApplicationController
     authorize @rental
 
     @rental.save
-    redirect_to my_dashboard_path
+    redirect_to pages_junior_dashboard_path
   end
 
   def show

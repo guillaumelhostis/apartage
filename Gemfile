@@ -49,6 +49,7 @@ gem "sassc-rails"
 # gem "image_processing", "~> 1.2"
 gem 'levenshtein'
 gem 'wicked'
+gem "pg_search"
 
 gem "devise"
 gem "pundit"
