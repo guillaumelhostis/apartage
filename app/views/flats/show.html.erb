@@ -1,97 +1,77 @@
-<div class="container">
-<div class="focus-space">
 
-  <h1><%= @flat.title %></h1>
+  <div class="focus-space">
+    <div class="invisible-div">
+      <h1><%= @flat.title %></h1>
+      <p>Découvre le logement de <strong><%= @user.first_name %></strong></p>
+    </div>
 
-  <!-- 1er block -->
-  <div class="row mx-0">
-        <div class="col-12 dashboard-space mb-2">
-          <div class="d-flex justify-content-between">
-            <p>Découvre le logement de <strong><%= link_to  @user.first_name, my_dashboard_path, class: "bold-name" %></strong></p>
-            <div>
-            <a href="<%= flats_path %>" class="btn btn-primary">Tous les logements</a>
+  <!-- 2eme block -->
+    <div class="dashboard-space mb-2">
+      <div class="col-12 h-800">
+
+        <!-- carousel -->
+        <div id="flatCarousel" class="carousel slide">
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <img src="https://fr.europa-bed-breakfast.com/PicBig/PicBig12000/suite-edouard-herriot_11754_1.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="https://blog.filovent.com/wp-content/Bateau-Le-Belem.jpg" class="d-block w-100" alt="...">
+            </div>
+            <div class="carousel-item">
+              <img src="https://fr.europa-bed-breakfast.com/PicBig/PicBig12000/suite-edouard-herriot_11754_1.jpg" class="d-block w-100" alt="...">
             </div>
           </div>
+          <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
         </div>
-  </div>
 
-<!-- 2eme block -->
-    <div class="dashboard-space mb-2">
-     <div class="col-12 h-800"> <!-- css : min-height :  100px -->
+  <!-- 3ème block -->
+        <div class="row">
 
-      <!-- carousel -->
-      <div id="flatCarousel" class="carousel slide">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://fr.europa-bed-breakfast.com/PicBig/PicBig12000/suite-edouard-herriot_11754_1.jpg" class="d-block w-100" alt="...">
+          <div class="col-6 mt-4"> <!-- css : height :  100px -->
+            <div class="mb-3">
+                <div id="maininformation" class="dashboard-space"> <!-- css : height :  100px -->
+                    <h2>Information principale</h2>
+                    <ul>
+                    <li><%= @flat.address %></li>
+                    <li><%= @flat.city%></li>
+                    <li><%= @flat.type_of_flat%></li>
+                    <li> Loyer mensuel : <%= @flat.monthly_price%> €</li>
+                    </ul>
+                </div>
+                <div class="dashboard-space mr-2"> <!-- css : height :  100px -->
+                    <h2>Equipement</h2>
+                    <% if @your_space.tv %>
+                      <i class="fa-solid fa-tv"></i>
+                    <% elsif @your_space.bathroom %>
+                      <i class="fa-solid fa-shower"></i>
+                    <% elsif @your_space.terrasse %>
+                      <%= image_tag "balcony-image.png", alt: "Terrasse", width: 20 %>
+                    <% elsif @your_space.wifi %>
+                      <i class="fa-solid fa-wifi"></i>
+                    <% elsif @your_space.toilet %>
+                      <i class="fa-solid fa-toilet"></i>
+                    <% end %>
+                </div>
+            </div>
           </div>
-          <div class="carousel-item">
-            <img src="https://fr.europa-bed-breakfast.com/PicBig/PicBig12000/suite-edouard-herriot_11754_1.jpg" class="d-block w-100" alt="...">
+
+  <!-- 4ème block -->
+          <div class="dashboard-space col-6 mt-4"> <!-- css : height :  100px -->
+            <h2>Espace de réservation</h2>
+
+            <%= render "rentals/form", rental: @rental %>
+
           </div>
-          <div class="carousel-item">
-            <img src="https://fr.europa-bed-breakfast.com/PicBig/PicBig12000/suite-edouard-herriot_11754_1.jpg" class="d-block w-100" alt="...">
-          </div>
+
         </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
       </div>
-
-<!-- 3ème block -->
- <div class="row">
-
-    <div class="col-6 mt-4"> <!-- css : height :  100px -->
-              <div class="mb-3">
-                  <div id="maininformation" class="dashboard-space"> <!-- css : height :  100px -->
-                      <h2>Information principale</h2>
-                      <ul>
-                      <li><%= @flat.address %></li>
-                      <li><%= @flat.city%></li>
-                      <li><%= @flat.type_of_flat%></li>
-                      <li> Loyer mensuel : <%= @flat.monthly_price%> €</li>
-                      </ul>
-                  </div>
-                  <div class="dashboard-space mr-2"> <!-- css : height :  100px -->
-                      <h2>Equipement</h2>
-                      <% if @your_space.tv %>
-                        <i class="fa-solid fa-tv"></i>
-                      <% elsif @your_space.bathroom %>
-                        <i class="fa-solid fa-shower"></i>
-                      <% elsif @your_space.terrasse %>
-                        <%= image_tag "balcony-image.png", alt: "Terrasse", width: 20 %>
-                      <% elsif @your_space.wifi %>
-                        <i class="fa-solid fa-wifi"></i>
-                      <% elsif @your_space.toilet %>
-                        <i class="fa-solid fa-toilet"></i>
-                      <% end %>
-                  </div>
-              </div>
     </div>
-
-<!-- 4ème block -->
-    <div class="dashboard-space col-6 mt-4"> <!-- css : height :  100px -->
-      <h2>Espace de réservation</h2>
-      <%# <%=render "controller/_partial", variable: @variblae %>
-      <%= render "rentals/form", rental: @rental %>
-
-    </div>
-
- </div>
-  <div class="btn-align-center">
-
-    <% if policy(@flat).edit? %>
-      <a href="<%= edit_flat_path(@flat) %>" class="btn btn-primary">Edit</a>
-      <% end %>
-    <% if policy(@flat).destroy? %>
-      <%= button_to "Destroy", @flat, method: :delete, class: "btn btn-danger" %>
-      <% end %>
   </div>
-</div>
-</div>
-
-<%# <%= render "rentals/form", rental: @rental %>
