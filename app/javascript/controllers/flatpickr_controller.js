@@ -7,7 +7,8 @@ export default class extends Controller {
   static targets = [ "checkin" ]
 
   connect() {
-    console.log("flatpickr");
+    console.log("flatpickr")
+    console.log(this.checkinTarget)
     flatpickr(this.checkinTarget, {})
   }
 }

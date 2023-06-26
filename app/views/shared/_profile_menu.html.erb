@@ -9,7 +9,12 @@
           </a>
             <div class="dropdown-menu dropdown-menu-end text-center" aria-labelledby="navbarDropdown">
               <%= link_to "Se déconnecter", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
-              <%= link_to "Mon bureau", pages_senior_dashboard_path, class: "dropdown-item" %>
+              <% if current_user.role == "junior" %>
+                  <%= link_to "Mon bureau", pages_junior_dashboard_path, class: "dropdown-item" %>
+              <% else %>
+                 <%= link_to "Mon bureau", pages_senior_dashboard_path, class: "dropdown-item" %>
+              <% end %>
+
             </div>
         </li>
     <% else %>

@@ -5,19 +5,30 @@
     </div>
     <div class="dashboard-space mb-2">
 
-      <h2>Search zone?</h2>
-      <p>Chercher un logemet</p>
-      <div class="flat-card">
+      <h2>Chercher un logement</h2>
+
+
         <div class="dashboard-geocoder ">
+            <div class="">
+              <%= form_with url: pages_junior_dashboard_path, method: :get, class: "d-flex" do %>
+              <%= text_field_tag :query,
+                params[:query],
+                class: "form-control",
+                id: "form-homepage",
+                placeholder: "Trouver un logement chez un senior"
+              %>
+              <%= submit_tag "Rechercher", name: "", class: "btn btn-primary ms-2" %>
+              <% end %>
+            </div>
 
         </div>
-      </div>
+
     </div>
     <div class="dashboard-space ">
      <div class="edit-button">
         <%= image_tag "edit"%>
       </div>
-      <h2>Un autre espace</h2>
+      <h2>Carte</h2>
 
     </div>
   </div>
@@ -25,36 +36,19 @@
     <div>
       <h2>Logement proposés</h2>
     </div>
-    <div class="card-candidat">
-      <div class="see-more">
-        <%= image_tag "play-btn"%>
+
+    <% @flats.each do |flat| %>
+      <div class="card-candidat">
+        <div class="see-more">
+          <%= link_to image_tag("play-btn"), flat_path(flat)%>
+        </div>
+        <img src="https://www.brunet.ca/globalassets/sante/conseils-sante/solitude-personne-agee-briser-lisolement/solitude-personne-agee-briser-lisolement-big.jpg" />
+        <div class="card-candidat-infos">
+          <h2><%= User.find(flat.user_id).first_name %></h2>
+          <p><%= flat.title %></p>
       </div>
-      <img src="https://www.brunet.ca/globalassets/sante/conseils-sante/solitude-personne-agee-briser-lisolement/solitude-personne-agee-briser-lisolement-big.jpg" />
-      <div class="card-candidat-infos">
-        <h2>Alicia</h2>
-        <p>Ce candidat est à  <strong>92%</strong> compatible avec vos critères</p>
-     </div>
-    </div>
-    <div class="card-candidat">
-      <div class="see-more">
-        <%= image_tag "play-btn"%>
       </div>
-      <img src="https://www.bayshore.ca/wp-content/uploads/2019/06/Does-Your-Senior-Loved-One-Need-an-Intervention.jpg" />
-      <div class="card-candidat-infos">
-        <h2>Charles</h2>
-       <p>Ce candidat est à  <strong>89%</strong> compatible avec vos critères</p>
-     </div>
-    </div>
-    <div class="card-candidat">
-      <div class="see-more">
-        <%= image_tag "play-btn"%>
-      </div>
-      <img src="https://www.aidonslesnotres.fr/wp-content/uploads/2016/03/Etre-accompagne-au-quotidien-methode-naomi-feil-700x465-1.jpg" />
-      <div class="card-candidat-infos">
-        <h2>Emmanuel</h2>
-        <p>Ce candidat est à  <strong>75%</strong> compatible avec vos critères</p>
-     </div>
-    </div>
+    <% end %>
 
 
   </div>
