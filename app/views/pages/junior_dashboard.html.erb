@@ -4,32 +4,47 @@
       <h1>Bonjour <%= @user.first_name %> 👋🏼</h1>
     </div>
     <div class="dashboard-space mb-2">
-
       <h2>Chercher un logement</h2>
-
-
         <div class="dashboard-geocoder ">
             <div class="">
-              <%= form_with url: pages_junior_dashboard_path, method: :get, class: "d-flex" do %>
-              <%= text_field_tag :query,
-                params[:query],
+              <%= form_with url: pages_junior_dashboard_path, method: :get do %>
+              <%= text_field_tag :city,
+                params[:city],
                 class: "form-control",
                 id: "form-homepage",
-                placeholder: "Trouver un logement chez un senior"
+                placeholder: "Sélectionner la ville de recherche"
               %>
+                <div>
+                    <% YourSpace::YOUR_SPACES.each do |your_space| %>
+                      <%= check_box_tag  'your_space[]', your_space %>
+                      <%= your_space %>
+                    <% end %>
+                </div>
+                <div>
+                  <% ['0-300', '301-500', '>500'].each do |price_range| %>
+                    <%= radio_button_tag  'price_range', price_range %>
+                    <%= price_range %>
+                  <% end %>
+                </div>
+
               <%= submit_tag "Rechercher", name: "", class: "btn btn-primary ms-2" %>
               <% end %>
             </div>
-
         </div>
-
     </div>
+
+    <div class="dashboard-space mb-2">
+      <h2>Carte</h2>
+    </div>
+  </div>
+
+  <div class="col-6 mt-4">
     <div class="dashboard-space ">
-     <div class="edit-button">
+      <div class="edit-button">
         <%= image_tag "edit"%>
       </div>
-      <h2>Carte</h2>
-       <% @flats.each do |flat| %>
+      <h2>Mes demandes en attentes</h2>
+      <% @flats.each do |flat| %>
       <div class="card-candidat">
         <div class="see-more">
           <%= link_to image_tag("play-btn"), flat_path(flat)%>
@@ -38,20 +53,11 @@
         <div class="card-candidat-infos">
           <h2><%= User.find(flat.user_id).first_name %></h2>
           <p><%= flat.title %></p>
+        </div>
       </div>
-      </div>
-    <% end %>
+      <% end %>
 
     </div>
-  </div>
-  <div class="dashboard-space col-5 mt-5">
-    <div>
-      <h2>Mes demandes en attentes</h2>
-    </div>
-
-
-
-
   </div>
 
 </div>

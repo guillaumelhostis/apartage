@@ -4,11 +4,12 @@ puts "cleaning DB...."
 # Quizz.delete_all
 # Rental.delete_all
 # Your_space.delete_all
-Rental.delete_all
-YourSpace.delete_all
-Quizz.delete_all
-Flat.delete_all
-User.delete_all
+
+YourSpace.destroy_all
+Quizz.destroy_all
+Flat.destroy_all
+User.destroy_all
+
 
 puts "creating 2 seniors...."
 

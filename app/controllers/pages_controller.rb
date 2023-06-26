@@ -43,8 +43,8 @@ class PagesController < ApplicationController
   def junior_dashboard
     @user = current_user
     @quizz = Quizz.find_by(user_id: current_user.id)
-    if params[:query].present?
-      @flats = Flat.search_by_city_and_monthly_price(params[:query])
+    if params[:city].present?
+      @flats = Flat.search_by_city(params[:city])
 
     else
       @flats = []
