@@ -50,6 +50,7 @@ gem "sassc-rails"
 gem 'levenshtein'
 gem 'wicked'
 gem "pg_search"
+gem "geocoder"
 
 gem "devise"
 gem "pundit"

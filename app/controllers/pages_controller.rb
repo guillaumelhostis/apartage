@@ -45,11 +45,11 @@ class PagesController < ApplicationController
     @quizz = Quizz.find_by(user_id: current_user.id)
     if params[:query].present?
       @flats = Flat.search_by_city_and_monthly_price(params[:query])
+
     else
       @flats = []
     end
   end
-
 
   def your_criterias
     @user = current_user
