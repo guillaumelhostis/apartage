@@ -38,7 +38,7 @@ class QuizzsController < ApplicationController
   end
 
   def quizz_params
-    params.require(:quizz).permit(:smoker, :talker, :guest)
+    params.require(:quizz).permit(:smoker, :talker, :guest, :motivation, :gender, :music, :animal, :guest_animal, :junior_smoker)
   end
 
 
