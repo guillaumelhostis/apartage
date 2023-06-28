@@ -4,7 +4,6 @@ class PagesController < ApplicationController
   def home
   end
 
-
   def my_dashboard
      # @my_rentals = Rental.where(user_id: current_user.id)
     # @rentals_requests = Rental.where(flat: Flat.where(user_id: current_user.id))
@@ -41,11 +40,21 @@ class PagesController < ApplicationController
   end
 
   def junior_dashboard
+
     @user = current_user
     @quizz = Quizz.find_by(user_id: current_user.id)
+    @query = params[:query]
+
     if params[:query].present?
       @flats = Flat.search_by_city_and_monthly_price(params[:query])
-
+      @markers = @flats.map do |flat|
+        {
+          lat: flat.latitude,
+          lng: flat.longitude,
+          info_window_html: render_to_string(partial: "info_window", locals: {flat: flat}),
+          marker_html: render_to_string(partial: "marker")
+        }
+      end
     else
       @flats = []
     end
