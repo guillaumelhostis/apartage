@@ -1,0 +1,31 @@
+.sidebar-senior {
+  background: #CDF0EA;
+  width: 135px;
+  position: fixed;
+  z-index: 1;
+
+}
+
+.menu-element a {
+  color: black;
+}
+
+.menu-element  {
+
+  border-bottom: 1px solid transparent;
+  width: 110px;
+}
+
+.menu-element:hover {
+  color: black;
+  border-bottom: 1px solid #BEAEE2;
+  transition: 0.5s;
+}
+
+
+#round-corner {
+
+  width: 80px;
+  margin-top: 192px;
+  margin-left: 83px;
+}
