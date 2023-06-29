@@ -1,7 +1,4 @@
 
-
-
-
   <div class="focus-space">
     <div class="invisible-div">
       <h1><%= @flat.title %>  </h1>
@@ -14,17 +11,15 @@
     <div class="dashboard-space mb-2">
       <div class="row h-300">
         <div class="col-7">
-
-          <!-- carousel -->
           <div id="flatCarousel" class="carousel slide" data-bs-ride="carousel">
             <div class="carousel-inner">
               <% @flat.photos.each do |photo| %>
               <div class="carousel-item active">
-                
-                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class : {"d-block w-100"} %>
+
+                <%= cl_image_tag photo.key,  crop: :fill, :class => "d-block w-100 img-responsive center-block" %>
               </div>
               <div class="carousel-item">
-                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class : {"d-block w-100"} %>
+                <%= cl_image_tag photo.key,  crop: :fill, :class => "d-block w-100 img-responsive center-block" %>
               </div>
                <% end %>
             </div>
