@@ -8,4 +8,10 @@ class Flat < ApplicationRecord
   using: {
     tsearch: { prefix: true } # <-- now `superman batm` will return something!
   }
+  geocoded_by :full_street_address
+  after_validation :geocode, if: :will_save_change_to_address?
+
+  def full_street_address
+    [address, city].compact.join(', ')
+  end
 end
