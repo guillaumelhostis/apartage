@@ -15,7 +15,8 @@
   </head>
 
   <body>
-    <%= render "shared/profile_menu"  if action_name == "junior_dashboard"  %>
+    <%#= render "shared/profile_menu" %>
+    <%= render "shared/senior_dashboard_navbar"  if action_name == "senior_dashboard"  %>
     <%= render "shared/flashes" %>
 
     <%= yield %>

@@ -10,7 +10,6 @@ Quizz.destroy_all
 Flat.destroy_all
 User.destroy_all
 
-
 puts "creating 10 seniors...."
 
 paul = User.create(
@@ -223,8 +222,8 @@ emile_flat = Flat.create(
 
 roger_flat = Flat.create(
   title: "J'ai besoin de compagnie",
-  address: "17 Rue du Hohwald",
-  city: "Strasbourg",
+  address: "16 Rue Hippolyte Flandrin",
+  city: "Lyon",
   user_id: roger[:id],
   monthly_price: 300,
   type_of_flat: "appartement",
@@ -264,11 +263,139 @@ mariane_flat = Flat.create(
 puts "creating a quizz for Paul"
 
 paul_quizz = Quizz.create(
-  smoker: "A",
-  talker: "B",
-  guest: "C",
+  smoker: "E",
+  motivation: "D",
+  gender: "C",
+  animal: "D",
+  guest_animal: "D",
+  junior_smoker: "D",
+  talker: "A",
+  guest: "A",
+  music: "A",
   user_id: paul[:id]
 )
+
+roger_quizz = Quizz.create(
+  smoker: "D",
+  motivation: "E",
+  gender: "A",
+  animal: "E",
+  guest_animal: "E",
+  junior_smoker: "D",
+  talker: "B",
+  guest: "A",
+  music: "C",
+  user_id: roger[:id]
+)
+
+gerard_quizz = Quizz.create(
+  smoker: "E",
+  motivation: "D",
+  gender: "C",
+  animal: "D",
+  guest_animal: "D",
+  junior_smoker: "D",
+  talker: "C",
+  guest: "A",
+  music: "B",
+  user_id: gerard[:id]
+)
+
+jean_quizz = Quizz.create(
+  smoker: "D",
+  motivation: "E",
+  gender: "A",
+  animal: "E",
+  guest_animal: "E",
+  junior_smoker: "D",
+  talker: "B",
+  guest: "C",
+  music: "C",
+  user_id: jean[:id]
+)
+
+marie_quizz = Quizz.create(
+  smoker: "E",
+  motivation: "D",
+  gender: "C",
+  animal: "D",
+  guest_animal: "D",
+  junior_smoker: "D",
+  talker: "A",
+  guest: "A",
+  music: "A",
+  user_id: marie[:id]
+)
+
+jacques_quizz = Quizz.create(
+  smoker: "D",
+  motivation: "E",
+  gender: "A",
+  animal: "E",
+  guest_animal: "E",
+  junior_smoker: "D",
+  talker: "B",
+  guest: "A",
+  music: "C",
+  user_id: jacques[:id]
+)
+
+emile_quizz = Quizz.create(
+  smoker: "D",
+  motivation: "E",
+  gender: "C",
+  animal: "E",
+  guest_animal: "E",
+  junior_smoker: "D",
+  talker: "B",
+  guest: "B",
+  music: "B",
+  user_id: emile[:id]
+)
+
+georgette_quizz = Quizz.create(
+  smoker: "D",
+  motivation: "E",
+  gender: "C",
+  animal: "E",
+  guest_animal: "E",
+  junior_smoker: "D",
+  talker: "B",
+  guest: "B",
+  music: "B",
+  user_id: georgette[:id]
+)
+
+yvette_quizz = Quizz.create(
+  smoker: "D",
+  motivation: "E",
+  gender: "C",
+  animal: "E",
+  guest_animal: "E",
+  junior_smoker: "D",
+  talker: "C",
+  guest: "C",
+  music: "C",
+  user_id: yvette[:id]
+)
+
+mariane_quizz = Quizz.create(
+  smoker: "D",
+  motivation: "E",
+  gender: "A",
+  animal: "E",
+  guest_animal: "E",
+  junior_smoker: "D",
+  talker: "A",
+  guest: "A",
+  music: "A",
+  user_id: mariane[:id]
+)
+
+
+
+
+
 
 puts "creating your space for appartements"
 

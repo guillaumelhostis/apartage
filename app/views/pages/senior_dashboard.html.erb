@@ -1,71 +1,54 @@
+<div class="senior-dashboard-space">
+  <div class="container-xxl d-flex justify-content-around">
+    <div class="col-6 mt-4">
+      <div class="dashboard-space mb-2">
+        <div class="edit-button">
 
-<%# <div class="jumbotron d-flex align-items-center min-vh-100"> %>
-<div class="container-xxl d-flex justify-content-around">
-  <div class="col-6 mt-4">
-    <div class="mb-3">
-      <h1>Bonjour <%= @user.first_name %> 👋🏼</h1>
-    </div>
-    <div class="dashboard-space mb-2">
-      <div class="edit-button">
-
-        <%= link_to image_tag("edit"),  edit_flat_path(@flat)%>
-      </div>
-      <h2><%= @flat.title %> 🏠</h2>
-      <p><%= @flat.address %></p>
-      <div class="flat-card">
-        <div class="dashboard-geocoder ">
-          <%= image_tag "https://dqevkwcr7bdtq.cloudfront.net/filer_public_thumbnails/filer_public/22/32/2232f6f6-9de4-48d0-af65-316bfc40c447/residence-principale-belleville-t.jpg__1170x0_q85_subsampling-2_upscale.jpg"%>
+          <%= link_to image_tag("edit"),  edit_flat_path(@flat)%>
+        </div>
+        <h2><%= @flat.title %> 🏠</h2>
+        <p><%= @flat.address %></p>
+        <div class="flat-card">
+          <div class="dashboard-geocoder ">
+            <%= image_tag "https://dqevkwcr7bdtq.cloudfront.net/filer_public_thumbnails/filer_public/22/32/2232f6f6-9de4-48d0-af65-316bfc40c447/residence-principale-belleville-t.jpg__1170x0_q85_subsampling-2_upscale.jpg"%>
+          </div>
         </div>
       </div>
-    </div>
-    <div class="dashboard-space ">
-     <div class="edit-button">
-        <%= image_tag "edit"%>
+      <div class="dashboard-space ">
+      <div class="edit-button">
+          <%= image_tag "edit"%>
+        </div>
+        <h2>Vos critères de selection</h2>
+        <ul class="list-inline">
+          <li class="list-inline-item"><i class="fa-sharp fa-solid fa-smoking"></i></li>
+          <li class="list-inline-item"><i class="fa-solid fa-dog"></i></li>
+          <li class="list-inline-item"><i class="fa-regular fa-party-horn"></i></li>
+        </ul>
       </div>
-      <h2>Vos critères de selection</h2>
-      <ul class="list-inline">
-        <li class="list-inline-item"><i class="fa-sharp fa-solid fa-smoking"></i></li>
-        <li class="list-inline-item"><i class="fa-solid fa-dog"></i></li>
-        <li class="list-inline-item"><i class="fa-regular fa-party-horn"></i></li>
-      </ul>
+    </div>
+    <div class="dashboard-space col-5 mt-4 ">
+      <div>
+        <h2>Vos candidatures</h2>
+      </div>
+      <% if @rentals != [nil] %>
+        <% @rentals.each do |rental| %>
+          <div class="card-candidat">
+            <div class="see-more">
+              <%= image_tag "play-btn"%>
+            </div>
+            <img src="https://img.freepik.com/photos-gratuite/portrait-etudiante-afro-americaine-heureuse-tenant-cahiers-sac-dos-souriant-debout-fond-jaune_1258-54844.jpg" />
+            <div class="card-candidat-infos">
+              <h2><%= User.find(rental.user_id).first_name %></h2>
+              <p>Ce candidat est à  <strong>92%</strong> compatible avec vos critères</p>
+          </div>
+          </div>
+        <% end %>
+
+
+      <% end %>
+
+
+
     </div>
   </div>
-  <div class="dashboard-space col-5 mt-5">
-    <div>
-      <h2>Vos candidatures</h2>
-    </div>
-    <div class="card-candidat">
-      <div class="see-more">
-        <%= image_tag "play-btn"%>
-      </div>
-      <img src="https://img.freepik.com/photos-gratuite/portrait-etudiante-afro-americaine-heureuse-tenant-cahiers-sac-dos-souriant-debout-fond-jaune_1258-54844.jpg" />
-      <div class="card-candidat-infos">
-        <h2>Alicia</h2>
-        <p>Ce candidat est à  <strong>92%</strong> compatible avec vos critères</p>
-     </div>
-    </div>
-    <div class="card-candidat">
-      <div class="see-more">
-        <%= image_tag "play-btn"%>
-      </div>
-      <img src="https://www.cidj.com/sites/default/files/styles/full_article/public/2021-08/pret-etudiant-emprunter_0.jpg?itok=XlL7WTCK" />
-      <div class="card-candidat-infos">
-        <h2>Charles</h2>
-       <p>Ce candidat est à  <strong>89%</strong> compatible avec vos critères</p>
-     </div>
-    </div>
-    <div class="card-candidat">
-      <div class="see-more">
-        <%= image_tag "play-btn"%>
-      </div>
-      <img src="https://www.ecclesiologyandethnography.net/wp-content/uploads/2019/06/Koos-Tamminga.jpg" />
-      <div class="card-candidat-infos">
-        <h2>Emmanuel</h2>
-        <p>Ce candidat est à  <strong>75%</strong> compatible avec vos critères</p>
-     </div>
-    </div>
-
-
-  </div>
-
 </div>
