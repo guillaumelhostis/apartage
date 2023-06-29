@@ -69,7 +69,13 @@
           <img src="https://www.brunet.ca/globalassets/sante/conseils-sante/solitude-personne-agee-briser-lisolement/solitude-personne-agee-briser-lisolement-big.jpg" />
           <div class="card-candidat-infos">
             <h2><%= User.find(flat.user_id).first_name %></h2>
-            <p><%= flat.title %></p>
+
+            <% @matching.each do |m| %>
+              <%if m[:id] == flat.id %>
+              <p><strong><%= m[:match] %></strong> de compatibilité avec votre profil</p>
+              <% end %>
+            <% end %>
+
           </div>
         </div>
         <% end %>

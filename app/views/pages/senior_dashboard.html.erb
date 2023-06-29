@@ -30,17 +30,21 @@
       <div>
         <h2>Vos candidatures</h2>
       </div>
-      <% @rentals.each do |rental| %>
-        <div class="card-candidat">
-          <div class="see-more">
-            <%= image_tag "play-btn"%>
+      <% if @rentals != [nil] %>
+        <% @rentals.each do |rental| %>
+          <div class="card-candidat">
+            <div class="see-more">
+              <%= image_tag "play-btn"%>
+            </div>
+            <img src="https://img.freepik.com/photos-gratuite/portrait-etudiante-afro-americaine-heureuse-tenant-cahiers-sac-dos-souriant-debout-fond-jaune_1258-54844.jpg" />
+            <div class="card-candidat-infos">
+              <h2><%= User.find(rental.user_id).first_name %></h2>
+              <p>Ce candidat est à  <strong>92%</strong> compatible avec vos critères</p>
           </div>
-          <img src="https://img.freepik.com/photos-gratuite/portrait-etudiante-afro-americaine-heureuse-tenant-cahiers-sac-dos-souriant-debout-fond-jaune_1258-54844.jpg" />
-          <div class="card-candidat-infos">
-            <h2><%= User.find(rental.user_id).first_name %></h2>
-            <p>Ce candidat est à  <strong>92%</strong> compatible avec vos critères</p>
-        </div>
-        </div>
+          </div>
+        <% end %>
+
+
       <% end %>
 
 

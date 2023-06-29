@@ -5,8 +5,6 @@ class PagesController < ApplicationController
   end
 
   def my_dashboard
-     # @my_rentals = Rental.where(user_id: current_user.id)
-    # @rentals_requests = Rental.where(flat: Flat.where(user_id: current_user.id))
     @my_rentals = current_user.rentals
     @rentals_requests = current_user.receivedrentals
   end
@@ -23,14 +21,11 @@ class PagesController < ApplicationController
     redirect_to pages_dashboard_path
   end
 
+  def compatibily(results_a, results_b)
+    a = [results_a[:smoker], results_a[:talker], results_a[:guest], results_a[:motivation], results_a[:gender], results_a[:animal], results_a[:guest_animal], results_a[:junior_smoker], results_a[:music]]
+    b = [results_b[:smoker], results_b[:talker], results_b[:guest], results_b[:motivation], results_b[:gender], results_b[:animal], results_b[:guest_animal], results_b[:junior_smoker], results_b[:music]]
 
-  def compatibily
-    results_a = Quizz.find(3)
-    results_b = Quizz.find(4)
-    a = [results_a[:smoker], results_a[:talker], results_a[:guest]]
-    b = [results_b[:smoker], results_b[:talker], results_b[:guest]]
-
-    @matching = matching_algo(a, b)
+    matching = matching_algo(a, b)
   end
 
   def senior_dashboard
@@ -47,22 +42,28 @@ class PagesController < ApplicationController
   end
 
   def junior_dashboard
-
     @user = current_user
     @quizz = Quizz.find_by(user_id: current_user.id)
-
     @query = params[:query]
-   if params[:city].present?
+    if params[:city].present?
       @flats = Flat.search_by_city(params[:city])
+      @seniors_quizz = []
+      @flats.each do |f|
+        @seniors_quizz << Quizz.find_by(user_id: f.user_id)
+      end
+      @matching = []
+      @flats.each_with_index do |flat, index|
+        @matching << {id: flat.id, match: compatibily(@quizz, @seniors_quizz[index]), user_id: flat.user_id}
+      end
+
       @markers = @flats.map do |flat|
         {
           lat: flat.latitude,
           lng: flat.longitude,
-          info_window_html: render_to_string(partial: "info_window", locals: {flat: flat}),
+          info_window_html: render_to_string(partial: "info_window", locals: { flat: flat }),
           marker_html: render_to_string(partial: "marker")
         }
       end
-
     else
       @flats = []
     end
@@ -81,5 +82,4 @@ class PagesController < ApplicationController
     final_result = 100 - percent
     return "#{final_result.round(2)} %"
   end
-
 end

@@ -38,8 +38,9 @@
                       </div>
                       <div class="menu-element">
                         <li>
-                            <a href="#" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-people"></i> <span class="ms-1 d-none d-sm-inline">Deconnexion</span> </a>
+
+                            <%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link px-0 align-middle" %>
+
                         </li>
                       </div>
                   </ul>
