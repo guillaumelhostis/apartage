@@ -10,32 +10,31 @@
                   <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                       <div class="menu-element">
                         <li>
-                           <%= link_to "Bureau", pages_senior_dashboard_path, class: "nav-link px-0 align-middle ms-1" %>
+                            <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Bureau</span> </a>
 
                         </li>
                       </div>
                       <div class="menu-element">
                         <li>
                             <a href="#" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Logement</span></a>
+                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Recherche</span></a>
                         </li>
                       </div>
                       <div class="menu-element">
                         <li>
                             <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                                <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Candidats</span></a>
+                                <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Candidature</span></a>
 
                         </li>
                       </div>
                       <div class="menu-element">
                         <li>
                             <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Critères</span> </a>
-
-
+                                <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Informations</span> </a>
                         </li>
                       </div>
-                      <div class="menu-element">
+                      <div class="menu-element mt-1">
                         <li>
 
                             <%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link px-0 align-middle ms-1" %>
@@ -45,7 +44,7 @@
                   </ul>
                 </div>
                 <hr>
-                <%= image_tag "arrondie", id: "round-corner"%>
+                <%= image_tag "arrondie", id: "round-corner-junior"%>
             </div>
 
 

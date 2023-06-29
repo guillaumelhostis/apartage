@@ -21,4 +21,5 @@ Rails.application.routes.draw do
   get 'pages/senior_dashboard', to: 'pages#senior_dashboard'
   get 'pages/junior_dashboard', to: 'pages#junior_dashboard'
   get 'pages/your_criterias', to: 'pages#your_criterias'
+  get 'pages/candidat', to: 'pages#candidat'
 end

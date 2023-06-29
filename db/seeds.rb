@@ -141,7 +141,7 @@ leo = User.create(
   gender: "Male",
   birth_day: "2007-12-29",
   email: "leo@gmail.com",
-  password: "leo92",
+  password: "leoleo92",
   admin: false,
   role: "junior"
 )

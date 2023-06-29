@@ -34,12 +34,20 @@
         <% @rentals.each do |rental| %>
           <div class="card-candidat">
             <div class="see-more">
-              <%= image_tag "play-btn"%>
+              <%= link_to image_tag("play-btn"), pages_candidat_path(rental) %>
             </div>
             <img src="https://img.freepik.com/photos-gratuite/portrait-etudiante-afro-americaine-heureuse-tenant-cahiers-sac-dos-souriant-debout-fond-jaune_1258-54844.jpg" />
             <div class="card-candidat-infos">
               <h2><%= User.find(rental.user_id).first_name %></h2>
-              <p>Ce candidat est à  <strong>92%</strong> compatible avec vos critères</p>
+              <p>Ce candidat est à
+                <strong>
+                  <% @matching.each do |m| %>
+                    <%if m[:id] == rental.id %>
+                      <%= m[:match] %>
+                    <% end %>
+                  <% end %>
+                </strong>
+              compatible avec vos critères</p>
           </div>
           </div>
         <% end %>
