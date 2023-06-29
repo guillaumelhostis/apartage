@@ -51,32 +51,30 @@
 
       </div>
 
-      <div class="dashboard-space mb-2">
-        <h2>Carte</h2>
-      </div>
-    </div>
-
-
-    <div class="col-5 mt-4">
-        <div class="dashboard-space ">
-          <div class="edit-button">
-            <%= image_tag "edit"%>
-          </div>
-          <h2>Mes demandes en attentes</h2>
-          <% @flats.each do |flat| %>
-          <div class="card-candidat">
-            <div class="see-more">
-              <%= link_to image_tag("play-btn"), flat_path(flat)%>
-            </div>
-            <img src="https://www.brunet.ca/globalassets/sante/conseils-sante/solitude-personne-agee-briser-lisolement/solitude-personne-agee-briser-lisolement-big.jpg" />
-            <div class="card-candidat-infos">
-              <h2><%= User.find(flat.user_id).first_name %></h2>
-              <p><%= flat.title %></p>
-            </div>
-          </div>
-          <% end %>
-        </div>
 
     </div>
   </div>
+
+  <div class="col-5 mt-4">
+      <div class="dashboard-space ">
+        <div class="edit-button">
+          <%= image_tag "edit"%>
+        </div>
+        <h2>Mes demandes en attentes</h2>
+        <% @flats.each do |flat| %>
+        <div class="card-candidat">
+          <div class="see-more">
+            <%= link_to image_tag("play-btn"), flat_path(flat)%>
+          </div>
+          <img src="https://www.brunet.ca/globalassets/sante/conseils-sante/solitude-personne-agee-briser-lisolement/solitude-personne-agee-briser-lisolement-big.jpg" />
+          <div class="card-candidat-infos">
+            <h2><%= User.find(flat.user_id).first_name %></h2>
+            <p><%= flat.title %></p>
+          </div>
+        </div>
+        <% end %>
+      </div>
+
+  </div>
+
 </div>
