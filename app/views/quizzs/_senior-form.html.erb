@@ -1,21 +1,31 @@
 <ul class="list-unstyled">
 
-  <li class="active">
-    <div class="progress mb-3">
-      <div class="progress-bar bg-success" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
-    </div>
-    <%= f.input :motivation, as: :string, :label => "Pour quelles raison cherchez-vous un locataire ?", as: :radio_buttons, collection: [["J'ai besoin d'un complément de revenu","A"],["Je serai heureux d'avoir de la compagnie et la présence de quelqu'un me rassure.","B"],["Je n'aime pas du tout être seul","C"],["J'ai besoin d'aide au quotidien(faire le ménage, les courses..)","D"]], input_html: { class: "toggle" } %>
-    <div class="text-center">
-      <button type="button" class="btn btn-primary text-white p-3" data-action="click->quizz-wizzard#next">Suivant </button>
-    </div>
-  </li>
+<li class="active">
+  <div class="progress mb-3">
+    <div class="progress-bar bg-success" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
+    <span class="progress-percentage">5%</span>
+  </div>
+
+  <div class="class radio-button-wrapper">
+    <label class="title-label">Pour quelles raisons cherchez-vous un locataire ?</label>
+    <%= f.input :motivation, legend_tag: false, as: :string, as: :radio_buttons, collection: [["J'ai besoin d'un complément de revenu","A"],["Je serai heureux d'avoir de la compagnie et la présence de quelqu'un me rassure.","B"],["Je n'aime pas du tout être seul","C"],["J'ai besoin d'aide au quotidien (faire le ménage, les courses..)","D"]] %>
+  </div>
+
+  <div class="text-center">
+    <button type="button" class="btn btn-primary text-white p-3" data-action="click->quizz-wizzard#next">Suivant</button>
+  </div>
+</li>
+
 
   <li class="d-none">
     <div class="progress mb-3">
-      <div class="progress-bar btn-success" role="progressbar" style="width: 12%" aria-valuenow="33" aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-bar bg-success" role="progressbar" style="width: 12%" aria-valuenow="12" aria-valuemin="0" aria-valuemax="100"></div>
+      <span class="progress-percentage">12%</span>
     </div>
-
-    <%= f.input :gender, :label => "Préférez-vous que le locataire soit :", as: :radio_buttons, collection: [['Un homme','A'], ['Une femme','B'], ["Aucune importance, du moment que l'on s'entend bien",'C']], input_html: { class: "toggle" }%>
+    <div class="class radio-button-wrapper">
+     <label class="title-label">Préférez-vous que le locataire soit :</label>
+    <%= f.input :gender, legend_tag: false, as: :radio_buttons, collection: [['Un homme','A'], ['Une femme','B'], ["Aucune importance, du moment que l'on s'entend bien",'C']]%>
+    </div>
       <div class="d-flex justify-content-center">
         <div class="text-center" data-quizz-wizzard-target="previous">
           <button type="button" class="btn btn-primary text-white p-3 me-3" data-action="click->quizz-wizzard#previous">Précédent </button>
@@ -29,9 +39,13 @@
     <%# This is the start of a question %>
   <li class="d-none">
     <div class="progress mb-3">
-      <div class="progress-bar bg-success" role="progressbar" style="width: 24%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-bar bg-success" role="progressbar" style="width: 24%" aria-valuenow="24" aria-valuemin="0" aria-valuemax="100"></div>
+      <span class="progress-percentage">24%</span>
     </div>
-    <%= f.input :animal, :label => "Y a-t-il des animaux présents dans votre logement?", as: :radio_buttons, collection: [["Oui, car j'aime les animaux",'D'], ['Non aucun animal chez moi','E']], input_html: { class: "tag-selector " }, item_wrapper_class: 'tag-item'%>
+    <div class="class radio-button-wrapper">
+    <label class="title-label">Y a-t-il des animaux présents dans votre logement?</label>
+    <%= f.input :animal, legend_tag: false, as: :radio_buttons, collection: [["Oui, car j'aime les animaux",'D'], ['Non aucun animal chez moi','E']]%>
+    </div>
     <div class="d-flex justify-content-center">
         <div class="text-center" data-quizz-wizzard-target="previous">
           <button type="button" class="btn btn-primary text-white p-3 me-3" data-action="click->quizz-wizzard#previous">Précédent </button>
@@ -45,9 +59,13 @@
   <%# This is this end of a question%>
   <li class="d-none">
     <div class="progress mb-3">
-      <div class="progress-bar bg-success" role="progressbar" style="width: 36%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-bar bg-success" role="progressbar" style="width: 36%" aria-valuenow="36" aria-valuemin="0" aria-valuemax="100"></div>
+      <span class="progress-percentage">36%</span>
     </div>
-    <%= f.input :guest_animal, :label => "Acceptez-vous que votre locataire vienne avec un animal ?", as: :radio_buttons, collection: [["Oui, car j'aime les animaux",'D'], ['Non cela ne sera pas possible','E']], input_html: { class: "tag-selector " }, item_wrapper_class: 'tag-item'%>
+    <div class="class radio-button-wrapper">
+    <label class="title-label">Acceptez-vous que votre locataire vienne avec un animal ?</label>
+    <%= f.input :guest_animal, legend_tag: false, as: :radio_buttons, collection: [["Oui, car j'aime les animaux",'D'], ['Non cela ne sera pas possible','E']]%>
+    </div>
     <div class="d-flex justify-content-center">
         <div class="text-center" data-quizz-wizzard-target="previous">
           <button type="button" class="btn btn-primary text-white p-3 me-3" data-action="click->quizz-wizzard#previous">Précédent </button>
@@ -60,9 +78,13 @@
 
   <li class="d-none">
     <div class="progress mb-3">
-    <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+    <div class="progress-bar bg-success" role="progressbar" style="width: 50%" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"></div>
+    <span class="progress-percentage">50%</span>
   </div>
-  <%= f.input :smoker, :label => "Etes-vous fumeur ?", as: :radio_buttons, collection: [["Oui",'D'], ['Non','E']], input_html: { class: "tag-selector " }, item_wrapper_class: 'tag-item'%>
+  <div class="class radio-button-wrapper">
+  <label class="title-label">Etes-vous fumeur ? ?</label>
+  <%= f.input :smoker, legend_tag: false, as: :radio_buttons, collection: [["Oui",'D'], ['Non','E']]%>
+  </div>
   <div class="d-flex justify-content-center">
       <div class="text-center" data-quizz-wizzard-target="previous">
         <button type="button" class="btn btn-primary text-white p-3 me-3" data-action="click->quizz-wizzard#previous">Précédent </button>
@@ -76,8 +98,12 @@
 <li class="d-none">
   <div class="progress mb-3">
     <div class="progress-bar bg-success" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+    <span class="progress-percentage">66%</span>
   </div>
-  <%= f.input :junior_smoker, :label => "Acceptez vous que l'on fume chez vous?", as: :radio_buttons, collection: [["Oui, sans problème",'D'], ['Non cela me dérange','E']], input_html: { class: "tag-selector " }, item_wrapper_class: 'tag-item'%>
+  <div class="class radio-button-wrapper">
+  <label class="title-label">Acceptez-vous que votre locataire fume chez vous ?</label>
+  <%= f.input :junior_smoker,legend_tag: false, as: :radio_buttons, collection: [["Oui, sans problème",'D'], ['Non cela me dérange','E']]%>
+  </div>
   <div class="d-flex justify-content-center">
       <div class="text-center" data-quizz-wizzard-target="previous">
         <button type="button" class="btn btn-primary text-white p-3 me-3" data-action="click->quizz-wizzard#previous">Précédent </button>
@@ -90,9 +116,13 @@
 
 <li class="d-none">
     <div class="progress mb-3">
-      <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-bar bg-success" role="progressbar" style="width: 80%" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+      <span class="progress-percentage">80%</span>
     </div>
-    <%= f.input :guest, :label => "Acceptez-vous que votre futur locataire fasse venir des invités ?", as: :radio_buttons, collection: [["Bien sur ! j'aime avoir du monde à la maison !",'A'], ["Oui à condition qu'ils me les présente et que je donne mon accord",'B'], ["Oui à condition qu'ils restent dans la chambre.",'C'],["Non, je ne souhaite pas qu'il invite des étrangers chez moi",'D']], input_html: { class: "tag-selector " }, item_wrapper_class: 'tag-item'%>
+    <div class="class radio-button-wrapper">
+    <label class="title-label">Acceptez-vous que votre locataire fasse venir des invités ?</label>
+    <%= f.input :guest, legend_tag: false, as: :radio_buttons, collection: [["Bien sur ! j'aime avoir du monde à la maison !",'A'], ["Oui à condition qu'ils me les présente et que je donne mon accord",'B'], ["Oui à condition qu'ils restent dans la chambre.",'C'],["Non, je ne souhaite pas qu'il invite des étrangers chez moi",'D']]%>
+    </div>
     <div class="d-flex justify-content-center">
         <div class="text-center" data-quizz-wizzard-target="previous">
           <button type="button" class="btn btn-primary text-white p-3 me-3" data-action="click->quizz-wizzard#previous">Précédent </button>
@@ -104,9 +134,13 @@
   </li>
  <li class="d-none">
     <div class="progress mb-3">
-      <div class="progress-bar bg-success" role="progressbar" style="width: 90%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-bar bg-success" role="progressbar" style="width: 90%" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"></div>
+      <span class="progress-percentage">90%</span>
     </div>
-    <%= f.input :talker, :label => "Comment définissez vous votre rapport aux autres?", as: :radio_buttons, collection: [["J'adore parler de tout, tout le temps !",'A'], ["Je suis peu loquace, sauf autour d'un petit café",'B'], ["Je suis plutôt introverti",'C']], input_html: { class: "tag-selector " }, item_wrapper_class: 'tag-item'%>
+    <div class="class radio-button-wrapper">
+    <label class="title-label">Comment définissez vous votre rapport aux autres??</label>
+    <%= f.input :talker, legend_tag: false, as: :radio_buttons, collection: [["J'adore parler de tout, tout le temps !",'A'], ["Je suis peu loquace, sauf autour d'un petit café",'B'], ["Je suis plutôt introverti",'C']]%>
+    </div>
     <div class="d-flex justify-content-center">
         <div class="text-center" data-quizz-wizzard-target="previous">
           <button type="button" class="btn btn-primary text-white p-3 me-3" data-action="click->quizz-wizzard#previous">Précédent </button>
@@ -119,9 +153,13 @@
 
 <li class="d-none">
     <div class="progress mb-3">
-      <div class="progress-bar bg-success" role="progressbar" style="width: 66%" aria-valuenow="66" aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-bar bg-success" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
+      <span class="progress-percentage">95%</span>
     </div>
-    <%= f.input :music, :label => "Quels sont vos goûts musicaux ?", as: :radio_buttons, collection: [["Je suis sourd comme un pot donc toutes les musiques me conviennent",'A'], ["Je suis selectif, plutot du jazz ou du classique.",'B'], ["La musique c'est la vie : j'en écoute en permanence et de toute sorte.",'C']], input_html: { class: "tag-selector " }, item_wrapper_class: 'tag-item'%>
+    <div class="class radio-button-wrapper">
+    <label class="title-label">Quels sont vos goûts musicaux ?</label>
+    <%= f.input :music, legend_tag: false, as: :radio_buttons, collection: [["Je suis sourd comme un pot donc toutes les musiques me conviennent",'A'], ["Je suis selectif, plutot du jazz ou du classique.",'B'], ["La musique c'est la vie : j'en écoute en permanence et de toute sorte.",'C']]%>
+    </div>
     <div class="d-flex justify-content-center">
         <div class="text-center" data-quizz-wizzard-target="previous">
           <button type="button" class="btn btn-primary text-white p-3 me-3" data-action="click->quizz-wizzard#previous">Précédent </button>
@@ -135,7 +173,8 @@
     <%# This is my submit button %>
   <li class="text-center d-none">
     <div class="progress mb-3">
-      <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+      <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" ></div>
+      <span class="progress-percentage">100%</span>
     </div>
     <h3>Merci!</h3>
     <h3>Validez vos réponses pour découvrir les locataires correspondant à vos critères.</h3>
