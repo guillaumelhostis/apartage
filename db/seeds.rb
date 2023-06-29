@@ -1,3 +1,5 @@
+require 'open-uri'
+
 # cleaning DB
 
 puts "cleaning DB...."
@@ -5,12 +7,20 @@ puts "cleaning DB...."
 # Rental.delete_all
 # Your_space.delete_all
 
+
+urls = [
+  "https://res.cloudinary.com/dtpxg9mp5/image/upload/v1687722525/development/c5pbzfabvrvjgvggv9l2z6qgwxp8.jpg",
+  "https://res.cloudinary.com/dtpxg9mp5/image/upload/v1687722523/development/cy3md27sms1ezsktescyeff907fo.jpg"
+]
+
+
 YourSpace.destroy_all
 Quizz.destroy_all
 Flat.destroy_all
 User.destroy_all
 
 puts "creating 10 seniors...."
+
 
 paul = User.create(
   first_name: "Paul",
@@ -180,6 +190,7 @@ marie_flat = Flat.create(
   capacity: 1
 )
 
+
 gerard_flat = Flat.create(
   title: "C'est petit mais c'est cosi",
   address: "22 Rue Malesherbes",
@@ -259,6 +270,15 @@ mariane_flat = Flat.create(
   type_of_flat: "maison",
   capacity: 1
 )
+
+all_flats = Flat.all
+
+all_flats.each do |flat|
+  urls.each do |url|
+    file = URI.open(url)
+    flat.photos.attach(io: file, filename: "#{SecureRandom.hex}.jpg", content_type: "image/jpeg")
+  end
+end
 
 puts "creating a quizz for Paul"
 

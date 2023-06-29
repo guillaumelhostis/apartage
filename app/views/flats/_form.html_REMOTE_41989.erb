@@ -1,12 +1,4 @@
 <%= simple_form_for(@flat) do |f| %>
-  <%= f.input :title %>
-  <%= f.input :address %>
-  <%= f.input :city%>
-  <%= f.input :monthly_price%>
-  <%= f.input :capacity%>
-  <%= f.input :type_of_flat%>
-  <%= f.input :photos, as: :file, input_html: { multiple: true } %>
-  <%= f.submit class: "btn btn-primary"%>
 <div class="form-row d-flex justify-content-around">
   <div class="col-4">
     <%= f.input :title, :label => "Nom du logement"%>
@@ -23,17 +15,3 @@
   <%= f.submit  'Etape suivante',class: "btn btn-primary"%>
 </div>
 <% end %>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
