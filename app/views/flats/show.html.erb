@@ -1,28 +1,72 @@
-<div class="focus-space">
-  <h1>Your Flat</h1>
-
-  <ul>
-  <% @flat.photos.each do |photo| %>
-    <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-  <% end %>
-    <li><%= @flat.title %></li>
-    <li><%= @flat.address %></li>
-    <li><%= @flat.city%></li>
-    <li><%= @flat.monthly_price%></li>
-    <li><%= @flat.type_of_flat%></li>
-  </ul>
 
 
-  <div class="btn-align-center">
 
-    <% if policy(@flat).edit? %>
-      <a href="<%= edit_flat_path(@flat) %>" class="btn btn-primary">Edit</a>
-      <% end %>
-    <% if policy(@flat).destroy? %>
-      <%= button_to "Destroy", @flat, method: :delete, class: "btn btn-danger" %>
-      <% end %>
-      <a href="<%= flats_path %>" class="btn btn-primary">All Flats</a>
+
+  <div class="focus-space">
+    <div class="invisible-div">
+      <h1><%= @flat.title %>  </h1>
+      <p>Découvre le logement de <strong><%= @user.first_name %></strong> situé au <strong><%= @flat.address %></strong> à <strong><%= @flat.city%></strong></p>
+
+    </div>
+
+
+
+    <div class="dashboard-space mb-2">
+      <div class="row h-300">
+        <div class="col-7">
+
+          <!-- carousel -->
+          <div id="flatCarousel" class="carousel slide" data-bs-ride="carousel">
+            <div class="carousel-inner">
+              <% @flat.photos.each do |photo| %>
+              <div class="carousel-item active">
+                
+                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class : {"d-block w-100"} %>
+              </div>
+              <div class="carousel-item">
+                <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill, class : {"d-block w-100"} %>
+              </div>
+               <% end %>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#flatCarousel" data-bs-slide="prev">
+              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#flatCarousel" data-bs-slide="next">
+              <span class="carousel-control-next-icon" aria-hidden="true"></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+
+        </div>
+        <div class="col-5">
+          <div class=""> <!-- css : height :  100px -->
+            <h2>Espace de réservation</h2>
+
+            <%= render "rentals/form", rental: @rental %>
+
+          </div>
+
+          <div class="mt-4"> <!-- css : height :  100px -->
+            <div class="mb-1">
+
+                <div class="dashboard-space mr-2"> <!-- css : height :  100px -->
+                    <h2>Equipements</h2>
+                    <% if @your_space.tv %>
+                      <i class="fa-solid fa-tv"></i>
+                    <% elsif @your_space.bathroom %>
+                      <i class="fa-solid fa-shower"></i>
+                    <% elsif @your_space.terrasse %>
+                      <%= image_tag "balcony-image.png", alt: "Terrasse", width: 20 %>
+                    <% elsif @your_space.wifi %>
+                      <i class="fa-solid fa-wifi"></i>
+                    <% elsif @your_space.toilet %>
+                      <i class="fa-solid fa-toilet"></i>
+                    <% end %>
+                </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
-</div>
-
-<%# <%= render "rentals/form", rental: @rental %>

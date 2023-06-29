@@ -17,7 +17,7 @@ class RentalsController < ApplicationController
     authorize @rental
 
     @rental.save
-    redirect_to my_dashboard_path
+    redirect_to pages_junior_dashboard_path
   end
 
   def show
@@ -54,6 +54,6 @@ class RentalsController < ApplicationController
   end
 
   def rental_params
-    params.require(:rental).permit(:check_in)
+    params.require(:rental).permit(:check_in, :message)
   end
 end

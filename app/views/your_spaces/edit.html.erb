@@ -1,8 +1,15 @@
-<h1>Editing your space details</h1>
-
-<%= render "form", yourspace: @yourspace %>
-
-
-<div>
-  <%= link_to "Back to my dashboard", my_dashboard_path %>
+<div class="d-flex align-items-center">
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-12 m-auto">
+        <div class="focus-space">
+          <h1>Je modifie mon espace locataire</h1>
+          <h2></h2>
+          <div class="mt-3">
+            <%= render "editform", yourspace: @yourspace %>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

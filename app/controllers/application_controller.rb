@@ -35,7 +35,7 @@ class ApplicationController < ActionController::Base
       end
     elsif current_user.role == "junior"
       if current_user.quizzs.present?
-        stored_location_for(resource) || pages_senior_dashboard_path  # changer en junior dashboard
+        stored_location_for(resource) || pages_junior_dashboard_path  # changer en junior dashboard
       else
         stored_location_for(resource) || new_quizz_path
       end

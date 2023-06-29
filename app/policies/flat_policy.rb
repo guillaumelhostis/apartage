@@ -11,7 +11,7 @@ class FlatPolicy < ApplicationPolicy
   end
 
   def show?
-    true
+    user.role == "junior"
   end
 
   def new

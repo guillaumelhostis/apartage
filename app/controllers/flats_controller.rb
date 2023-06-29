@@ -5,10 +5,14 @@ class FlatsController < ApplicationController
   def index
     @flats = policy_scope(Flat)
     # @flats = Flat.all
+
   end
 
   def show
     authorize @flat
+    @user = @flat.user
+    @your_space = @flat.your_spaces.first
+    @rental = Rental.new
   end
 
   def new
@@ -32,9 +36,8 @@ class FlatsController < ApplicationController
   def update
     @flat.update(flat_params)
     authorize @flat
-    @your_space = YourSpace.find_by(flat_id: @flat.id)
-    raise
-    redirect_to edit_your_space_path(@your_space)
+    @yourspace = YourSpace.find_by(flat_id: @flat.id)
+    redirect_to edit_your_space_path(@yourspace)
   end
 
   def destroy
