@@ -52,13 +52,15 @@ class PagesController < ApplicationController
     if @query.present?
       @flats = Flat.search_by_city(@query[:city])
       # @query[:your_space] = ["tv", "wifi", "toilet"]
-      @flats = @flats.joins(:your_spaces).where(your_spaces: {tv: true}) if @query[:your_space].include? 'tv'
-      @flats = @flats.joins(:your_spaces).where(your_spaces: {bathroom: true}) if @query[:your_space].include? 'bathroom'
-      @flats = @flats.joins(:your_spaces).where(your_spaces: {terrasse: true}) if @query[:your_space].include? 'terrasse'
-      @flats = @flats.joins(:your_spaces).where(your_spaces: {wifi: true}) if @query[:your_space].include? 'wifi'
-      @flats = @flats.joins(:your_spaces).where(your_spaces: {toilet: true}) if @query[:your_space].include? 'toilet'
+      if @query[:your_space]
+        @flats = @flats.joins(:your_spaces).where(your_spaces: {tv: true}) if  @query[:your_space].include? 'tv'
+        @flats = @flats.joins(:your_spaces).where(your_spaces: {bathroom: true}) if @query[:your_space].include? 'bathroom'
+        @flats = @flats.joins(:your_spaces).where(your_spaces: {terrasse: true}) if @query[:your_space].include? 'terrasse'
+        @flats = @flats.joins(:your_spaces).where(your_spaces: {wifi: true}) if @query[:your_space].include? 'wifi'
+        @flats = @flats.joins(:your_spaces).where(your_spaces: {toilet: true}) if @query[:your_space].include? 'toilet'
+      end
       @flats = @flats.where('monthly_price <= 300') if @query[:price_range] == '0-300€'
-      @flats = @flats.where('300< monthly_price <= 500') if @query[:price_range] == '301€-500€'
+      @flats = @flats.where('monthly_price > 300 and monthly_price <= 500') if @query[:price_range] == '301€-500€'
       @flats = @flats.where('monthly_price > 500') if @query[:price_range] == '>500€'
 
       @seniors_quizz = []
