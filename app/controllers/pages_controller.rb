@@ -27,12 +27,13 @@ class PagesController < ApplicationController
     @user = current_user
     @quizz = Quizz.find_by(user_id: current_user.id)
     @flat = Flat.find_by(user_id: current_user.id)
-    rentals_requests = Rental.find_by(flat_id: @flat.id)
+    rentals_requests = Rental.where(flat_id: @flat.id)
     if Rental.count <= 1
       @rentals = []
       @rentals << rentals_requests
     else
       @rentals = rentals_requests
+
     end
     @matching = []
     @juniors_quizz = []
@@ -92,6 +93,13 @@ class PagesController < ApplicationController
     @user = current_user
     @junior = User.find(@rental.user_id)
     @matching = compatibily(Quizz.find_by(user_id: @junior.id), Quizz.find_by(user_id: current_user.id))
+  end
+
+  def candidats
+    @flat = Flat.find_by(user_id: current_user.id)
+    @rentals = Rental.where(flat_id: @flat.id)
+    @user = current_user
+
   end
 
   private
