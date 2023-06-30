@@ -21,7 +21,7 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:sign_up, keys: [:first_name, :role])
 
     # For additional in app/views/devise/registrations/edit.html.erb
-  #   devise_parameter_sanitizer.permit(:account_update, keys: [:first_name, , :gender, :date_of_birth, :email, :password, :address, :postcode, :city, :sailing_experience, :description, :rate])
+    devise_parameter_sanitizer.permit(:account_update, keys: [:image])
   end
 
 # Après s'être connecté, si le User n'a pas rempli le formulaire il n'accède pas à la search ou a son dashboard

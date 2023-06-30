@@ -1,0 +1,56 @@
+
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2  sidebar-senior">
+
+
+            <div class="d-flex flex-column align-items-center align-items-sm-start  pt-2 text-black min-vh-100 put-in-relative">
+                <a href="/" class="d-flex align-items-center pb-3 mb-md-0 me-md-auto text-black text-decoration-none ms-2">
+                    <span class="fs-5 d-none d-sm-inline mt-2"><strong>Bonjour <%= @user.first_name %></strong></span>
+                </a>
+                <div class="sidebar-senior-menu ms-1">
+                  <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                      <div class="menu-element">
+                        <li>
+                           <%= link_to "Bureau", pages_senior_dashboard_path, class: "nav-link px-0 align-middle ms-1" %>
+
+                        </li>
+                      </div>
+                      <div class="menu-element">
+                        <li>
+                            <a href="#" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Logement</span></a>
+                        </li>
+                      </div>
+                      <div class="menu-element">
+                        <li>
+                            <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                                <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Candidats</span></a>
+
+                        </li>
+                      </div>
+                      <div class="menu-element">
+                        <li>
+                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                                <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Critères</span> </a>
+
+
+                        </li>
+                      </div>
+                      <div class="menu-element">
+                        <li>
+
+                            <%= link_to "Déconnexion", destroy_user_session_path, data: {turbo_method: :delete}, class: "nav-link px-0 align-middle ms-1" %>
+
+                        </li>
+                      </div>
+                  </ul>
+                </div>
+                <hr>
+
+                  <%= image_tag "arrondie", id: "round-corner"%>
+
+            </div>
+
+
+        </div>
+    </div>

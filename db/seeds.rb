@@ -1,16 +1,26 @@
+require 'open-uri'
+
 # cleaning DB
 
 puts "cleaning DB...."
 # Quizz.delete_all
 # Rental.delete_all
 # Your_space.delete_all
-Rental.delete_all
-YourSpace.delete_all
-Quizz.delete_all
-Flat.delete_all
-User.delete_all
+
+
+urls = [
+  "https://res.cloudinary.com/dtpxg9mp5/image/upload/v1687722525/development/c5pbzfabvrvjgvggv9l2z6qgwxp8.jpg",
+  "https://res.cloudinary.com/dtpxg9mp5/image/upload/v1687722523/development/cy3md27sms1ezsktescyeff907fo.jpg"
+]
+
+
+YourSpace.destroy_all
+Quizz.destroy_all
+Flat.destroy_all
+User.destroy_all
 
 puts "creating 10 seniors...."
+
 
 paul = User.create(
   first_name: "Paul",
@@ -141,7 +151,7 @@ leo = User.create(
   gender: "Male",
   birth_day: "2007-12-29",
   email: "leo@gmail.com",
-  password: "leo92",
+  password: "leoleo92",
   admin: false,
   role: "junior"
 )
@@ -179,6 +189,7 @@ marie_flat = Flat.create(
   type_of_flat: "appartement",
   capacity: 1
 )
+
 
 gerard_flat = Flat.create(
   title: "C'est petit mais c'est cosi",
@@ -222,8 +233,8 @@ emile_flat = Flat.create(
 
 roger_flat = Flat.create(
   title: "J'ai besoin de compagnie",
-  address: "17 Rue du Hohwald",
-  city: "Strasbourg",
+  address: "16 Rue Hippolyte Flandrin",
+  city: "Lyon",
   user_id: roger[:id],
   monthly_price: 300,
   type_of_flat: "appartement",
@@ -260,14 +271,151 @@ mariane_flat = Flat.create(
   capacity: 1
 )
 
+all_flats = Flat.all
+
+all_flats.each do |flat|
+  urls.each do |url|
+    file = URI.open(url)
+    flat.photos.attach(io: file, filename: "#{SecureRandom.hex}.jpg", content_type: "image/jpeg")
+  end
+end
+
 puts "creating a quizz for Paul"
 
 paul_quizz = Quizz.create(
-  smoker: "A",
-  talker: "B",
-  guest: "C",
+  smoker: "E",
+  motivation: "D",
+  gender: "C",
+  animal: "D",
+  guest_animal: "D",
+  junior_smoker: "D",
+  talker: "A",
+  guest: "A",
+  music: "A",
   user_id: paul[:id]
 )
+
+roger_quizz = Quizz.create(
+  smoker: "D",
+  motivation: "E",
+  gender: "A",
+  animal: "E",
+  guest_animal: "E",
+  junior_smoker: "D",
+  talker: "B",
+  guest: "A",
+  music: "C",
+  user_id: roger[:id]
+)
+
+gerard_quizz = Quizz.create(
+  smoker: "E",
+  motivation: "D",
+  gender: "C",
+  animal: "D",
+  guest_animal: "D",
+  junior_smoker: "D",
+  talker: "C",
+  guest: "A",
+  music: "B",
+  user_id: gerard[:id]
+)
+
+jean_quizz = Quizz.create(
+  smoker: "D",
+  motivation: "E",
+  gender: "A",
+  animal: "E",
+  guest_animal: "E",
+  junior_smoker: "D",
+  talker: "B",
+  guest: "C",
+  music: "C",
+  user_id: jean[:id]
+)
+
+marie_quizz = Quizz.create(
+  smoker: "E",
+  motivation: "D",
+  gender: "C",
+  animal: "D",
+  guest_animal: "D",
+  junior_smoker: "D",
+  talker: "A",
+  guest: "A",
+  music: "A",
+  user_id: marie[:id]
+)
+
+jacques_quizz = Quizz.create(
+  smoker: "D",
+  motivation: "E",
+  gender: "A",
+  animal: "E",
+  guest_animal: "E",
+  junior_smoker: "D",
+  talker: "B",
+  guest: "A",
+  music: "C",
+  user_id: jacques[:id]
+)
+
+emile_quizz = Quizz.create(
+  smoker: "D",
+  motivation: "E",
+  gender: "C",
+  animal: "E",
+  guest_animal: "E",
+  junior_smoker: "D",
+  talker: "B",
+  guest: "B",
+  music: "B",
+  user_id: emile[:id]
+)
+
+georgette_quizz = Quizz.create(
+  smoker: "D",
+  motivation: "E",
+  gender: "C",
+  animal: "E",
+  guest_animal: "E",
+  junior_smoker: "D",
+  talker: "B",
+  guest: "B",
+  music: "B",
+  user_id: georgette[:id]
+)
+
+yvette_quizz = Quizz.create(
+  smoker: "D",
+  motivation: "E",
+  gender: "C",
+  animal: "E",
+  guest_animal: "E",
+  junior_smoker: "D",
+  talker: "C",
+  guest: "C",
+  music: "C",
+  user_id: yvette[:id]
+)
+
+mariane_quizz = Quizz.create(
+  smoker: "D",
+  motivation: "E",
+  gender: "A",
+  animal: "E",
+  guest_animal: "E",
+  junior_smoker: "D",
+  talker: "A",
+  guest: "A",
+  music: "A",
+  user_id: mariane[:id]
+)
+
+
+
+
+
 
 puts "creating your space for appartements"
 

@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :flats
+  has_one_attached :image
 
   has_many :rentals
   has_many :receivedrentals, through: :flats, source: :rentals

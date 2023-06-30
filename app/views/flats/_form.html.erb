@@ -1,14 +1,16 @@
 <%= simple_form_for(@flat) do |f| %>
+
 <div class="form-row d-flex justify-content-around">
   <div class="col-4">
     <%= f.input :title, :label => "Nom du logement"%>
     <%= f.input :address, :label => "Adresse" %>
     <%= f.input :city,  :label => "Ville" %>
+    <%= f.input :photos, as: :file, input_html: { multiple: true } %>
   </div>
   <div class="col-4">
-  <%= f.input :monthly_price, :label => "Loyer mensuel symbolique", collection: [["50€",50],["100€",100],["200€",200],["300€",300]]%>
-  <%= f.input :capacity, :label => "Capacité d'accueil", collection: 1..5%>
-  <%= f.input :type_of_flat, :label => "Type de logement", collection: [["Maison","house"],["Appartement","appartement"]]%>
+    <%= f.input :monthly_price, :label => "Loyer mensuel symbolique", collection: [["50€",50],["100€",100],["200€",200],["300€",300]]%>
+    <%= f.input :capacity, :label => "Capacité d'accueil", collection: 1..5%>
+    <%= f.input :type_of_flat, :label => "Type de logement", collection: [["Maison","house"],["Appartement","appartement"]]%>
   </div>
 </div>
 <div class="text-center">

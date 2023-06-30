@@ -86,13 +86,14 @@
 
 .edit-button {
   position: absolute;
-  margin-left: 550px;
+  margin-left: 500px;
+  margin-bottom: 20px;
   opacity: 0;
   transition: 0.5s;
 }
 
 .edit-button img {
-  width: 30px;
+  width: 20px;
 }
 
 .dashboard-space {
@@ -114,4 +115,8 @@
 #flatCarousel .carousel-inner {
   height: 380px;
   width: 100%;
+}
+
+.senior-dashboard-space {
+  margin-left: 120px;
 }

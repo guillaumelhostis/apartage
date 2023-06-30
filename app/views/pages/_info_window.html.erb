@@ -1,3 +1,7 @@
-<h2><%= flat.title %></h2>
-<p><%= flat.address %></p>
-<p><%= link_to "show", flat_path(flat)  %></p>
+
+<p><%= link_to flat.title, flat_path(flat)  %></p>
+<% @matching.each do |m| %>
+  <%if m[:id] == flat.id %>
+    <p><%= m[:match] %></p>
+  <% end %>
+<% end %>
