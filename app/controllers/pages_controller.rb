@@ -48,8 +48,18 @@ class PagesController < ApplicationController
     @user = current_user
     @quizz = Quizz.find_by(user_id: current_user.id)
     @query = params[:query]
-    if params[:city].present?
-      @flats = Flat.search_by_city(params[:city])
+    if @query.present?
+      @flats = Flat.search_by_city(@query[:city])
+      # @query[:your_space] = ["tv", "wifi", "toilet"]
+      @flats = @flats.joins(:your_spaces).where(your_spaces: {tv: true}) if @query[:your_space].include? 'tv'
+      @flats = @flats.joins(:your_spaces).where(your_spaces: {bathroom: true}) if @query[:your_space].include? 'bathroom'
+      @flats = @flats.joins(:your_spaces).where(your_spaces: {terrasse: true}) if @query[:your_space].include? 'terrasse'
+      @flats = @flats.joins(:your_spaces).where(your_spaces: {wifi: true}) if @query[:your_space].include? 'wifi'
+      @flats = @flats.joins(:your_spaces).where(your_spaces: {toilet: true}) if @query[:your_space].include? 'toilet'
+      @flats = @flats.where('monthly_price <= 300') if @query[:price_range] == '0-300€'
+      @flats = @flats.where('300< monthly_price <= 500') if @query[:price_range] == '301€-500€'
+      @flats = @flats.where('monthly_price > 500') if @query[:price_range] == '>500€'
+
       @seniors_quizz = []
       @flats.each do |f|
         @seniors_quizz << Quizz.find_by(user_id: f.user_id)

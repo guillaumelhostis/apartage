@@ -10,7 +10,7 @@
         <div class="dashboard-geocoder ">
                 <div class="">
                   <%= form_with url: pages_junior_dashboard_path, method: :get do %>
-                  <%= text_field_tag :city,
+                  <%= text_field_tag 'query[city]',
                     params[:city],
                     class: "form-control",
                     id: "form-homepage",
@@ -18,13 +18,13 @@
                   %>
                     <div class="my-3">
                         <% YourSpace::YOUR_SPACES.each do |your_space| %>
-                          <%= check_box_tag  'your_space[]', your_space %>
+                          <%= check_box_tag  'query[your_space][]', your_space %>
                           <%= your_space %>
                         <% end %>
                     </div>
                     <div class="my-3">
                       <% ['0-300€', '301€-500€', '>500€'].each do |price_range| %>
-                        <%= radio_button_tag  'price_range', price_range %>
+                        <%= radio_button_tag  'query[price_range]', price_range %>
                         <%= price_range %>
                       <% end %>
                     </div>
