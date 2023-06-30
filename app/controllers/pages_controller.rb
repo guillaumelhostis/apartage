@@ -32,6 +32,7 @@ class PagesController < ApplicationController
       @rentals = []
       @rentals << rentals_requests
     else
+      @rentals = []
       @rentals = rentals_requests
 
     end
