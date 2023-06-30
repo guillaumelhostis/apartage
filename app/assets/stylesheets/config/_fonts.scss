@@ -41,4 +41,10 @@ body {
 
 .btn-primary {
   border-radius: 8px !important;
+  background-color: #7E73FF !important;
 }
+
+.btn-primary:hover {
+  background-color: #7E73FF !important;
+  opacity: 0.9;
+} 
