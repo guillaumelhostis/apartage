@@ -29,12 +29,19 @@
 
 
       <div class="invisible-div  text-center mt-5">
-        <div class="blue-div">
-          <%= link_to "Je crée mon compte", new_user_registration_path, class: "btn btn-success"%>
-        </div>
-         <div class="blue-div  mt-3">
-          <%= link_to "Je me connecte", new_user_session_path, class: "btn btn-success" %>
-        </div>
+        <% if user_signed_in? %>
+          <div class="blue-div">
+            <%= link_to "Mon bureau", pages_junior_dashboard_path, class: "btn btn-success" if current_user.role == "junior"%>
+            <%= link_to "Mon bureau", pages_senior_dashboard_path, class: "btn btn-success" if current_user.role == "senior"%>
+          </div>
+        <% else %>
+          <div class="blue-div">
+            <%= link_to "Je crée mon compte", new_user_registration_path, class: "btn btn-success"%>
+          </div>
+          <div class="blue-div  mt-3">
+            <%= link_to "Je me connecte", new_user_session_path, class: "btn btn-success" %>
+          </div>
+        <% end %>
       </div>
 
 

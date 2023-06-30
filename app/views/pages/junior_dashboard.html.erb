@@ -35,30 +35,6 @@
             </div>
       </div>
       <div class="dashboard-space">
-        <div class="edit-button">
-          <%= image_tag "edit"%>
-        </div>
-        <div class="", data-junior-dashboard-target="map">
-          <h2>Notre algorithme a trouvé <strong><%= @flats.length %></strong> appartements </h2>
-
-          <div style="width: 100%; height: 300px;"
-            data-controller="map"
-            data-map-markers-value="<%= @markers.to_json %>"
-            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
-          </div>
-
-        </div>
-
-
-      </div>
-    </div>
-
-    <div class="col-5 mt-4">
-        <div class="dashboard-space ">
-          <div class="edit-button">
-            <%= image_tag "edit"%>
-          </div>
-          <h2>Mes demandes en attentes</h2>
           <% @flats.each do |flat| %>
           <div class="card-candidat">
             <div class="see-more">
@@ -77,9 +53,19 @@
             </div>
           </div>
           <% end %>
-        </div>
-
+      </div>
     </div>
-
+    <div class="col-5 mt-4">
+      <div class="dashboard-space ">
+        <div class="", data-junior-dashboard-target="map">
+          <h2>Notre algorithme a trouvé <strong><%= @flats.length %></strong> appartements </h2>
+          <div style="width: 100%; height: 300px;"
+            data-controller="map"
+            data-map-markers-value="<%= @markers.to_json %>"
+            data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
