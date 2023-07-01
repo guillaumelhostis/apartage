@@ -95,6 +95,8 @@ class PagesController < ApplicationController
     @rental = Rental.find(params[:format])
     @user = current_user
     @junior = User.find(@rental.user_id)
+    @quizz = Quizz.find_by(user_id: @junior.id)
+    @quizz_file = @quizz.file if @quizz.present?
     @matching = compatibily(Quizz.find_by(user_id: @junior.id), Quizz.find_by(user_id: current_user.id))
   end
 

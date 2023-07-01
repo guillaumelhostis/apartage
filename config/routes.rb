@@ -26,4 +26,6 @@ Rails.application.routes.draw do
   get 'pages/your_criterias', to: 'pages#your_criterias'
   get 'pages/candidat', to: 'pages#candidat'
   get 'pages/candidats', to: 'pages#candidats'
+  get 'pages/:id/show_video', to: 'pages#show_video', as: 'show_video'
+
 end
