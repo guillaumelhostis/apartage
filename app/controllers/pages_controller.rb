@@ -117,6 +117,11 @@ class PagesController < ApplicationController
   end
 
   def compatibily(results_a, results_b)
+    if results_a.nil? || results_b.nil?
+      # Gérer le cas où les résultats ne sont pas définis ou sont vides
+      return nil
+    end
+
     a = [results_a[:smoker], results_a[:talker], results_a[:guest], results_a[:motivation], results_a[:gender], results_a[:animal], results_a[:guest_animal], results_a[:junior_smoker], results_a[:music]]
     b = [results_b[:smoker], results_b[:talker], results_b[:guest], results_b[:motivation], results_b[:gender], results_b[:animal], results_b[:guest_animal], results_b[:junior_smoker], results_b[:music]]
 
