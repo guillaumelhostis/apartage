@@ -12,6 +12,7 @@ class MessagesController < ApplicationController
       )
       head :ok
     else
+      render "chatrooms/show", status: :unprocessable_entity
     end
   end
 
