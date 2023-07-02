@@ -16,8 +16,8 @@
     <div class="col-5 mt-4">
       <div class="dashboard-space mb-2">
         <h1>Video de candidature</h1>
+        <td><video src="<%= url_for(@quizz_file) %>" height="200" width="500" loop muted="muted" autoplay></video></td>
           <ul class="list-unstyled">
-            <li>Son message <%= @rental.message %></li>
             <li>Status de la demande: <%= @rental.status.capitalize %></li>
           </ul>
       </div>
