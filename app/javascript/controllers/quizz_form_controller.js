@@ -5,16 +5,31 @@ export default class extends Controller {
 
   mediaRecorder = null;
   recordedChunks = [];
+  mediaStream = null;
 
   connect() {
-  navigator.mediaDevices.getUserMedia({ video: true, audio:true })
-    .then((stream) => {
-      this.videoTarget.srcObject = stream;
-      this.initializeMediaRecorder(stream);
-    })
-    .catch((error) => {
-      console.error("Error accessing webcam:", error);
-    });
+    console.log("on webcam pas ns ?");
+    navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+      .then((stream) => {
+        this.mediaStream = stream;
+        this.videoTarget.srcObject = stream;
+        this.initializeMediaRecorder(stream);
+      })
+      .catch((error) => {
+        console.error("Error accessing webcam:", error);
+      });
+  }
+
+  disconnect() {
+    console.log("disconnect");
+    if (this.mediaRecorder && this.mediaRecorder.state !== "inactive") {
+      this.mediaRecorder.stop();
+    }
+    if (this.mediaStream) {
+      this.mediaStream.getTracks().forEach((track) => {
+        track.stop();
+      });
+    }
   }
 
   initializeMediaRecorder(stream) {
@@ -40,19 +55,19 @@ export default class extends Controller {
   }
 
   stopRecording(event) {
-  event.preventDefault();
-  this.mediaRecorder.stop();
-  this.mediaRecorder.addEventListener("stop", () => {
-    const recordedBlob = new Blob(this.recordedChunks, { type: "video/webm" });
-    const recordedFile = new File([recordedBlob], "recorded-video.webm", { type: "video/webm" });
+    event.preventDefault();
+    this.mediaRecorder.stop();
+    this.mediaRecorder.addEventListener("stop", () => {
+      const recordedBlob = new Blob(this.recordedChunks, { type: "video/webm" });
+      const recordedFile = new File([recordedBlob], "recorded-video.webm", { type: "video/webm" });
 
-    // Create a new FileList using DataTransfer
-    const dataTransfer = new DataTransfer();
-    dataTransfer.items.add(recordedFile);
+      const dataTransfer = new DataTransfer();
+      dataTransfer.items.add(recordedFile);
 
-    // Set the created FileList to the files attribute of fileInputTarget
-    this.fileInputTarget.files = dataTransfer.files;
-  });
-  this.videoTarget.pause();
-}
+      this.fileInputTarget.files = dataTransfer.files;
+    });
+    this.videoTarget.pause();
+    this.mediaRecorder.stop();
+    this.mediaStream.stop();
+  }
 }
