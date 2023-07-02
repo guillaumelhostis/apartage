@@ -12,6 +12,7 @@ class QuizzsController < ApplicationController
 
   def create
     @quizz = Quizz.new(quizz_params)
+    @quizz.file.attach(params[:quizz][:file]) if params[:quizz][:file].present?
     @quizz.user_id = current_user.id
     authorize @quizz
     @quizz.save
