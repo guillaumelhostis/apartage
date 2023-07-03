@@ -1,54 +1,54 @@
-<div class="d-flex justify-content-around ">
-
-            <%# <%= link_to image_tag("junior.png"), new_user_session_path, class: "icon-roles" %>
-  <div class="row"></div>
-    <div class="invisible-div col-6 mt-5">
-      <div class="dashboard-space mb-3">
-        <div id="big-apartage">
-          <h1>Apart'Agé</h1>
-          <h2>La collocation solidaire qui unit les générations</h2>
+<div class="body-homepage">
+</div>
+  <div class="home-space">
+    <div class="slogan-home text-center text-white">
+      <h2>La colocation <strong>solidaire </strong>qui <strong>unit</strong> les générations</h2>
+    </div>
+    <div class="d-flex justify-content-around home-space-content ">
+        <div class="junior-home-space text-white d-flex align-items-end text-center">
+          <p class="m-0 p-1"> Alicia, 20 ans loue depuis 1 an  une chambre à 100€ par mois chez un senior</p>
         </div>
-      </div>
-      <div class="d-flex justify-content-around ">
-        <div class="image-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://content.gallup.com/origin/gallupinc/GallupSpaces/Production/Cms/EDUCMS/tz7n-7vqceaq86dprdnzag.jpg)">
 
+        <div>
+          <div class="text-center">
+            <h4>Plus de <strong><%= @flats.length %></strong> logements disponibles</h4>
+          </div>
+          <div class="p-0 map-home-space align-self-center">
+            <div style="width: 100%; height: 250px;"
+                data-controller="map"
+                data-map-markers-value="<%= @markers.to_json %>"
+                data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
+            </div>
+          </div>
         </div>
-        <div class="image-home" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.astongardens.com/wp-content/uploads/2022/12/senior-couple-hugging-in-a-nursing-home.jpg)">
 
+        <div class="senior-home-space text-white d-flex align-items-end text-center">
+          <p class="m-0 p-1"> Michel accueille depuis 3 ans des étudiants dans sa maison en banlieue de Paris</p>
         </div>
-      </div>
+
+
+
 
     </div>
-
-    <div class="focus-space col-6 mt-5 ">
-
-      <div class="d-flex justify-content-center">
-        <div class="image-home-large" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.equityapartments.com/images/c_crop,x_0,y_0,w_1920,h_1080/c_fill,w_1920,h_1080/q_auto,f_auto/3843-38/the-reserve-at-town-center-apartments-exterior)">
-        </div>
-      </div>
-
-
-      <div class="invisible-div  text-center mt-5">
+    <div class="homespace-login d-flex justify-content-around">
         <% if user_signed_in? %>
-          <div class="blue-div">
-            <%= link_to "Mon bureau", pages_junior_dashboard_path, class: "btn btn-success" if current_user.role == "junior"%>
-            <%= link_to "Mon bureau", pages_senior_dashboard_path, class: "btn btn-success" if current_user.role == "senior"%>
+          <div class="text-white">
+            <%= link_to "Mon bureau", pages_junior_dashboard_path, class: "" if current_user.role == "junior"%>
+            <%= link_to "Mon bureau", pages_senior_dashboard_path, class: "" if current_user.role == "senior"%>
           </div>
         <% else %>
-          <div class="blue-div">
-            <%= link_to "Je crée mon compte", new_user_registration_path, class: "btn btn-success"%>
-          </div>
-          <div class="blue-div  mt-3">
-            <%= link_to "Je me connecte", new_user_session_path, class: "btn btn-success" %>
+          <div class="text-white">
+            <%= link_to "Je me connecte", new_user_session_path, class: "" %>
           </div>
         <% end %>
-      </div>
-
-
     </div>
+        <% if user_signed_in? %>
+          <div class="d-flex justify-content-around mt-3">
 
+          </div>
+        <% else %>
+           <div class="d-flex justify-content-around mt-3">
+            <%= link_to "Rejoins nous!", new_user_registration_path, class: "btn btn-primary text-white"%>
+          </div>
+        <% end %>
   </div>
-
-
-
-</div>

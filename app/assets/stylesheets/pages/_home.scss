@@ -69,7 +69,7 @@
   background-size: cover;
   background-position: center;
   height: 180px;
-  width: 300px;
+  width: 400px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -112,3 +112,159 @@
   border-radius: 10px;
   font-size: 20px ;
 }
+
+.sidebar-home {
+  background: #CDF0EA;
+  width: 55px;
+  position: fixed;
+  z-index: 1;
+}
+
+.home-space {
+  margin-left: 50px;
+}
+
+.slogan-home {
+  margin-top: 60px;
+}
+
+.slogan-home h2 {
+  font-size: 45px;
+  font-weight: 400;
+}
+
+.logo-apartage-home {
+  background: #CDF0EA;
+  padding: 10px;
+  padding-right: 20px;
+  margin-top: 0px;
+  border-bottom-right-radius: 20px;
+
+}
+
+
+#round-corner-home {
+  width: 80px;
+  position: absolute;
+  top: -7px;
+  right: 49px;
+}
+
+.top-left-bar {
+  position: relative;
+}
+
+
+.map-home-marker {
+  width: 20px;
+}
+
+.map-home-marker img{
+  max-width:100%;
+  max-height:100%;
+}
+
+
+.map-home-space {
+
+  width: 450px;
+  margin-top: 10px;
+  border-radius: 7px;
+  border: 8px solid rgba(205, 240, 234, 0.4);
+}
+
+.slogan-home {
+  text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
+}
+
+.text-apartage-home {
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.junior-home-space {
+  border-radius: 7px;
+  padding: 20px;
+  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url(https://content.gallup.com/origin/gallupinc/GallupSpaces/Production/Cms/EDUCMS/tz7n-7vqceaq86dprdnzag.jpg);
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+  background-size: cover;
+  background-position: center;
+
+  width: 325px;
+  height: 300px;
+}
+
+.junior-home-space p{
+
+  text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
+}
+
+
+.senior-home-space {
+
+  border-radius: 7px;
+  padding: 20px;
+  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url(https://www.astongardens.com/wp-content/uploads/2022/12/senior-couple-hugging-in-a-nursing-home.jpg);
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+  background-size: cover;
+  background-position: center;
+
+  width: 325px;
+  height: 300px;
+}
+
+.senior-home-space p {
+
+  text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
+}
+
+
+.home-space-content{
+
+  margin-top: 100px;
+
+}
+
+.body-homepage {
+  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url(https://colococo.fr/wp-content/uploads/2019/07/IMG_20190722_095749.jpg);
+  background-size: cover;
+  background-position: center;
+  padding-top: 30px;
+  padding-bottom: 100px;
+  position: relative;
+  opacity: 0.6;
+  width: 100%;
+  height: 170px;
+
+}
+
+.home-space {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+}
+
+.homespace-login {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+
+
+}
+
+.homespace-login a {
+
+  text-decoration: none !important;
+
+}
+
+.homespace-login a:visited {
+
+ color:white;
+}
+
+.homespace-login a:hover {
+
+  text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
+ }

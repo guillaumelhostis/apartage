@@ -2,6 +2,15 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
+    @flats = Flat.all
+    @markers = @flats.map do |flat|
+      {
+        lat: flat.latitude,
+        lng: flat.longitude,
+        info_window_html: render_to_string(partial: "home_info_window", locals: { flat: flat }),
+        marker_html: render_to_string(partial: "homepage_marker")
+      }
+    end
   end
 
   def my_dashboard
@@ -95,6 +104,8 @@ class PagesController < ApplicationController
     @rental = Rental.find(params[:format])
     @user = current_user
     @junior = User.find(@rental.user_id)
+    @quizz = Quizz.find_by(user_id: @junior.id)
+    @quizz_file = @quizz.file if @quizz.present?
     @matching = compatibily(Quizz.find_by(user_id: @junior.id), Quizz.find_by(user_id: current_user.id))
   end
 
@@ -115,6 +126,11 @@ class PagesController < ApplicationController
   end
 
   def compatibily(results_a, results_b)
+    if results_a.nil? || results_b.nil?
+      # Gérer le cas où les résultats ne sont pas définis ou sont vides
+      return nil
+    end
+
     a = [results_a[:smoker], results_a[:talker], results_a[:guest], results_a[:motivation], results_a[:gender], results_a[:animal], results_a[:guest_animal], results_a[:junior_smoker], results_a[:music]]
     b = [results_b[:smoker], results_b[:talker], results_b[:guest], results_b[:motivation], results_b[:gender], results_b[:animal], results_b[:guest_animal], results_b[:junior_smoker], results_b[:music]]
 
