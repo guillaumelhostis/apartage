@@ -1,12 +1,12 @@
 <div class="senior-dashboard-space">
   <div class="container-xxl d-flex justify-content-around", data-controller="junior-dashboard">
-    <div class="col-6 mt-4">
+    <div class="col-5 mt-4">
 
-      <div class="dashboard-space mb-2">
-
-        <h2>Chercher un logement</h2>
-
-
+      <div class="invisible-div mb-2">
+        <div class="mb-4">
+          <h2>Je cherche un logement: </h2>
+        </div>
+      <div class="dashboard-space">
         <div class="dashboard-geocoder ">
                 <div class="">
                   <%= form_with url: pages_junior_dashboard_path, method: :get do %>
@@ -16,50 +16,36 @@
                     id: "form-homepage",
                     placeholder: "Sélectionner la ville de recherche"
                   %>
-                    <div class="my-3">
+                    <div class="my-3 d-flex justify-content-between">
                         <% YourSpace::YOUR_SPACES.each do |your_space| %>
                           <%= check_box_tag  'query[your_space][]', your_space %>
                           <%= your_space %>
                         <% end %>
                     </div>
-                    <div class="my-3">
-                      <% ['0-300€', '301€-500€', '>500€'].each do |price_range| %>
+                    <div class="my-3 d-flex justify-content-between">
+                      <% ['0-300€', '300€-500€', '+ 500€'].each do |price_range| %>
                         <%= radio_button_tag  'query[price_range]', price_range %>
                         <%= price_range %>
                       <% end %>
                     </div>
 
-                  <%= submit_tag "Rechercher", name: "", class: "btn btn-primary" %>
+                  <%= submit_tag "Rechercher", name: "", class: "btn btn-primary text-white" %>
                   <% end %>
                 </div>
             </div>
+        </div>
       </div>
-      <div class="dashboard-space">
-          <% @flats.each do |flat| %>
-          <div class="card-candidat">
-            <div class="see-more">
-              <%= link_to image_tag("play-btn.png"), flat_path(flat)%>
-            </div>
-            <img src="https://www.brunet.ca/globalassets/sante/conseils-sante/solitude-personne-agee-briser-lisolement/solitude-personne-agee-briser-lisolement-big.jpg" />
-            <div class="card-candidat-infos">
-              <h2><%= User.find(flat.user_id).first_name %></h2>
-
-              <% @matching.each do |m| %>
-                <%if m[:id] == flat.id %>
-                <p><strong><%= m[:match] %></strong> de compatibilité avec votre profil</p>
-                <% end %>
-              <% end %>
-
-            </div>
-          </div>
-          <% end %>
+      <div class="d-flex justify-content-center">
+        <div class="image-home" style="background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.1)), url(https://www.abritel.fr/guides-voyage/wp-content/uploads/1oX8CVLlZO095rWtc5Tj05/8c3d3571fad2a0ef2d015f03bd629d62/9df56155-45b4-4578-88a4-2470af6fdaaf.lg1.jpg)"></div>
       </div>
+
+
     </div>
-    <div class="col-5 mt-4">
+    <div class="col-7 mt-4">
       <div class="dashboard-space ">
         <div class="", data-junior-dashboard-target="map">
-          <h2>Notre algorithme a trouvé <strong><%= @flats.length %></strong> appartements </h2>
-          <div style="width: 100%; height: 300px;"
+          <h3 class="mb-3">Notre algorithme a trouvé <strong><%= @flats.length %></strong> appartements:</h3>
+          <div style="width: 100%; height: 400px;"
             data-controller="map"
             data-map-markers-value="<%= @markers.to_json %>"
             data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
