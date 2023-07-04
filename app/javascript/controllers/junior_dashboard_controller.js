@@ -4,10 +4,15 @@ import { Controller } from "@hotwired/stimulus"
 export default class extends Controller {
   static targets = ["map"]
   connect() {
-    console.log("hello from pages stimulus controller")
+    console.log("junior dashboard stimulus controller")
+    const currentUrl = window.location.href;
+    const referrerUrl = document.referrer;
+    if (referrerUrl !== currentUrl) {
+      window.location.reload(true);
+    }
   }
 
-search() {
-  this.mapTarget.classList.remove('d-none')
-}
+  search() {
+    this.mapTarget.classList.remove('d-none')
+  }
 }
