@@ -18,7 +18,9 @@ Rails.application.routes.draw do
   end
   resources :your_spaces, only: [:edit, :update]
   resources :rentals, only: [:show, :edit, :update, :destroy]
-
+  resources :chatrooms, only: :show do
+    resources :messages, only: :create
+  end
   resources :quizzs
   get 'pages/compatibily', to: 'pages#compatibily'
   get 'pages/senior_dashboard', to: 'pages#senior_dashboard'

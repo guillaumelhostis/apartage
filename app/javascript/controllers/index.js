@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import ChatroomSubscriptionController from "./chatroom_subscription_controller"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import FlatpickrController from "./flatpickr_controller"
 application.register("flatpickr", FlatpickrController)
 
@@ -19,5 +22,10 @@ application.register("map", MapController)
 import QuizzWizzardController from "./quizz_wizzard_controller"
 application.register("quizz-wizzard", QuizzWizzardController)
 
+
+import ChatroomSubscriptionController from "./chatroom_subscription_controller.js"
+application.register("chatroom-subscription", ChatroomSubscriptionController)
+
 import QuizzFormController from "./quizz_form_controller"
 application.register("quizz-form", QuizzFormController)
+
