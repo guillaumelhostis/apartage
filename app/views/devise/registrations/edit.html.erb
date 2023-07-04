@@ -1,7 +1,7 @@
 <div class="jumbotron d-flex align-items-center min-vh-100">
   <div class="container mb-5 pb-5">
     <div class="text-center mb-3">
-      <h2>J'édite mon compte</h2>
+      <h2>Modifier mes informations</h2>
     </div>
     <div class="row">
       <div class="col-12 m-auto">
@@ -30,7 +30,7 @@
                             hint: "Nous avons besoin de votre mot de passe actuel pour confirmer vos changements",
                             required: true,
                             input_html: { autocomplete: "current-password" } %>
-                <%= f.file_field :image %>
+                <%= f.file_field :image, class: ""  %>
               </div>
 
             </div>

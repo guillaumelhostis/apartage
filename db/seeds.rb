@@ -280,12 +280,12 @@ all_flats.each do |flat|
   end
 end
 
-puts "creating a quizz for Paul"
+puts "creating a quizzs"
 
 paul_quizz = Quizz.create(
   smoker: "E",
-  motivation: "D",
-  gender: "C",
+  motivation: "A",
+  gender: "A",
   animal: "D",
   guest_animal: "D",
   junior_smoker: "D",
@@ -293,6 +293,19 @@ paul_quizz = Quizz.create(
   guest: "A",
   music: "A",
   user_id: paul[:id]
+)
+
+leo_quizz = Quizz.create(
+  smoker: "E",
+  motivation: "A",
+  gender: "A",
+  animal: "D",
+  guest_animal: "D",
+  junior_smoker: "D",
+  talker: "A",
+  guest: "A",
+  music: "A",
+  user_id: leo[:id]
 )
 
 roger_quizz = Quizz.create(

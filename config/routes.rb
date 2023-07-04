@@ -28,4 +28,5 @@ Rails.application.routes.draw do
   get 'pages/your_criterias', to: 'pages#your_criterias'
   get 'pages/candidat', to: 'pages#candidat'
   get 'pages/candidats', to: 'pages#candidats'
+  get 'pages/macandidature', to: 'pages#macandidature'
 end

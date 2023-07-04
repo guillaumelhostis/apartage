@@ -38,8 +38,8 @@ class PagesController < ApplicationController
     @flat = Flat.find_by(user_id: current_user.id)
     rentals_requests = Rental.where(flat_id: @flat.id)
     if Rental.count <= 1
-      @rentals = []
-      @rentals << rentals_requests
+      #@rentals = []
+      @rentals = rentals_requests
     else
       @rentals = []
       @rentals = rentals_requests
@@ -53,6 +53,7 @@ class PagesController < ApplicationController
         @matching << { id: rental.id, match: compatibily(@quizz, @juniors_quizz[index]), user_id: rental.user_id }
       end
     end
+
   end
 
   def junior_dashboard
@@ -87,7 +88,7 @@ class PagesController < ApplicationController
           lat: flat.latitude,
           lng: flat.longitude,
           info_window_html: render_to_string(partial: "info_window", locals: { flat: flat }),
-          marker_html: render_to_string(partial: "marker")
+          marker_html: render_to_string(partial: "marker", locals: { flat: flat })
         }
       end
     else
@@ -116,13 +117,27 @@ class PagesController < ApplicationController
 
   end
 
+  def macandidature
+    @user = current_user
+    @rentals = Rental.where(user_id: current_user.id)
+    @quizz = Quizz.find_by(user_id: current_user.id)
+    @seniors_quizz = []
+    @rentals.each do |f|
+      @seniors_quizz << Quizz.find_by(user_id: Flat.find(f.flat_id).user_id)
+    end
+    @matching = []
+    @rentals.each_with_index do |rental, index|
+      @matching << { id: Flat.find(rental.flat_id).id, match: compatibily(@quizz, @seniors_quizz[index]), user_id: Flat.find(rental.flat_id).user_id }
+    end
+  end
+
   private
 
   def matching_algo(a, b)
     result =  Levenshtein.normalized_distance(a.join, b.join, threshold=nil)
     percent = result * 100
     final_result = 100 - percent
-    return "#{final_result.round(2)} %"
+    return "#{final_result.round(0)} %"
   end
 
   def compatibily(results_a, results_b)

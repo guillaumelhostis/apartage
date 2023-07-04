@@ -30,7 +30,7 @@
       <div>
         <h2>Vos candidatures</h2>
       </div>
-      <% if @rentals != [nil] %>
+     <% if @rentals != [nil] %>
         <% @rentals.each do |rental| %>
           <div class="card-candidat">
             <div class="see-more">
@@ -45,7 +45,7 @@
                     <%if m[:id] == rental.id %>
                       <%= m[:match] %>
                     <% end %>
-                  <% end %>
+                   <% end %>
                 </strong>
               compatible avec vos critères</p>
           </div>
