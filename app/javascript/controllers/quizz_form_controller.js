@@ -1,7 +1,7 @@
 import { Controller } from "@hotwired/stimulus"
 
 export default class extends Controller {
-  static targets = ["video", "fileInput"];
+  static targets = ["video", "fileInput", "rec"];
 
   mediaRecorder = null;
   recordedChunks = [];
@@ -52,9 +52,12 @@ export default class extends Controller {
     });
     this.mediaRecorder.start();
     this.videoTarget.play();
+    this.recTarget.classList.remove('d-none')
+
   }
 
   stopRecording(event) {
+    console.log('stop action JS')
     event.preventDefault();
     this.mediaRecorder.stop();
     this.mediaRecorder.addEventListener("stop", () => {
@@ -69,5 +72,6 @@ export default class extends Controller {
     this.videoTarget.pause();
     this.mediaRecorder.stop();
     this.mediaStream.stop();
+    this.recTarget.classList.add('d-none')
   }
 }
