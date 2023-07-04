@@ -1,7 +1,7 @@
+<div class="img-card-marker">
+  <%= cl_image_tag flat.photos.first.key,  crop: :fill, :class => "w-100" %>
+</div>
+<div class="info-card-marker">
+  <h4><%= link_to flat.title, flat_path(flat), class: "text-white"  %></h4>
 
-<p><%= link_to flat.title, flat_path(flat)  %></p>
-<% @matching.each do |m| %>
-  <%if m[:id] == flat.id %>
-    <p><%= m[:match] %></p>
-  <% end %>
-<% end %>
+</div>

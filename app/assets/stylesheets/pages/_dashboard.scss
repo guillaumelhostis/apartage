@@ -73,6 +73,33 @@
   transition: 0.5s;
 }
 
+.status-pending{
+  background-color: grey;
+  font-size: 10px;
+  position: absolute;
+  top:5px;
+  color:white;
+
+
+}
+
+.status-accepted{
+  background-color: green;
+  font-size: 10px;
+  position: absolute;
+  top:5px;
+  color:white;
+
+}
+
+.status-refused{
+  background-color: red;
+  font-size: 10px;
+  position: absolute;
+  top:5px;
+  color:white;
+}
+
 .see-more img {
 
   width: 50px;
@@ -119,4 +146,27 @@
 
 .senior-dashboard-space {
   margin-left: 120px;
+}
+
+
+.img-card-marker {
+  position: relative;
+}
+
+.info-card-marker {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 63px;
+
+}
+
+.info-card-marker  a {
+  text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+  text-decoration: none;
+  font-size: 400;
+}
+
+.info-card-marker  a:visited {
+  color: white;
 }

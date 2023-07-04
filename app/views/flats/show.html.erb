@@ -15,7 +15,6 @@
             <div class="carousel-inner">
               <% @flat.photos.each do |photo| %>
               <div class="carousel-item active">
-
                 <%= cl_image_tag photo.key,  crop: :fill, :class => "d-block w-100 img-responsive center-block" %>
               </div>
               <div class="carousel-item">

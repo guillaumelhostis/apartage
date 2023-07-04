@@ -1,6 +1,6 @@
 <div class="senior-dashboard-space">
   <div class="container-xxl d-flex justify-content-around", data-controller="junior-dashboard">
-    <div class="col-5 mt-4">
+    <div class="col-5 mt-1">
 
       <div class="invisible-div mb-2">
         <div class="mb-4">
@@ -41,10 +41,14 @@
 
 
     </div>
-    <div class="col-7 mt-4">
-      <div class="dashboard-space ">
-        <div class="", data-junior-dashboard-target="map">
+    <div class="col-7 mt-1">
+      <div class="invisible-div mt-5">
+        <div class="mt-2", data-junior-dashboard-target="map">
+        <% if @query.present? %>
           <h3 class="mb-3">Notre algorithme a trouvé <strong><%= @flats.length %></strong> appartements:</h3>
+        <% else %>
+          <h3 class="mb-3">Plus de <strong><%= Flat.all.count %></strong> appartements dans toute la France</h3>
+        <% end %>
           <div style="width: 100%; height: 400px;"
             data-controller="map"
             data-map-markers-value="<%= @markers.to_json %>"
