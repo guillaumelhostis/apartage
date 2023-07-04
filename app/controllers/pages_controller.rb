@@ -38,8 +38,8 @@ class PagesController < ApplicationController
     @flat = Flat.find_by(user_id: current_user.id)
     rentals_requests = Rental.where(flat_id: @flat.id)
     if Rental.count <= 1
-      @rentals = []
-      @rentals << rentals_requests
+      #@rentals = []
+      @rentals = rentals_requests
     else
       @rentals = []
       @rentals = rentals_requests
@@ -53,6 +53,7 @@ class PagesController < ApplicationController
         @matching << { id: rental.id, match: compatibily(@quizz, @juniors_quizz[index]), user_id: rental.user_id }
       end
     end
+
   end
 
   def junior_dashboard
