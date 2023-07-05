@@ -9,8 +9,10 @@ class FlatsController < ApplicationController
   end
 
   def show
+
     authorize @flat
-    @user = @flat.user
+    @flat_owner = @flat.user
+    @user = current_user
     @your_space = @flat.your_spaces.first
     @rental = Rental.new
   end

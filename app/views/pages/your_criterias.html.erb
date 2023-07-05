@@ -1,40 +1,115 @@
+<div class="senior-dashboard-space">
+  <div class="text-center mt-4"><h1>Mon locataire idéal</h1></div>
+    <div class="invisible-div d-flex justify-content-around mt-2 p-1">
+          <div class="invisible-div col-12">
 
-<div class="jumbotron d-flex align-items-center min-vh-100">
+            <div class="d-flex">
+              <div class="col-3">
+                  <% if @quizz.junior_smoker == "E" %>
+                    <div class="criterias-card " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.slate.fr/sites/default/files/styles/1200x680/public/josh-rocklage-h5rubouilpq-unsplash_1.jpg)">
+                      <p>Mon locataire ne pourra pas fumer chez moi</p>
+                    </div>
+
+                  <% elsif @quizz.junior_smoker == "D"  %>
+                    <div class="criterias-card " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.slate.fr/sites/default/files/styles/1200x680/public/josh-rocklage-h5rubouilpq-unsplash_1.jpg)">
+                      <p>Mon locataire a l'autorisation de fumer chez moi</p>
+                    </div>
+                  <% end %>
+
+                  <% if @quizz.animal == "E" %>
+                    <div class="criterias-card " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.flytap.com/-/media/Flytap/new-tap-pages/travelling-with-animals/pets/flying-with-pets-og-image-1200x630.jpg)">
+                      <p>Mon locataire ne pourra pas amener d'animaux de compagnie</p>
+                    </div>
+
+                  <% elsif @quizz.animal == "D"  %>
+                    <div class="criterias-card " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.flytap.com/-/media/Flytap/new-tap-pages/travelling-with-animals/pets/flying-with-pets-og-image-1200x630.jpg)">
+                      <p>Mon locataire pourra ramener un animal de compagnie</p>
+                    </div>
+                  <% end %>
+              </div>
+              <div class="col-3">
+                  <% if @quizz.gender == "A" %>
+                    <div class="criterias-card " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://img.freepik.com/free-photo/young-man-student-with-notebooks-showing-thumb-up-approval-smiling-satisfied-blue-studio-background_1258-73329.jpg)">
+                      <p>Je cherche plutôt un homme</p>
+                    </div>
+
+                  <% elsif @quizz.gender == "B"  %>
+                    <div class="criterias-card " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://media.istockphoto.com/id/1365601848/photo/portrait-of-a-young-woman-carrying-her-schoolbooks-outside-at-college.jpg?s=612x612&w=0&k=20&c=EVxLUZsL0ueYFF1Nixit6hg-DkiV52ddGw_orw9BSJA=)">
+                      <p>Je cherche plutôt une femme</p>
+                    </div>
+
+                  <% elsif @quizz.gender == "C"  %>
+                    <div class="criterias-card " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://d2gg9evh47fn9z.cloudfront.net/800px_COLOURBOX1238007.jpg)">
+                      <p>Je n'ai pas de préférence concernant le genre de mon locataire</p>
+                    </div>
+                  <% end %>
 
 
-    <div class="container mb-5 pb-5">
-      <div class="container text-center mt-3 mb-5">
-        <div>
-          <h1>Chez moi j'aimerai bien accueillir quelqu'un qui:</h1>
-        </div>
-      </div>
+                  <% if @quizz.motivation == "B" || "A" || "C" %>
+                    <div class="criterias-card " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.trendingus.com/wp-content/uploads/2019/06/9f66dfe4e649d6917eb43e548d41e0bb.jpeg)">
+                      <p>J'aimerai que mon locataire me tienne compagnie de temps en temps</p>
+                    </div>
+                  <% elsif @quizz.motivation == "D"  %>
+                    <div class="criterias-card " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.factorydirectpromos.com/wp-content/uploads/2017/10/reusable-bags-grocery-delivery.webp)">
+                      <p>J'aimerai que mon locataire m'aide dans les taches quotidiennes</p>
+                    </div>
+                  <% end %>
+              </div>
+              <div class="col-3">
+                  <% if @quizz.guest == "A" || "B" || "C" %>
+                    <div class="criterias-card " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.ualberta.ca/information-services-and-technology/media-library/images/tl-group-work.jpg)">
+                      <p>Mon locataire est autorisé à avoir des invités</p>
+                    </div>
 
-      <div class="row">
-        <div class="container focus-space col-8 mb-5">
-          <div class="d-flex justify-content-around">
-            <div class="">
-                <ul>
-                  <li> <%= @quizz.smoker %></li>
-                  <li> <%= @quizz.talker %></li>
-                  <li> <%= @quizz.guest%></li>
-                  <li> <%= @quizz.motivation%></li>
-                  <li> <%= @quizz.gender%></li>
-                  <li> <%= @quizz.music%></li>
-                  <li> <%= @quizz.animal%></li>
-                  <li> <%= @quizz.guest_animal%></li>
-                  <li> <%= @quizz.junior_smoker%></li>
-                </ul>
+                  <% elsif @quizz.guest == "D"  %>
+                    <div class="criterias-card " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.ualberta.ca/information-services-and-technology/media-library/images/tl-group-work.jpg)">
+                      <p>Je n'autorise pas mon locataire à ramener des invités chez moi</p>
+                    </div>
+
+                  <% end %>
+
+
+                  <% if @quizz.talker == "A"%>
+                    <div class="criterias-card " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.greatseniorliving.com/assets/img/social-well-being-pin-@1X.jpg)">
+                      <p>Je cherche un locataire très social</p>
+                    </div>
+
+                  <% elsif @quizz.talker == "C"  %>
+                    <div class="criterias-card " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.greatseniorliving.com/assets/img/social-well-being-pin-@1X.jpg)">
+                      <p>Je cherche un locatataire discret</p>
+                    </div>
+
+                  <% elsif @quizz.talker == "B"  %>
+                    <div class="criterias-card " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.greatseniorliving.com/assets/img/social-well-being-pin-@1X.jpg)">
+                      <p>Je cherche un locatataire avec qui avoir des discussions de temps en temps</p>
+                    </div>
+
+                  <% end %>
+
+              </div>
+              <div class="col-3">
+                  <% if @quizz.music == "A"%>
+                    <div class="criterias-card " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.squarespace-cdn.com/content/v1/563e6766e4b0a1f30148800e/1587314974757-0OXC4OAXEAVRAPHGIMO2/kelvin-lutan-r6dHVMLWw4M-unsplash.jpg?format=1500w)">
+                      <p>Je cherche un locataire qui n'écoute pas de musique</p>
+                    </div>
+
+                  <% elsif @quizz.music == "C"  %>
+                    <div class="criterias-card " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.squarespace-cdn.com/content/v1/563e6766e4b0a1f30148800e/1587314974757-0OXC4OAXEAVRAPHGIMO2/kelvin-lutan-r6dHVMLWw4M-unsplash.jpg?format=1500w)">
+                      <p>Je cherche un locatataire qui aime tout genres de musique</p>
+                    </div>
+
+
+                  <% elsif @quizz.music == "B"  %>
+                    <div class="criterias-card " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.squarespace-cdn.com/content/v1/563e6766e4b0a1f30148800e/1587314974757-0OXC4OAXEAVRAPHGIMO2/kelvin-lutan-r6dHVMLWw4M-unsplash.jpg?format=1500w)">
+                      <p>Je cherche un locatataire qui aime la musique classique et le jazz</p>
+                    </div>
+                  <% end %>
+                <div class="criterias-card " style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.solunea.fr/wp-content/uploads/2016/12/quizz-module-formation-elearning-770x608.jpg)">
+                  <%= link_to "Modifier mes critères", edit_quizz_path(@quizz), class: "btn btn-primary text-white"%>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
-      <div class="text-center">
-        <%= link_to "Je change mes critères", edit_quizz_path(@quizz), class: "btn quizz-btns"%>
-      </div>
+
     </div>
-
-
-
-
-
 </div>

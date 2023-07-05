@@ -1,63 +1,86 @@
+<div class="senior-dashboard-space">
 
-  <div class="focus-space">
-    <div class="invisible-div">
+    <div class="invisible-div mt-1 mb-0">
       <h1><%= @flat.title %>  </h1>
-      <p>Découvre le logement de <strong><%= @user.first_name %></strong> situé au <strong><%= @flat.address %></strong> à <strong><%= @flat.city%></strong></p>
+      <p>Découvre le logement de <strong><%= @flat_owner.first_name %></strong> situé au <strong><%= @flat.address %></strong> à <strong><%= @flat.city%></strong></p>
 
     </div>
-    <div class="dashboard-space mb-2">
-      <div class="row h-300">
-        <div class="col-7">
-          <div id="flatCarousel" class="carousel slide" data-bs-ride="carousel">
-            <div class="carousel-inner">
-              <% @flat.photos.each do |photo| %>
-              <div class="carousel-item active">
-                <%= cl_image_tag photo.key,  crop: :fill, :class => "d-block w-100 img-responsive center-block" %>
-              </div>
-              <div class="carousel-item">
-                <%= cl_image_tag photo.key,  crop: :fill, :class => "d-block w-100 img-responsive center-block" %>
-              </div>
-               <% end %>
-            </div>
-            <button class="carousel-control-prev" type="button" data-bs-target="#flatCarousel" data-bs-slide="prev">
-              <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Previous</span>
-            </button>
-            <button class="carousel-control-next" type="button" data-bs-target="#flatCarousel" data-bs-slide="next">
-              <span class="carousel-control-next-icon" aria-hidden="true"></span>
-              <span class="visually-hidden">Next</span>
-            </button>
-          </div>
+    <div class="d-flex justify-content-around m-0">
 
-        </div>
-        <div class="col-5">
-          <div class=""> <!-- css : height :  100px -->
-            <h2>Espace de réservation</h2>
-
-            <%= render "rentals/form", rental: @rental %>
-
-          </div>
-
-          <div class="mt-4"> <!-- css : height :  100px -->
-            <div class="mb-1">
-
-                <div class="dashboard-space mr-2"> <!-- css : height :  100px -->
-                    <h2>Equipements</h2>
-                    <% if @your_space.tv %>
-                      <i class="fa-solid fa-tv"></i>
-                    <% elsif @your_space.bathroom %>
-                      <i class="fa-solid fa-shower"></i>
-                    <% elsif @your_space.terrasse %>
-                      <%= image_tag "balcony-image.png", alt: "Terrasse", width: 20 %>
-                    <% elsif @your_space.wifi %>
-                      <i class="fa-solid fa-wifi"></i>
-                    <% elsif @your_space.toilet %>
-                      <i class="fa-solid fa-toilet"></i>
-                    <% end %>
+          <div class=" focus-space  col-6 p-1 mb-0">
+            <div id="flatCarousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <% @flat.photos.each do |photo| %>
+                <div class="carousel-item active">
+                  <%= cl_image_tag photo.key,  crop: :fill, :class => "d-block w-100 img-responsive center-block" %>
                 </div>
+                <div class="carousel-item">
+                  <%= cl_image_tag photo.key,  crop: :fill, :class => "d-block w-100 img-responsive center-block" %>
+                </div>
+                <% end %>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#flatCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#flatCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+
+          </div>
+          <div class=" col-5">
+            <div class=""> <!-- css : height :  100px -->
+
+              <%= render "rentals/form", rental: @rental %>
+
+            </div>
+
+            <div class="mt-3"> <!-- css : height :  100px -->
+              <div class="mb-1">
+
+                  <div class="dashboard-space mr-2 p-2 row justify-content-around"> <!-- css : height :  100px -->
+
+
+
+                        <div class="col-5">
+                          <% if @your_space.tv  %>
+                            <p class="m-2"><i class="fa-sharp fa-solid fa-square-check"></i>   Télévision </p>
+                          <% else %>
+                            <p class="m-2"><i class="fa-regular fa-square"></i> Télévision </p>
+                          <% end %>
+                          <% if @your_space.bathroom  %>
+                            <p class="m-2"><i class="fa-sharp fa-solid fa-square-check"></i>   Salle de bain </p>
+                          <% else %>
+                            <p class="m-2"><i class="fa-regular fa-square"></i> Salle de bain </p>
+                          <% end %>
+                          <% if @your_space.terrasse  %>
+                            <p class="m-2"><i class="fa-sharp fa-solid fa-square-check"></i>   Terrasse </p>
+                          <% else %>
+                            <p class="m-2"><i class="fa-regular fa-square"></i> Terrasse </p>
+                          <% end %>
+                        </div>
+                        <div class="col-5">
+                          <% if @your_space.wifi  %>
+                            <p class="m-2"><i class="fa-sharp fa-solid fa-square-check"></i>   Wifi </p>
+                          <% else %>
+                            <p class="m-2"><i class="fa-regular fa-square"></i> Wifi </p>
+                          <% end %>
+                          <% if @your_space.toilet  %>
+                            <p class="m-2"><i class="fa-sharp fa-solid fa-square-check"></i>   Toilettes privatives</p>
+                          <% else %>
+                            <p class="m-2"><i class="fa-regular fa-square"></i> Toilettes privatives </p>
+                          <% end %>
+                        </div>
+
+
+
+                  </div>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
+
     </div>
   </div>
+</div>
