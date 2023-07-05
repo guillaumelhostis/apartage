@@ -11,34 +11,24 @@
                   <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
                       <div class="menu-element">
                         <li>
-                           <%= link_to "Bureau", pages_senior_dashboard_path, class: "nav-link px-0 align-middle ms-1" %>
+                          <%= link_to "Candidatures", pages_senior_dashboard_path, class: "nav-link px-0 align-middle ms-1" %>
 
                         </li>
                       </div>
                       <div class="menu-element">
                         <li>
                             <a href="<%= edit_user_registration_path %>" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Editer profil</span></a>
+                                 <span class="ms-1 d-none d-sm-inline">Editer profil</span></a>
                         </li>
                       </div>
                       <div class="menu-element">
                         <li>
-                            <a href="#" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Logement</span></a>
+                           <%= link_to "Mon logement", pages_monlogement_path, class: "nav-link px-0 align-middle ms-1" %>
                         </li>
                       </div>
                       <div class="menu-element">
                         <li>
-                            <%= link_to "Candidats", pages_candidats_path, class: "nav-link px-0 align-middle ms-1" %>
-
-                        </li>
-                      </div>
-                      <div class="menu-element">
-                        <li>
-                            <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                                <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Critères</span> </a>
-
-
+                            <%= link_to "Vos critères", pages_your_criterias_path, class: "nav-link px-0 align-middle ms-1" %>
                         </li>
                       </div>
                       <div class="menu-element">

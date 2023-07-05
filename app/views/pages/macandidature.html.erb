@@ -7,28 +7,28 @@
         <% @odd_rentals = [] %>
         <% @even_rentals = [] %>
         <% @rentals.each_with_index do |rentals, index| %>
-          <% if index.odd? %>
-            <% @odd_rentals << rentals %>
-          <% else %>
+          <% if index.even? %>
             <% @even_rentals << rentals %>
+          <% else %>
+            <% @odd_rentals << rentals %>
           <% end %>
         <% end %>
         <div class="col-4">
-          <% @odd_rentals.each do |rental| %>
+          <% @even_rentals.each do |rental| %>
             <div class="card-candidat">
               <div class="see-more">
                 <%= link_to image_tag("play-btn.png"), flat_path(rental.flat_id) %>
               </div>
 
-                <% if rental.status = "pending" %>
+                <% if rental.status == "pending" %>
                 <div class="status-pending">
                   <span class="p-2">En attente</span>
                 </div>
-                <% elsif rental.status = "accepted" %>
+                <% elsif rental.status == "accepted" %>
                 <div class="status-accepted">
                   <span class="p-2">Acceptée</span>
                 </div>
-                <% elsif rental.status = "refused" %>
+                <% elsif rental.status == "refused" %>
                 <div class="status-refused">
                   <span class="p-2">Refusée</span>
                 </div>
@@ -53,20 +53,20 @@
 
         </div>
         <div class="col-4">
-          <% @even_rentals.each do |rental| %>
+          <% @odd_rentals.each do |rental| %>
             <div class="card-candidat">
               <div class="see-more">
                 <%= link_to image_tag("play-btn.png"), flat_path(rental.flat_id) %>
               </div>
-                <% if rental.status = "pending" %>
+                <% if rental.status == "pending" %>
                 <div class="status-pending">
                   <span class="p-2">En attente</span>
                 </div>
-                <% elsif rental.status = "accepted" %>
+                <% elsif rental.status == "accepted" %>
                 <div class="status-accepted">
                   <span class="p-2">Acceptée</span>
                 </div>
-                <% elsif rental.status = "refused" %>
+                <% elsif rental.status == "refused" %>
                 <div class="status-refused">
                   <span class="p-2">Refusée</span>
                 </div>

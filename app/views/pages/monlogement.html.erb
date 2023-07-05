@@ -1,0 +1,73 @@
+<div class="senior-dashboard-space">
+  <div class="text-center mt-4"><h1>Mon logement</h1></div>
+      <div class="invisible-div mb-2 mt-1 p-3 ms-3 d-flex justify-content-around">
+
+
+        <div class="col-6">
+          <h2><%= @flat.title %></h2>
+          <p><%= @flat.address %> - <strong><%= @flat.city %></strong></p>
+          <div class="flat-card">
+            <div id="flatCarousel" class="carousel slide" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <% @flat.photos.each do |photo| %>
+                <div class="carousel-item active">
+                  <%= cl_image_tag photo.key,  crop: :fill, :class => "d-block w-100 img-responsive center-block" %>
+                </div>
+                <div class="carousel-item">
+                  <%= cl_image_tag photo.key,  crop: :fill, :class => "d-block w-100 img-responsive center-block" %>
+                </div>
+                <% end %>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#flatCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#flatCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+
+          </div>
+        </div>
+        <div class="col-5">
+          <div class="invisible-div mt-4">
+          </div>
+          <div class="invisible-div p-0 mb-3">
+            <%= link_to "Modifier mon logement", edit_flat_path(@flat), class: "btn btn-primary text-white"%>
+          </div>
+          <div class="focus-space">
+            <ul class="list-unstyled">
+              <% if @yourspace.tv  %>
+                <li class="m-2"><i class="fa-sharp fa-solid fa-square-check"></i>   Télévision </li>
+              <% else %>
+                <li class="m-2"><i class="fa-regular fa-square"></i> Télévision </li>
+              <% end %>
+              <% if @yourspace.bathroom  %>
+                <li class="m-2"><i class="fa-sharp fa-solid fa-square-check"></i>   Salle de bain </li>
+              <% else %>
+                <li class="m-2"><i class="fa-regular fa-square"></i> Salle de bain </li>
+              <% end %>
+              <% if @yourspace.terrasse  %>
+                <li class="m-2"><i class="fa-sharp fa-solid fa-square-check"></i>   Terrasse </li>
+              <% else %>
+                <li class="m-2"><i class="fa-regular fa-square"></i> Terrasse </li>
+              <% end %>
+              <% if @yourspace.wifi  %>
+                <li class="m-2"><i class="fa-sharp fa-solid fa-square-check"></i>   Wifi </li>
+              <% else %>
+                <li class="m-2"><i class="fa-regular fa-square"></i> Wifi </li>
+              <% end %>
+              <% if @yourspace.toilet  %>
+                <li class="m-2"><i class="fa-sharp fa-solid fa-square-check"></i>   Toilettes privatives</li>
+              <% else %>
+                <li class="m-2"><i class="fa-regular fa-square"></i> Toilettes privatives </li>
+              <% end %>
+
+
+            </ul>
+
+          </div>
+        </div>
+      </div>
+</div>
