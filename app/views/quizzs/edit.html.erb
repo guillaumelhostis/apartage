@@ -8,11 +8,11 @@
 
         <div class="focus-space" data-controller="quizz-wizzard">
               <%= simple_form_for(@quizz) do |f| %>
-              <% if current_user.role == "junior" %>
-                <%= render "junior-form", f: f %>
-              <% else  %>
-                <%= render "senior-form", f: f %>
-                  <% end %>
+                <% if current_user.role == "junior" %>
+                  <%= render "junior-form", f: f %>
+                <% else  %>
+                  <%= render "senior-form", f: f %>
+                <% end %>
               <% end %>
         </div>
       <%# This is the end of the quizz %>
