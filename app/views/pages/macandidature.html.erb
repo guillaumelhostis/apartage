@@ -7,14 +7,14 @@
         <% @odd_rentals = [] %>
         <% @even_rentals = [] %>
         <% @rentals.each_with_index do |rentals, index| %>
-          <% if index.odd? %>
-            <% @odd_rentals << rentals %>
-          <% else %>
+          <% if index.even? %>
             <% @even_rentals << rentals %>
+          <% else %>
+            <% @odd_rentals << rentals %>
           <% end %>
         <% end %>
         <div class="col-4">
-          <% @odd_rentals.each do |rental| %>
+          <% @even_rentals.each do |rental| %>
             <div class="card-candidat">
               <div class="see-more">
                 <%= link_to image_tag("play-btn.png"), flat_path(rental.flat_id) %>
@@ -53,7 +53,7 @@
 
         </div>
         <div class="col-4">
-          <% @even_rentals.each do |rental| %>
+          <% @odd_rentals.each do |rental| %>
             <div class="card-candidat">
               <div class="see-more">
                 <%= link_to image_tag("play-btn.png"), flat_path(rental.flat_id) %>

@@ -110,11 +110,10 @@ class PagesController < ApplicationController
     @matching = compatibily(Quizz.find_by(user_id: @junior.id), Quizz.find_by(user_id: current_user.id))
   end
 
-  def candidats
-    @flat = Flat.find_by(user_id: current_user.id)
-    @rentals = Rental.where(flat_id: @flat.id)
+  def monlogement
     @user = current_user
-
+    @flat = Flat.find_by(user_id: current_user.id)
+    @yourspace = YourSpace.find_by(flat_id: @flat.id)
   end
 
   def macandidature
