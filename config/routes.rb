@@ -11,6 +11,7 @@ Rails.application.routes.draw do
 
   get 'pages/accept_rental', to: 'pages#accept_rental'
   get 'pages/refuse_rental', to: 'pages#refuse_rental'
+  get 'pages/pending_rental', to: 'pages#pending_rental'
 
   resources :flats do
     resources :your_spaces, only: [:new, :create]

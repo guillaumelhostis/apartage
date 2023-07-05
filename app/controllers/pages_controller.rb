@@ -32,6 +32,13 @@ class PagesController < ApplicationController
     redirect_to pages_senior_dashboard_path
   end
 
+  def pending_rental
+    @rental = Rental.find(params[:format].to_i)
+    @rental.status = "pending"
+    @rental.save
+    redirect_to pages_senior_dashboard_path
+  end
+
   def senior_dashboard
     @user = current_user
     @quizz = Quizz.find_by(user_id: current_user.id)
