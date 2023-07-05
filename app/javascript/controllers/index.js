@@ -4,6 +4,9 @@
 
 import { application } from "./application"
 
+import AddressAutocompleteController from "./address_autocomplete_controller"
+application.register("address-autocomplete", AddressAutocompleteController)
+
 import ChatroomSubscriptionController from "./chatroom_subscription_controller"
 application.register("chatroom-subscription", ChatroomSubscriptionController)
 
@@ -19,13 +22,8 @@ application.register("junior-dashboard", JuniorDashboardController)
 import MapController from "./map_controller"
 application.register("map", MapController)
 
-import QuizzWizzardController from "./quizz_wizzard_controller"
-application.register("quizz-wizzard", QuizzWizzardController)
-
-
-import ChatroomSubscriptionController from "./chatroom_subscription_controller.js"
-application.register("chatroom-subscription", ChatroomSubscriptionController)
-
 import QuizzFormController from "./quizz_form_controller"
 application.register("quizz-form", QuizzFormController)
 
+import QuizzWizzardController from "./quizz_wizzard_controller"
+application.register("quizz-wizzard", QuizzWizzardController)
