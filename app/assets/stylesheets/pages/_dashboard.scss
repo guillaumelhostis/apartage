@@ -149,23 +149,32 @@
 }
 
 
-.img-card-marker {
-  position: relative;
 
+// .img-card-marker {
+//   position: relative;
+//   display: flex;
+
+// }
+
+// .img-card-marker h4 {
+//   margin:0px;
+// }
+
+.card-marker {
+  width: 200px;
+  height: 150px;
+  background-position: center;
+  background-size: cover;
+  display: flex;
+  align-items: center;
 }
 
-.img-card-marker h4 {
-  margin:0px;
-}
-
-.info-card-marker {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 55px;
-
-
-}
+// .info-card-marker {
+//   position: absolute;
+//   left: 0;
+//   right: 0;
+//   margin:0 auto;
+// }
 
 .info-card-marker  a {
   text-shadow: 1px 1px 4px rgba(0,0,0,0.3);
@@ -200,4 +209,11 @@
 .criterias-card p {
   margin:0px;
 
+}
+
+.no-validation {
+  outline:none !important;
+  background-color: none !important;
+  color: none !important;
+  box-shadow: none !important;
 }
