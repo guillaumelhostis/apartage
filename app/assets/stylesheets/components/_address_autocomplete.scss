@@ -1,0 +1,21 @@
+.mapboxgl-ctrl-geocoder {
+  max-width: none;
+  width: 100%;
+  // border: 1px solid lightgrey;
+  box-shadow: none;
+  background-color: transparent;
+}
+
+.mapboxgl-ctrl-geocoder input {
+  width: 95%;
+}
+
+// .mapboxgl-ctrl-geocoder button {
+//   width: 18px;
+//   height: 18px;
+// }
+
+.mapboxgl-ctrl-geocoder icon-close {
+  width: 10px;
+  height: 10px;
+}
