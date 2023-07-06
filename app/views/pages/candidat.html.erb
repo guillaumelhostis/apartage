@@ -31,7 +31,7 @@
 
        <div class="dashboard-space mb-2">
         <h1>Chat avec <%= @junior.first_name %></h1>
-        <p>Chat room</p>
+  <%= link_to "Accéder à la chatroom", chatroom_path(@rental.chatroom) %>
       </div>
     </div>
     <div class="col-5 mt-4">

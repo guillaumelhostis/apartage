@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   get 'pages/refuse_rental', to: 'pages#refuse_rental'
   get 'pages/pending_rental', to: 'pages#pending_rental'
 
+
   resources :flats do
     resources :your_spaces, only: [:new, :create]
     resources :rentals, only: [:new, :create]
@@ -22,6 +23,7 @@ Rails.application.routes.draw do
   resources :chatrooms, only: :show do
     resources :messages, only: :create
   end
+
   resources :quizzs
   get 'pages/compatibily', to: 'pages#compatibily'
   get 'pages/senior_dashboard', to: 'pages#senior_dashboard'
