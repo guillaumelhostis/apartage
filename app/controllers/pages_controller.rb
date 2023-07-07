@@ -145,7 +145,9 @@ class PagesController < ApplicationController
     @user = current_user
     @flat = Flat.find(@rental.flat_id)
     @senior = User.find(@flat.user_id)
+
     @junior_quizz = Quizz.find_by(user_id: current_user.id)
+    @quizz_file = @junior_quizz.file if @junior_quizz.present?
     @senior_quizz = Quizz.find_by(user_id: @senior.id)
     @matching = compatibily(@junior_quizz, @senior_quizz)
     @chatroom = Chatroom.find(@rental.chatroom.id)

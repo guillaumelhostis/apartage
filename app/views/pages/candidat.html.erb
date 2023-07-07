@@ -1,8 +1,21 @@
 <div class="senior-dashboard-space">
   <div class="container-xxl d-flex justify-content-around">
-    <div class="col-6 mt-4">
+    <div class="col-6 mt-5">
+      <div class="mb-2">
+        <% if @quizz_file.present? %>
+        <h2><strong><%= @junior.first_name %></strong> se présente en video:</h2>
+        <div  class="row">
+          <div class="col-9">
+            <td><video src="<%= url_for(@quizz_file) %>" height="100%" width="100%" padding="0" class="video-container-dashboard"  controls></video></td>
+          </div>
+        </div>
+        <% else %>
 
-      <div class="card-candidat mt-2">
+
+        <% end %>
+
+      </div>
+      <div class="card-candidat mt-4">
 
         <% if @rental.status == "pending" %>
           <div class="status-pending">
@@ -23,23 +36,19 @@
           <img src="https://img.freepik.com/photos-gratuite/portrait-etudiante-afro-americaine-heureuse-tenant-cahiers-sac-dos-souriant-debout-fond-jaune_1258-54844.jpg" />
         <% end %>
         <div class="card-candidat-infos">
-          <h2><%= @junior.first_name %></h2>
-          <p>Ce candidat est à <strong><%= @matching %></strong> compatible avec vos critères</p>
+          <p class="text-end mb-2"><strong>Acceptez vous la demande de <%= @junior.first_name %>?</strong></p>
+          <div class="card-candidat-infos-status">
+            <%= link_to "Accepter", pages_accept_rental_path(@rental), class: 'btn btn-primary text-white'  %>
+            <%= link_to "Refuser", pages_refuse_rental_path(@rental), class: 'btn btn-primary text-white' %>
+            <%= link_to "En attente", pages_pending_rental_path(@rental), class: 'btn btn-primary text-white' %>
+          </div>
         </div>
       </div>
-      <div class="dashboard-space mb-2">
-        <h3>Video de présentation de <%= @junior.first_name %> </h3>
-      </div>
-      <div class="dashboard-space mb-2 text-center">
-        <h3>Vous aimez le profil de <%= @junior.first_name %>?</h3>
-          <%= link_to "Accepter", pages_accept_rental_path(@rental), class: 'btn btn-primary text-white'  %>
-          <%= link_to "Refuser", pages_refuse_rental_path(@rental), class: 'btn btn-danger text-white' %>
-          <%= link_to "En attente", pages_pending_rental_path(@rental), class: 'btn btn-warning text-white' %>
-      </div>
+
 
 
     </div>
-    <div class="col-5 mt-4">
+    <div class="col-5 mt-5">
 
 
           <%= render "chatrooms/show", chatroom: @chatroom%>

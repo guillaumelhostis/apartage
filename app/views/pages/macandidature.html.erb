@@ -26,8 +26,25 @@
         </div>
       </div>
 
-      <div class="dashboard-space mb-2">
-        <h3>Enregistrez une video de présentation</h3>
+      <div class="dashboard-space mb-2 p-4 row">
+        <% if @quizz_file.present? %>
+          <h3 class="mb-3">Votre video de présentation:</h3>
+          <div class="d-flex justify-content-around row">
+            <div class="p-0 col-9">
+              <td><video src="<%= url_for(@quizz_file) %>" height="100%" width="100%" class="video-container-dashboard"  controls></video></td>
+            </div>
+            <div class="col-2 align-self-center ms-3">
+              <%= link_to "Changer ma video", edit_quizz_path(@junior_quizz), class: "btn btn-primary text-white"%>
+            </div>
+
+          </div>
+
+        <% else %>
+        <h3 class="mb-3">Enregistrez une video de présentation</h3>
+        <div class="text-center">
+          <%= link_to "Enregistrer ma video", edit_quizz_path(@junior_quizz), class: "btn btn-primary text-white"%>
+        </div>
+        <% end %>
       </div>
 
 
