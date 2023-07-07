@@ -22,9 +22,5 @@ application.register("map", MapController)
 import QuizzWizzardController from "./quizz_wizzard_controller"
 application.register("quizz-wizzard", QuizzWizzardController)
 
-
-// import ChatroomSubscriptionController from "./chatroom_subscription_controller.js"
-// application.register("chatroom-subscription", ChatroomSubscriptionController)
-
 import QuizzFormController from "./quizz_form_controller"
 application.register("quizz-form", QuizzFormController)
