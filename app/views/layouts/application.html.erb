@@ -23,6 +23,7 @@
     <%= render "shared/senior_dashboard_navbar"  if action_name == "monlogement"  %>
     <%= render "shared/junior_dashboard_navbar"  if (action_name == "show" && controller_name == "flats") %>
     <%= render "shared/senior_dashboard_navbar"  if action_name == "your_criterias"  %>
+    <%= render "shared/junior_dashboard_navbar"  if action_name == "mescandidature"  %>
     <%= render "shared/junior_dashboard_navbar"  if action_name == "macandidature"  %>
     <%= render "shared/junior_dashboard_navbar"  if action_name == "junior_dashboard"  %>
     <%= render "shared/flashes" %>

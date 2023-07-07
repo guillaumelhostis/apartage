@@ -2,7 +2,7 @@
   <div class="container-xxl d-flex justify-content-around">
     <div class="col-6 mt-4">
 
-      <div class="card-candidat">
+      <div class="card-candidat mt-2">
 
         <% if @rental.status == "pending" %>
           <div class="status-pending">
@@ -24,20 +24,11 @@
         <% end %>
         <div class="card-candidat-infos">
           <h2><%= @junior.first_name %></h2>
-          <p>Ce candidat est à <strong><%= @matching %></strong>compatible avec vos critères</p>
+          <p>Ce candidat est à <strong><%= @matching %></strong> compatible avec vos critères</p>
         </div>
       </div>
-
-
-       <div class="dashboard-space mb-2">
-        <h1>Chat avec <%= @junior.first_name %></h1>
-  <%= link_to "Accéder à la chatroom", chatroom_path(@rental.chatroom) %>
-      </div>
-    </div>
-    <div class="col-5 mt-4">
       <div class="dashboard-space mb-2">
-      <h3>Video de présentation de <%= @junior.first_name %> </h3>
-
+        <h3>Video de présentation de <%= @junior.first_name %> </h3>
       </div>
       <div class="dashboard-space mb-2 text-center">
         <h3>Vous aimez le profil de <%= @junior.first_name %>?</h3>
@@ -45,6 +36,16 @@
           <%= link_to "Refuser", pages_refuse_rental_path(@rental), class: 'btn btn-danger text-white' %>
           <%= link_to "En attente", pages_pending_rental_path(@rental), class: 'btn btn-warning text-white' %>
       </div>
+
+
+    </div>
+    <div class="col-5 mt-4">
+
+
+          <%= render "chatrooms/show", chatroom: @chatroom%>
+
+
+
     </div>
   </div>
 </div>

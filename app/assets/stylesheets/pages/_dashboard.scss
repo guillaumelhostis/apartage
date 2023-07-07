@@ -52,12 +52,19 @@
   margin-top: 8px;
 }
 
+.card-candidat-infos:hover {
+  // opacity: 0.2;
+  transition: 0.5s;
+}
+
 .card-candidat .card-candidat-infos {
+
   padding: 16px;
+
 }
 
 .card-candidat:hover {
- opacity: 0.5;
+ opacity: 0.8;
  transition: 0.5s;
 }
 

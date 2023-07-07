@@ -7,20 +7,19 @@ puts "cleaning DB...."
 # Rental.delete_all
 # Your_space.delete_all
 
-
 urls = [
   "https://res.cloudinary.com/dtpxg9mp5/image/upload/v1687722525/development/c5pbzfabvrvjgvggv9l2z6qgwxp8.jpg",
   "https://res.cloudinary.com/dtpxg9mp5/image/upload/v1687722523/development/cy3md27sms1ezsktescyeff907fo.jpg"
 ]
 
-
+Message.destroy_all
+Chatroom.destroy_all
 YourSpace.destroy_all
 Quizz.destroy_all
 Flat.destroy_all
 User.destroy_all
 
 puts "creating 10 seniors...."
-
 
 paul = User.create(
   first_name: "Paul",
