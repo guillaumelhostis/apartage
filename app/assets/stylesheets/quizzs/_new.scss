@@ -169,9 +169,25 @@
 
 }
 
+#video-container {
+  // height: 100%;
+  position: relative;
+  border: 1px solid rgba(126, 115, 255, 0.9);
+  border-radius: 12px;
+  width: 100%;
+}
+
+.video-container-dashboard {
+  // height: 100%;
+  position: relative;
+  border: 1px solid rgba(126, 115, 255, 0.9);
+  border-radius: 12px;
+  width: 100%;
+}
+
 .rec{
   position: absolute;
-  top: -5px;
-  width: 60px !important;
-  left: 10px;
+  top: 100px;
+  width: 40px !important;
+  left: 90px;
 }

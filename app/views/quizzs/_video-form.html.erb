@@ -1,0 +1,25 @@
+<div data-controller="quizz-form">
+  <div class="d-flex justify-content-around">
+    <div class="form-group col-5">
+      <label class="title-label">Enregistres ta vidéo directement via notre site:</label>
+      <video style="display: block;" id="video-container"  autoplay muted data-quizz-form-target="video"></video>
+      <div data-quizz-form-target="rec" class="d-none">
+        <%= image_tag "rec.png", class: "rec" %>
+      </div>
+
+      <div class="mt-3">
+        <button data-action="quizz-form#startRecording" class="btn btn-primary text-white me-3">Démarrer</button>
+        <button data-action="quizz-form#stopRecording" class="btn btn-primary text-white">Stop</button>
+      </div>
+    </div>
+    <div class="form-group col-6 ms-5">
+      <label class="title-label">J'upload une video de mon ordinateur:</label>
+      <%= f.file_field :file, id: "video-upload", data: {quizz_form_target: "fileInput"} %>
+      <div class="mt-3">
+        <%= f.submit 'Je créer ma video', class: "btn btn-primary text-white p-3"%>
+      </div>
+       <%= link_to "Retour", pages_mescandidature_path, class: "btn btn-success mt-3" %>
+    </div>
+  </div>
+
+</div>

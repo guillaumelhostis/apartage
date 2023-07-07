@@ -27,6 +27,7 @@
   box-shadow: 0 0 3px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin: 30px 0px;
   position: relative;
   transition: 0.5s;
@@ -62,6 +63,8 @@
   padding: 16px;
 
 }
+
+
 
 .card-candidat:hover {
  opacity: 0.8;
@@ -223,4 +226,8 @@
   background-color: none !important;
   color: none !important;
   box-shadow: none !important;
+}
+
+.senior-video-slot {
+
 }
