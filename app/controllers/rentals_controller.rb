@@ -17,7 +17,7 @@ class RentalsController < ApplicationController
     authorize @rental
 
     @rental.save
-    redirect_to pages_macandidature_path
+    redirect_to pages_mescandidature_path
   end
 
   def show

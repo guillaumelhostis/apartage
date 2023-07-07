@@ -115,6 +115,9 @@ class PagesController < ApplicationController
     @quizz = Quizz.find_by(user_id: @junior.id)
     @quizz_file = @quizz.file if @quizz.present?
     @matching = compatibily(Quizz.find_by(user_id: @junior.id), Quizz.find_by(user_id: current_user.id))
+    @chatroom = Chatroom.find(@rental.chatroom.id)
+    @chatroom.name = "Ecrire à #{@junior.first_name}"
+    @message = Message.new
   end
 
   def monlogement
@@ -123,7 +126,7 @@ class PagesController < ApplicationController
     @yourspace = YourSpace.find_by(flat_id: @flat.id)
   end
 
-  def macandidature
+  def mescandidature
     @user = current_user
     @rentals = Rental.where(user_id: current_user.id)
     @quizz = Quizz.find_by(user_id: current_user.id)
@@ -135,6 +138,20 @@ class PagesController < ApplicationController
     @rentals.each_with_index do |rental, index|
       @matching << { id: Flat.find(rental.flat_id).id, match: compatibily(@quizz, @seniors_quizz[index]), user_id: Flat.find(rental.flat_id).user_id }
     end
+  end
+
+  def macandidature
+    @rental = Rental.find(params[:format])
+    @user = current_user
+    @flat = Flat.find(@rental.flat_id)
+    @senior = User.find(@flat.user_id)
+    @junior_quizz = Quizz.find_by(user_id: current_user.id)
+    @senior_quizz = Quizz.find_by(user_id: @senior.id)
+    @matching = compatibily(@junior_quizz, @senior_quizz)
+    @chatroom = Chatroom.find(@rental.chatroom.id)
+    @chatroom.name = "Ecrire à #{@senior.first_name}"
+    @message = Message.new
+
   end
 
   private
