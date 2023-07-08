@@ -71,7 +71,7 @@ export default class extends Controller {
     });
     this.videoTarget.pause();
     this.mediaRecorder.stop();
-    this.mediaStream.stop();
+    // this.mediaStream.stop();
     this.recTarget.classList.add('d-none')
   }
 }
