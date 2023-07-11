@@ -7,11 +7,20 @@
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
 
+
+
 .invisible-div {
 
   border-radius: 7px;
   padding: 30px;
 
+}
+
+.invisible-div-white {
+ width: 100%;
+ padding: 30px;
+ background-color: white;
+ margin-bottom: 20px;
 }
 
 .focus-space img {
@@ -121,11 +130,12 @@
 }
 
 .home-space {
-  margin-left: 50px;
+  margin-left: 42px;
 }
 
 .slogan-home {
   margin-top: 60px;
+  margin-bottom: 60px;
 }
 
 .slogan-home h2 {
@@ -147,7 +157,7 @@
   width: 80px;
   position: absolute;
   top: -7px;
-  right: 49px;
+  right: 25px;
 }
 
 .top-left-bar {
@@ -166,32 +176,51 @@
 
 
 .map-home-space {
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  width: auto;
 
-  width: 450px;
-  margin-top: 10px;
-  border-radius: 7px;
-  border: 8px solid rgba(205, 240, 234, 0.4);
+
+  // border: 8px solid rgba(205, 240, 234, 0.4);
 }
 
 .slogan-home {
   text-shadow: 2px 2px 7px rgba(0, 0, 0, 0.2);
 }
 
+.stats-home {
+  margin-top: 40px;
+}
+
 .text-apartage-home {
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
 .junior-home-space {
-  border-radius: 7px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
   padding: 20px;
   background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url(https://content.gallup.com/origin/gallupinc/GallupSpaces/Production/Cms/EDUCMS/tz7n-7vqceaq86dprdnzag.jpg);
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
   background-size: cover;
   background-position: center;
 
-  width: 325px;
-  height: 300px;
+  width: auto;
+  height: 150px;
 }
+
+.homepage-card {
+  background-color: #F9F9F9;
+  border-radius: 7px;
+  width: 325px;
+  height: auto;
+
+
+
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+}
+
+
 
 .junior-home-space p{
 
@@ -201,15 +230,16 @@
 
 .senior-home-space {
 
-  border-radius: 7px;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
   padding: 20px;
   background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url(https://www.astongardens.com/wp-content/uploads/2022/12/senior-couple-hugging-in-a-nursing-home.jpg);
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
   background-size: cover;
   background-position: center;
 
-  width: 325px;
-  height: 300px;
+  width: auto;
+  height: 150px;
 }
 
 .senior-home-space p {
@@ -220,18 +250,44 @@
 
 .home-space-content{
 
-  margin-top: 100px;
+  margin-top: 14px;
+
+}
+
+.stats-home p {
+  font-size: 15px;
+}
+
+.stats-home  {
+  margin-top: 15px;
+}
+
+
+.homecard-description {
+  padding: 15px;
+  display: flex;
+
+}
+
+.homecard-description  p {
+  font-size: 11px;
+  color: dimgrey;
+  margin: 0px;
+  align-items: center;
+  justify-content: center;
+  text-align: justify;
+
 
 }
 
 .body-homepage {
-  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url(https://colococo.fr/wp-content/uploads/2019/07/IMG_20190722_095749.jpg);
+  background-image: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), url(https://st.hzcdn.com/simgs/pictures/salons/fenetres-gris-graphite-pour-une-renovation-de-charme-la-fenetre-francaise-par-atulam-img~59a1af7d0c52f8ef_14-8624-1-efdc1b3.jpg);
   background-size: cover;
-  background-position: center;
+  background-position: bottom;
   padding-top: 30px;
   padding-bottom: 100px;
   position: relative;
-  opacity: 0.6;
+  opacity: 1;
   width: 100%;
   height: 170px;
 
@@ -256,12 +312,13 @@
 .homespace-login a {
 
   text-decoration: none !important;
+  color: white;
 
 }
 
 .homespace-login a:visited {
 
- color:white;
+ color:white !important;
 }
 
 .homespace-login a:hover {

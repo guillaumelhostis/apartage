@@ -71,6 +71,19 @@
  transition: 0.5s;
 }
 
+.card-candidat:hover h2  {
+  opacity: 0.4;
+  transition: 0.5s;
+  filter: blur(1px);
+ }
+
+ .card-candidat:hover p  {
+  opacity: 0.4;
+  transition: 0.5s;
+  filter: blur(1px);
+ }
+
+
 
 .see-more {
   position: absolute;
@@ -200,7 +213,7 @@
 .criterias-card {
   background-size: cover;
   background-position: center;
-  height: 170px;
+  height: 140px;
   width: 200px;
   display: flex;
   justify-content: center;
@@ -212,7 +225,7 @@
   border-radius: 5px;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   padding:20px;
-  margin:15px;
+  margin: 20px auto;
 
 
 }
@@ -228,6 +241,31 @@
   box-shadow: none !important;
 }
 
-.senior-video-slot {
+
+
+.explication-seniors p {
+
+  margin: 0;
+  // text-indent: 2rem;
+  text-align: justify;
+}
+
+
+.image-seniordash{
+  background-size: cover;
+  background-position: center;
+  height: 190px;
+  width: 400px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 19px;
+  text-align: justify;
+  padding: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.4);
+  border-radius: 10px;
+  box-shadow: 0 0 7px rgba(0,0,0,0.1);
 
 }

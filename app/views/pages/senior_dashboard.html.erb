@@ -4,8 +4,31 @@
 
       <% if @rentals != [nil] %>
         <% if @rentals.count == 0 %>
-          <div class="col-6 text-center">
-            <h3>Vous n'avez pas de candidatures</h3>
+
+          <div class="row d-flex justify-content-around mt-4">
+            <div class="col-6 explication-seniors">
+              <div class="focus-space">
+
+                <h3>Comment ça marche? 💡</h3>
+
+                  <p>Nos candidats juniors remplissent comme vous un questionnaire lors de leur inscription sur notre site. Notre algorithme compare ensuite leurs réponses aux votres. Ainsi LinkAge vous facilite votre selection et ne vous proposera que des profils à <strong>70% minimum</strong> compatible avec vos besoins.</p>
+                <h3 class="mt-4">Votre espace personnel </h3>
+
+                <p>Lors de votre prochaine connection votre accéderez directement à votre espace personnel. Vos demandes de candidatures apparaisseront <strong>sur cette même page</strong>. Vous avez la possiblité de repasser votre questionnaire si vous avez changé d’avis via la fenêtre <strong>"Vos critères"</strong>, et de modifier les informations relative à votre logement via la fenêtre <strong>"Mon logement"</strong>.</p>
+
+              </div>
+            </div>
+            <div class="col-5">
+              <div class="">
+                <div class="image-seniordash" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.campusbound.com/wp-content/uploads/2023/02/2-2.jpg)">
+                  Sara, 21 ans a trouvé un logement chez Jean pour suivre ses études de droit à Lyon
+                </div>
+                <div class="image-seniordash mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.mutualia.fr/sites/default/files/uploads/RTEmagicC_AdobeStock_83229260.jpeg)">
+                  Marie et Gabriel, donnent un coup de pouce à un étudiant depuis que leurs enfants ont quitté la maison
+                </div>
+              </div>
+
+            </div>
           </div>
         <% else %>
           <% @odd_rentals = [] %>

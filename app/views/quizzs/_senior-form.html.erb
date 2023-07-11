@@ -8,7 +8,9 @@
 
   <div class="class radio-button-wrapper">
     <label class="title-label">Pour quelles raisons cherchez-vous un locataire ?</label>
+    <div class="quizz-questions">
     <%= f.input :motivation, legend_tag: false, as: :string, as: :radio_buttons, collection: [["J'ai besoin d'un complément de revenu","A"],["Je serai heureux d'avoir de la compagnie et la présence de quelqu'un me rassure.","B"],["Je n'aime pas du tout être seul","C"],["J'ai besoin d'aide au quotidien (faire le ménage, les courses..)","D"]] %>
+    </div>
   </div>
 
   <div class="text-center">
@@ -24,7 +26,9 @@
     </div>
     <div class="class radio-button-wrapper">
      <label class="title-label">Préférez-vous que le locataire soit :</label>
+    <div class="quizz-questions">
     <%= f.input :gender, legend_tag: false, as: :radio_buttons, collection: [['Un homme','A'], ['Une femme','B'], ["Aucune importance, du moment que l'on s'entend bien",'C']]%>
+    </div>
     </div>
       <div class="d-flex justify-content-center">
         <div class="text-center" data-quizz-wizzard-target="previous">
@@ -44,7 +48,9 @@
     </div>
     <div class="class radio-button-wrapper">
     <label class="title-label">Y a-t-il des animaux présents dans votre logement?</label>
+    <div class="quizz-questions">
     <%= f.input :animal, legend_tag: false, as: :radio_buttons, collection: [["Oui, car j'aime les animaux",'D'], ['Non aucun animal chez moi','E']]%>
+    </div>
     </div>
     <div class="d-flex justify-content-center">
         <div class="text-center" data-quizz-wizzard-target="previous">
@@ -64,7 +70,9 @@
     </div>
     <div class="class radio-button-wrapper">
     <label class="title-label">Acceptez-vous que votre locataire vienne avec un animal ?</label>
+    <div class="quizz-questions">
     <%= f.input :guest_animal, legend_tag: false, as: :radio_buttons, collection: [["Oui, car j'aime les animaux",'D'], ['Non cela ne sera pas possible','E']]%>
+    </div>
     </div>
     <div class="d-flex justify-content-center">
         <div class="text-center" data-quizz-wizzard-target="previous">
@@ -84,7 +92,9 @@
   </div>
   <div class="class radio-button-wrapper">
   <label class="title-label">Etes-vous fumeur ? ?</label>
+  <div class="quizz-questions">
   <%= f.input :smoker, legend_tag: false, as: :radio_buttons, collection: [["Oui",'D'], ['Non','E']]%>
+  </div>
   </div>
   <div class="d-flex justify-content-center">
       <div class="text-center" data-quizz-wizzard-target="previous">
@@ -103,7 +113,9 @@
   </div>
   <div class="class radio-button-wrapper">
   <label class="title-label">Acceptez-vous que votre locataire fume chez vous ?</label>
+  <div class="quizz-questions">
   <%= f.input :junior_smoker,legend_tag: false, as: :radio_buttons, collection: [["Oui, sans problème",'D'], ['Non cela me dérange','E']]%>
+  </div>
   </div>
   <div class="d-flex justify-content-center">
       <div class="text-center" data-quizz-wizzard-target="previous">
@@ -122,7 +134,9 @@
     </div>
     <div class="class radio-button-wrapper">
     <label class="title-label">Acceptez-vous que votre locataire fasse venir des invités ?</label>
+    <div class="quizz-questions">
     <%= f.input :guest, legend_tag: false, as: :radio_buttons, collection: [["Bien sur ! j'aime avoir du monde à la maison !",'A'], ["Oui à condition qu'ils me les présente et que je donne mon accord",'B'], ["Oui à condition qu'ils restent dans la chambre.",'C'],["Non, je ne souhaite pas qu'il invite des étrangers chez moi",'D']]%>
+    </div>
     </div>
     <div class="d-flex justify-content-center">
         <div class="text-center" data-quizz-wizzard-target="previous">
@@ -140,7 +154,9 @@
     </div>
     <div class="class radio-button-wrapper">
     <label class="title-label">Comment définissez vous votre rapport aux autres??</label>
+    <div class="quizz-questions">
     <%= f.input :talker, legend_tag: false, as: :radio_buttons, collection: [["J'adore parler de tout, tout le temps !",'A'], ["Je suis peu loquace, sauf autour d'un petit café",'B'], ["Je suis plutôt introverti",'C']]%>
+    </div>
     </div>
 
     <div class="d-flex justify-content-center">
@@ -160,7 +176,9 @@
     </div>
     <div class="class radio-button-wrapper">
     <label class="title-label">Quels sont vos goûts musicaux ?</label>
+    <div class="quizz-questions">
     <%= f.input :music, legend_tag: false, as: :radio_buttons, collection: [["Je suis sourd comme un pot donc toutes les musiques me conviennent",'A'], ["Je suis selectif, plutot du jazz ou du classique.",'B'], ["La musique c'est la vie : j'en écoute en permanence et de toute sorte.",'C']]%>
+    </div>
     </div>
 
     <div class="d-flex justify-content-center">
@@ -179,8 +197,10 @@
       <div class="progress-bar bg-success" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100" ></div>
       <span class="progress-percentage">100%</span>
     </div>
-    <h3>Merci!</h3>
+    <h2>Merci 🎉</h2>
+    <div class="quizz-questions">
     <h3>Validez vos réponses pour découvrir les locataires correspondant à vos critères.</h3>
+    </div>
     <%= f.submit 'Valider mes réponses', class: "btn btn-primary text-white p-3"%>
   </li>
 </ul>
