@@ -1,12 +1,12 @@
 <div class="jumbotron d-flex align-items-center min-vh-100">
    <div class="container mb-5 pb-5">
     <div class="text-center mb-3"><h2>Quelques questions pour mieux se connaître</h2></div>
-    <div class="row">
-      <div class="col-6 m-auto">
+    <div class="d-flex justify-content-center">
+      <div class="m-auto">
 
       <%# This is the quizz with a stimulus controller %>
 
-        <div class="focus-space" data-controller="quizz-wizzard">
+        <div class="focus-space-quizzs" data-controller="quizz-wizzard">
               <%= simple_form_for(@quizz) do |f| %>
               <% if current_user.role == "junior" %>
                 <%= render "junior-form", f: f %>

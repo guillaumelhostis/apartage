@@ -19,7 +19,7 @@ class QuizzsController < ApplicationController
     if current_user.role == "senior"
       redirect_to pages_senior_dashboard_path
     elsif current_user.role == "junior"
-      redirect_to pages_junior_dashboard_path
+      redirect_to edit_quizz_path(@quizz)
     end
   end
 

@@ -7,6 +7,8 @@
   box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
 }
 
+
+
 .invisible-div {
 
   border-radius: 7px;
@@ -256,12 +258,13 @@
 .homespace-login a {
 
   text-decoration: none !important;
+  color: white;
 
 }
 
 .homespace-login a:visited {
 
- color:white;
+ color:white !important;
 }
 
 .homespace-login a:hover {
