@@ -1,6 +1,6 @@
 <%= simple_form_for [@flat, @rental], data: { controller: 'flatpickr' } do |f| %>
 
   <%= f.input :check_in, as: :string, input_html: { data: { flatpickr_target: "checkin" } } %>
-  <%= f.input :message, as: :text, label: "Personnalise ton message à l'attention de #{@flat.user.first_name}", required: false %>
+  <%= f.input :message, as: :text, label: "Un petit mot pour #{@flat.user.first_name}", required: false %>
   <%= f.submit "Réserver", class: "btn btn-primary text-white" %>
 <% end %>

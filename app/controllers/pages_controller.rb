@@ -43,7 +43,9 @@ class PagesController < ApplicationController
     @user = current_user
     @quizz = Quizz.find_by(user_id: current_user.id)
     @flat = Flat.find_by(user_id: current_user.id)
-    rentals_requests = Rental.where(flat_id: @flat.id)
+    if @flat.present?
+      rentals_requests = Rental.where(flat_id: @flat.id)
+    end
     if Rental.count <= 1
       #@rentals = []
       @rentals = rentals_requests
@@ -90,6 +92,7 @@ class PagesController < ApplicationController
         @matching << { id: flat.id, match: compatibily(@quizz, @seniors_quizz[index]), user_id: flat.user_id }
       end
 
+
       @markers = @flats.map do |flat|
         {
           lat: flat.latitude,
@@ -109,6 +112,7 @@ class PagesController < ApplicationController
   end
 
   def candidat
+    @flat = Flat.find_by(user_id: current_user.id)
     @rental = Rental.find(params[:format])
     @user = current_user
     @junior = User.find(@rental.user_id)
@@ -162,7 +166,7 @@ class PagesController < ApplicationController
     result =  Levenshtein.normalized_distance(a.join, b.join, threshold=nil)
     percent = result * 100
     final_result = 100 - percent
-    return "#{final_result.round(0)} %"
+    return final_result.round(0)
   end
 
   def compatibily(results_a, results_b)

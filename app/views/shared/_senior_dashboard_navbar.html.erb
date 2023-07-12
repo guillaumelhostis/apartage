@@ -21,16 +21,20 @@
                                  <span class="ms-1 d-none d-sm-inline">Editer profil</span></a>
                         </li>
                       </div>
-                      <div class="menu-element">
-                        <li>
-                           <%= link_to "Mon logement", pages_monlogement_path, class: "nav-link px-0 align-middle ms-1" %>
-                        </li>
-                      </div>
+                      <% if @flat.present? %>
+                        <div class="menu-element">
+                          <li>
+                            <%= link_to "Mon logement", pages_monlogement_path, class: "nav-link px-0 align-middle ms-1" %>
+                          </li>
+                        </div>
+                      <% end %>
+                      <% if @quizz.present? %>
                       <div class="menu-element">
                         <li>
                             <%= link_to "Vos critères", pages_your_criterias_path, class: "nav-link px-0 align-middle ms-1" %>
                         </li>
                       </div>
+                      <% end %>
                       <div class="menu-element">
                         <li>
 

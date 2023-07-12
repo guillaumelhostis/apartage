@@ -23,12 +23,20 @@ class FlatsController < ApplicationController
   end
 
   def create
-    @flat = Flat.new(flat_params)
-    @flat.user_id = current_user.id
-    authorize @flat
-    @flat.save
+    if Flat.find_by(user_id: current_user.id).present?
+      @flat = Flat.find_by(user_id: current_user.id)
+      authorize @flat
+      flash[:notice] = "Vous avez déjà créer un logement"
+      redirect_to pages_senior_dashboard_path
+    else
+      @flat = Flat.new(flat_params)
+      @flat.user_id = current_user.id
+      authorize @flat
+      @flat.save
 
-    redirect_to new_flat_your_space_path(@flat)
+      redirect_to pages_senior_dashboard_path
+    end
+
   end
 
   def edit
