@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
 
   rescue_from Pundit::NotAuthorizedError, with: :user_not_authorized
   def user_not_authorized
-    flash[:alert] = "You are not authorized to perform this action."
+    flash[:alert] = "Accès non autorisé"
     redirect_to(root_path)
   end
 
@@ -28,17 +28,9 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(resource)
     if current_user.role == "senior"
-      if current_user.quizzs.present?
-        stored_location_for(resource) || pages_senior_dashboard_path
-      else
-        stored_location_for(resource) || new_flat_path
-      end
+      stored_location_for(resource) || pages_senior_dashboard_path
     elsif current_user.role == "junior"
-      if current_user.quizzs.present?
-        stored_location_for(resource) || pages_junior_dashboard_path  # changer en junior dashboard
-      else
-        stored_location_for(resource) || new_quizz_path
-      end
+      stored_location_for(resource) || pages_junior_dashboard_path  # changer en junior dashboard
     end
   end
 end

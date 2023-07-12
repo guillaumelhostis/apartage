@@ -22,7 +22,7 @@
         <%= cl_image_tag Flat.find(@rental.flat_id).photos.first.key,  crop: :fill, :class => "profile-image" %>
         <div class="card-candidat-infos">
           <h2><%=@flat.title  %> - <%= @senior.first_name %></h2>
-          <p>Ce propriétaire est à <strong> <%= @matching%></strong> compatible avec vos critères</p>
+          <p>Ce propriétaire est à <strong> <%= @matching%>%</strong> compatible avec vos critères</p>
         </div>
       </div>
 
