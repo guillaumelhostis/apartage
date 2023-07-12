@@ -34,7 +34,7 @@ class FlatsController < ApplicationController
       authorize @flat
       @flat.save
 
-      redirect_to pages_senior_dashboard_path
+      redirect_to new_flat_your_space_path(@flat)
     end
 
   end
