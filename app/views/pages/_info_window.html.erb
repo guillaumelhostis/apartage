@@ -1,7 +1,11 @@
-<div class="card-marker" style="background-image: url(<%= cl_image_path flat.photos.first.key%>)">
+<div class="prevent-link-deco">
+  <%= link_to flat_path(flat) do %>
+    <div class="card-marker" style="background-image: url(<%= cl_image_path flat.photos.first.key%>)">
 
-  <div class="info-card-marker ">
-    <h4><%= link_to flat.title, flat_path(flat), class: "text-white"  %></h4>
+      <div class="info-card-marker ">
+        <h4 class="text-white"><%= flat.title %></h4>
 
-  </div>
+      </div>
+    </div>
+  <% end %>
 </div>

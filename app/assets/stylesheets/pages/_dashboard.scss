@@ -328,3 +328,13 @@
  text-align: justify;
 
 }
+
+.prevent-link-deco a {
+  text-decoration: none !important;
+  color: black !important;
+}
+
+.prevent-link-deco a:visited {
+
+  color: black !important;
+}

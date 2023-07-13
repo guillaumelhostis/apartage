@@ -12,7 +12,7 @@
 
                   <h3>Comment ça marche? 💡</h3>
 
-                    <p>Nos candidats juniors remplissent comme vous un questionnaire lors de leur inscription sur notre site. Notre algorithme compare ensuite leurs réponses aux votres. Ainsi LinkAge vous facilite votre selection et ne vous proposera que des profils à <strong>70% minimum</strong> compatible avec vos besoins.</p>
+                    <p>Nos candidats juniors remplissent comme vous un questionnaire lors de leur inscription sur notre site. Notre algorithme compare ensuite leurs réponses aux votres. Ainsi Apart'Agé vous facilite votre selection et ne vous proposera que des profils à <strong>70% minimum</strong> compatible avec vos besoins.</p>
                   <h3 class="mt-4">Votre espace personnel </h3>
 
                   <p>Lors de votre prochaine connection votre accéderez directement à votre espace personnel. Vos demandes de candidatures apparaisseront <strong>sur cette même page</strong>. Vous avez la possiblité de repasser votre questionnaire si vous avez changé d’avis via la fenêtre <strong>"Vos critères"</strong>, et de modifier les informations relative à votre logement via la fenêtre <strong>"Mon logement"</strong>.</p>
@@ -41,84 +41,88 @@
                 <% @odd_rentals << rentals %>
               <% end %>
             <% end %>
-            <div class="col-4">
+            <div class="col-4 prevent-link-deco">
               <% @even_rentals.each do |rental| %>
-                  <div class="card-candidat">
-                    <div class="see-more">
-                      <%= link_to image_tag("play-btn.png"), pages_candidat_path(rental) %>
-                    </div>
-                    <% if rental.status == "pending" %>
-                    <div class="status-pending">
-                      <span class="p-2">En attente</span>
-                    </div>
-                    <% elsif rental.status == "accepted" %>
-                    <div class="status-accepted">
-                      <span class="p-2">Acceptée</span>
-                    </div>
-                    <% elsif rental.status == "refused" %>
-                    <div class="status-refused">
-                      <span class="p-2">Refusée</span>
-                    </div>
-                    <% end %>
-                    <% if User.find(rental.user_id).image.attached? %>
-                    <%= image_tag(User.find(rental.user_id).image) %>
-                    <% else %>
-                    <img src="https://img.freepik.com/photos-gratuite/portrait-etudiante-afro-americaine-heureuse-tenant-cahiers-sac-dos-souriant-debout-fond-jaune_1258-54844.jpg" />
-                    <% end %>
+                  <%= link_to pages_candidat_path(rental) do %>
+                    <div class="card-candidat">
+                      <div class="see-more">
+                        <%= image_tag "play-btn.png" %>
+                      </div>
+                      <% if rental.status == "pending" %>
+                      <div class="status-pending">
+                        <span class="p-2">En attente</span>
+                      </div>
+                      <% elsif rental.status == "accepted" %>
+                      <div class="status-accepted">
+                        <span class="p-2">Acceptée</span>
+                      </div>
+                      <% elsif rental.status == "refused" %>
+                      <div class="status-refused">
+                        <span class="p-2">Refusée</span>
+                      </div>
+                      <% end %>
+                      <% if User.find(rental.user_id).image.attached? %>
+                      <%= image_tag(User.find(rental.user_id).image) %>
+                      <% else %>
+                      <img src="https://img.freepik.com/photos-gratuite/portrait-etudiante-afro-americaine-heureuse-tenant-cahiers-sac-dos-souriant-debout-fond-jaune_1258-54844.jpg" />
+                      <% end %>
 
-                    <div class="card-candidat-infos">
-                      <h2><%= User.find(rental.user_id).first_name %></h2>
-                      <p>Ce candidat est à
-                        <strong>
-                          <% @matching.each do |m| %>
-                            <%if m[:id] == rental.id %>
-                              <%= m[:match] %>
+                      <div class="card-candidat-infos">
+                        <h2><%= User.find(rental.user_id).first_name %></h2>
+                        <p>Ce candidat est à
+                          <strong>
+                            <% @matching.each do |m| %>
+                              <%if m[:id] == rental.id %>
+                                <%= m[:match] %>
+                              <% end %>
                             <% end %>
-                          <% end %>
-                        %</strong>
-                      compatible avec vos critères</p>
+                          %</strong>
+                        compatible avec vos critères</p>
+                      </div>
                     </div>
-                  </div>
+                  <% end %>
               <% end %>
             </div>
-            <div class="col-4">
+            <div class="col-4 prevent-link-deco">
               <% @odd_rentals.each do |rental| %>
-                  <div class="card-candidat">
-                    <div class="see-more">
-                      <%= link_to image_tag("play-btn.png"), pages_candidat_path(rental) %>
-                    </div>
-                    <% if rental.status == "pending" %>
-                    <div class="status-pending">
-                      <span class="p-2">En attente</span>
-                    </div>
-                    <% elsif rental.status == "accepted" %>
-                    <div class="status-accepted">
-                      <span class="p-2">Acceptée</span>
-                    </div>
-                    <% elsif rental.status == "refused" %>
-                    <div class="status-refused">
-                      <span class="p-2">Refusée</span>
-                    </div>
-                    <% end %>
-                    <% if User.find(rental.user_id).image.attached? %>
-                    <%= image_tag(User.find(rental.user_id).image) %>
-                    <% else %>
-                    <img src="https://img.freepik.com/photos-gratuite/portrait-etudiante-afro-americaine-heureuse-tenant-cahiers-sac-dos-souriant-debout-fond-jaune_1258-54844.jpg" />
-                    <% end %>
+                  <%= link_to pages_candidat_path(rental) do %>
+                    <div class="card-candidat">
+                      <div class="see-more">
+                        <%= image_tag "play-btn.png" %>
+                      </div>
+                      <% if rental.status == "pending" %>
+                      <div class="status-pending">
+                        <span class="p-2">En attente</span>
+                      </div>
+                      <% elsif rental.status == "accepted" %>
+                      <div class="status-accepted">
+                        <span class="p-2">Acceptée</span>
+                      </div>
+                      <% elsif rental.status == "refused" %>
+                      <div class="status-refused">
+                        <span class="p-2">Refusée</span>
+                      </div>
+                      <% end %>
+                      <% if User.find(rental.user_id).image.attached? %>
+                      <%= image_tag(User.find(rental.user_id).image) %>
+                      <% else %>
+                      <img src="https://img.freepik.com/photos-gratuite/portrait-etudiante-afro-americaine-heureuse-tenant-cahiers-sac-dos-souriant-debout-fond-jaune_1258-54844.jpg" />
+                      <% end %>
 
-                    <div class="card-candidat-infos">
-                      <h2><%= User.find(rental.user_id).first_name %></h2>
-                      <p>Ce candidat est à
-                        <strong>
-                          <% @matching.each do |m| %>
-                            <%if m[:id] == rental.id %>
-                              <%= m[:match] %>
+                      <div class="card-candidat-infos">
+                        <h2><%= User.find(rental.user_id).first_name %></h2>
+                        <p>Ce candidat est à
+                          <strong>
+                            <% @matching.each do |m| %>
+                              <%if m[:id] == rental.id %>
+                                <%= m[:match] %>
+                              <% end %>
                             <% end %>
-                          <% end %>
-                        %</strong>
-                      compatible avec vos critères</p>
+                          %</strong>
+                        compatible avec vos critères</p>
+                      </div>
                     </div>
-                  </div>
+                  <% end %>
               <% end %>
             </div>
           <% end %>

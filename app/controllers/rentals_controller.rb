@@ -16,8 +16,12 @@ class RentalsController < ApplicationController
     @rental.status = 2
     authorize @rental
 
-    @rental.save
-    redirect_to pages_mescandidature_path
+    if @rental.save
+      redirect_to pages_mescandidature_path
+    else
+      flash[:notice] = "Veuillez remplir tous les champs obligatoires"
+      redirect_to flat_path(@flat)
+    end
   end
 
   def show

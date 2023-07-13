@@ -1,30 +1,32 @@
 <div class="senior-dashboard-space">
   <div class="container-xxl d-flex justify-content-around">
-    <div class="col-6 mt-2">
-      <div class="card-candidat">
-          <div class="see-more">
-            <%= link_to image_tag("play-btn.png"), flat_path(@flat)  %>
-          </div>
-          <% if @rental.status == "pending" %>
-          <div class="status-pending">
-            <span class="p-2">En attente</span>
-          </div>
-          <% elsif @rental.status == "accepted" %>
-          <div class="status-accepted">
-            <span class="p-2">Acceptée</span>
-          </div>
-          <% elsif @rental.status == "refused" %>
-          <div class="status-refused">
-            <span class="p-2">Refusée</span>
-          </div>
-          <% end %>
+    <div class="col-6 mt-2 prevent-link-deco">
+      <%= link_to flat_path(@flat) do %>
+        <div class="card-candidat">
+            <div class="see-more">
+              <%= image_tag "play-btn.png" %>
+            </div>
+            <% if @rental.status == "pending" %>
+            <div class="status-pending">
+              <span class="p-2">En attente</span>
+            </div>
+            <% elsif @rental.status == "accepted" %>
+            <div class="status-accepted">
+              <span class="p-2">Acceptée</span>
+            </div>
+            <% elsif @rental.status == "refused" %>
+            <div class="status-refused">
+              <span class="p-2">Refusée</span>
+            </div>
+            <% end %>
 
-        <%= cl_image_tag Flat.find(@rental.flat_id).photos.first.key,  crop: :fill, :class => "profile-image" %>
-        <div class="card-candidat-infos">
-          <h2><%=@flat.title  %> - <%= @senior.first_name %></h2>
-          <p>Ce propriétaire est à <strong> <%= @matching%>%</strong> compatible avec vos critères</p>
+          <%= cl_image_tag Flat.find(@rental.flat_id).photos.first.key,  crop: :fill, :class => "profile-image" %>
+          <div class="card-candidat-infos">
+            <h2><%=@flat.title  %> - <%= @senior.first_name %></h2>
+            <p>Ce propriétaire est à <strong> <%= @matching%>%</strong> compatible avec vos critères</p>
+          </div>
         </div>
-      </div>
+      <% end %>
 
       <div class="dashboard-space mb-2 p-4 row">
         <% if @quizz_file.present? %>

@@ -92,8 +92,24 @@ class PagesController < ApplicationController
         @matching << { id: flat.id, match: compatibily(@quizz, @seniors_quizz[index]), user_id: flat.user_id }
       end
 
+      # filtre 70%
+      @matching_filtered = @matching.select { |match| match[:match] > 70 }
 
-      @markers = @flats.map do |flat|
+      @flats_filtered = []
+
+      @flats.each_with_index do |flat|
+        @matching_filtered.each_with_index do |match|
+          if flat.id == match[:id]
+            @flats_filtered << flat
+          end
+        end
+      end
+
+
+
+      # fin du filte
+
+      @markers = @flats_filtered.map do |flat|
         {
           lat: flat.latitude,
           lng: flat.longitude,
@@ -107,6 +123,7 @@ class PagesController < ApplicationController
   end
 
   def your_criterias
+    @flat = Flat.find_by(user_id: current_user.id)
     @user = current_user
     @quizz = Quizz.find_by(user_id: current_user.id)
   end
@@ -126,6 +143,7 @@ class PagesController < ApplicationController
 
   def monlogement
     @user = current_user
+    @quizz = Quizz.find_by(user_id: current_user.id)
     @flat = Flat.find_by(user_id: current_user.id)
     @yourspace = YourSpace.find_by(flat_id: @flat.id)
   end
