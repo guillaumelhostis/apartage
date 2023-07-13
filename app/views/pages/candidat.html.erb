@@ -36,6 +36,9 @@
           <img src="https://img.freepik.com/photos-gratuite/portrait-etudiante-afro-americaine-heureuse-tenant-cahiers-sac-dos-souriant-debout-fond-jaune_1258-54844.jpg" />
         <% end %>
         <div class="card-candidat-infos">
+          <p class="text-center mb-2"><strong>Le message de <%=@junior.first_name %></strong></p>
+          <p class="text-center font-italic mb-2"><%=@rental.message %></p>
+
           <p class="text-end mb-2"><strong>Acceptez-vous la demande de <%= @junior.first_name %>?</strong></p>
           <div class="card-candidat-infos-status">
             <%= link_to "Accepter", pages_accept_rental_path(@rental), class: 'btn btn-primary text-white'  %>
