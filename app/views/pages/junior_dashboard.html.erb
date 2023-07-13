@@ -46,7 +46,7 @@
         <div class="invisible-div mt-5">
           <div class="mt-2", data-junior-dashboard-target="map">
           <% if @query.present? %>
-            <h3 class="mb-3">Nous avons trouvé <strong><%= @flats.length %></strong> appartements compatibles:</h3>
+            <h3 class="mb-3">Nous avons trouvé <strong><%= @flats_filtered.length %></strong> appartements compatibles:</h3>
           <% else %>
             <h3 class="mb-3">Plus de <strong><%= Flat.all.count %></strong> appartements dans toute la France</h3>
           <% end %>
