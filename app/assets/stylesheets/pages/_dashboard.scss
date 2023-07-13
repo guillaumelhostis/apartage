@@ -190,6 +190,7 @@
   background-size: cover;
   display: flex;
   align-items: center;
+  justify-content: center;
 }
 
 // .info-card-marker {
@@ -268,4 +269,72 @@
   border-radius: 10px;
   box-shadow: 0 0 7px rgba(0,0,0,0.1);
 
+}
+
+
+.junior-quizz-link {
+
+  border-radius: 7px;
+  padding: 20px;
+  background-image: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.3)), url(https://content.gallup.com/origin/gallupinc/GallupSpaces/Production/Cms/EDUCMS/tz7n-7vqceaq86dprdnzag.jpg);
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.2);
+  background-size: cover;
+  background-position: center;
+
+  width: auto;
+  height: 160px;
+
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  font-size: 20px;
+  font-weight: bold;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+
+
+  padding:20px;
+  margin: 20px auto;
+}
+
+.junior-quizz-link:hover {
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.5);
+  transition: 0.2s;
+
+}
+
+
+.card-quizz-links a {
+  text-decoration: none !important;
+}
+
+.card-quizz-links a:visited {
+  color: white !important;
+}
+
+
+.dashboard-quizz-explications {
+  background-color: #F9F9F9;
+  border-radius: 7px;
+  padding: 30px;
+  box-shadow: 0 0 7px rgba(0, 0, 0, 0.1);
+
+}
+
+
+.dashboard-quizz-explications p {
+ font-size: 13px;
+ text-align: justify;
+
+}
+
+.prevent-link-deco a {
+  text-decoration: none !important;
+  color: black !important;
+}
+
+.prevent-link-deco a:visited {
+
+  color: black !important;
 }

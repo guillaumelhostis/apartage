@@ -6,20 +6,32 @@ class QuizzsController < ApplicationController
   end
 
   def new
-    @quizz = Quizz.new
-    authorize @quizz
+    # if Quizz.find_by(user_id: current_user.id).present?
+    #   # flash[:alert] = "Vous avez déjà complété votre quizz"
+    #   redirect_to(root_path)
+    # else
+      @quizz = Quizz.new
+      authorize @quizz
+    # end
   end
 
   def create
-    @quizz = Quizz.new(quizz_params)
-    @quizz.file.attach(params[:quizz][:file]) if params[:quizz][:file].present?
-    @quizz.user_id = current_user.id
-    authorize @quizz
-    @quizz.save
-    if current_user.role == "senior"
-      redirect_to pages_senior_dashboard_path
-    elsif current_user.role == "junior"
-      redirect_to edit_quizz_path(@quizz)
+    if Quizz.find_by(user_id: current_user.id).present?
+      @quizz = Quizz.find_by(user_id: current_user.id)
+      authorize @quizz
+      flash[:notice] = "Vous avez déjà complété votre quizz"
+      redirect_to(root_path)
+    else
+      @quizz = Quizz.new(quizz_params)
+      @quizz.file.attach(params[:quizz][:file]) if params[:quizz][:file].present?
+      @quizz.user_id = current_user.id
+      authorize @quizz
+      @quizz.save
+      if current_user.role == "senior"
+        redirect_to pages_senior_dashboard_path
+      elsif current_user.role == "junior"
+        redirect_to edit_quizz_path(@quizz)
+      end
     end
   end
 

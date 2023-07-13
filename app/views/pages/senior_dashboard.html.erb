@@ -1,133 +1,237 @@
 <div class="senior-dashboard-space">
-  <div class="text-center mt-4"><h1>Mes candidatures</h1></div>
-  <div class="container-xxl d-flex justify-content-around">
+  <% if Quizz.find_by(user_id: current_user.id).present? && Flat.find_by(user_id: current_user.id).present? %>
+    <div class="text-center mt-4"><h1>Mes candidatures</h1></div>
+    <div class="container-xxl d-flex justify-content-around">
 
-      <% if @rentals != [nil] %>
-        <% if @rentals.count == 0 %>
+        <% if @rentals != [nil] %>
+          <% if @rentals.count == 0 %>
 
-          <div class="row d-flex justify-content-around mt-4">
-            <div class="col-6 explication-seniors">
-              <div class="focus-space">
+            <div class="row d-flex justify-content-around mt-4">
+              <div class="col-6 explication-seniors">
+                <div class="focus-space">
 
-                <h3>Comment ça marche? 💡</h3>
+                  <h3>Comment ça marche? 💡</h3>
 
-                  <p>Nos candidats juniors remplissent comme vous un questionnaire lors de leur inscription sur notre site. Notre algorithme compare ensuite leurs réponses aux vôtres. Ainsi LinkAge vous facilite votre selection et ne vous proposera que des profils à <strong>70% minimum</strong> compatibles avec vos besoins.</p>
-                <h3 class="mt-4">Votre espace personnel </h3>
+                    <p>Nos candidats juniors remplissent comme vous un questionnaire lors de leur inscription sur notre site. Notre algorithme compare ensuite leurs réponses aux vôtres. Ainsi Apart'Agé vous facilite votre sélection et ne vous proposera que des profils à <strong>70% minimum</strong> compatibles avec vos besoins.</p>
+                  <h3 class="mt-4">Votre espace personnel </h3>
 
-                <p>Lors de votre prochaine connexion votre accéderez directement à votre espace personnel. Vos demandes de candidatures apparaitront <strong>sur cette même page</strong>. Vous avez la possiblité de repasser votre questionnaire si vous avez changé d’avis via la fenêtre <strong>"Vos critères"</strong>, et de modifier les informations relatives à votre logement via la fenêtre <strong>"Mon logement"</strong>.</p>
+                  <p>Lors de votre prochaine connexion, votre accéderez directement à votre espace personnel. Vos demandes de candidatures apparaîtront <strong>sur cette même page</strong>. Vous avez la possiblité de repasser votre questionnaire si vous avez changé d’avis via la fenêtre <strong>"Mes critères"</strong>, et de modifier les informations relatives à votre logement via la fenêtre <strong>"Mon logement"</strong>.</p>
+
+                </div>
+              </div>
+              <div class="col-5">
+                <div class="">
+                  <div class="image-seniordash" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.campusbound.com/wp-content/uploads/2023/02/2-2.jpg)">
+                    Sara, 21 ans a trouvé un logement chez Jean pour suivre ses études de droit à Lyon
+                  </div>
+                  <div class="image-seniordash mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.mutualia.fr/sites/default/files/uploads/RTEmagicC_AdobeStock_83229260.jpeg)">
+                    Marie et Gabriel, donnent un coup de pouce à un étudiant depuis que leurs enfants ont quitté la maison
+                  </div>
+                </div>
 
               </div>
             </div>
-            <div class="col-5">
-              <div class="">
-                <div class="image-seniordash" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.campusbound.com/wp-content/uploads/2023/02/2-2.jpg)">
-                  Sara, 21 ans a trouvé un logement chez Jean pour suivre ses études de droit à Lyon
-                </div>
-                <div class="image-seniordash mt-3" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://www.mutualia.fr/sites/default/files/uploads/RTEmagicC_AdobeStock_83229260.jpeg)">
-                  Marie et Gabriel, donnent un coup de pouce à un étudiant depuis que leurs enfants ont quitté la maison
-                </div>
-              </div>
-
-            </div>
-          </div>
-        <% else %>
-          <% @odd_rentals = [] %>
-          <% @even_rentals = [] %>
-          <% @rentals.each_with_index do |rentals, index| %>
-            <% if index.even? %>
-              <% @even_rentals << rentals %>
-            <% else %>
-              <% @odd_rentals << rentals %>
+          <% else %>
+            <% @odd_rentals = [] %>
+            <% @even_rentals = [] %>
+            <% @rentals.each_with_index do |rentals, index| %>
+              <% if index.even? %>
+                <% @even_rentals << rentals %>
+              <% else %>
+                <% @odd_rentals << rentals %>
+              <% end %>
             <% end %>
+            <div class="col-4 prevent-link-deco">
+              <% @even_rentals.each do |rental| %>
+                  <%= link_to pages_candidat_path(rental) do %>
+                    <div class="card-candidat">
+                      <div class="see-more">
+                        <%= image_tag "play-btn.png" %>
+                      </div>
+                      <% if rental.status == "pending" %>
+                      <div class="status-pending">
+                        <span class="p-2">En attente</span>
+                      </div>
+                      <% elsif rental.status == "accepted" %>
+                      <div class="status-accepted">
+                        <span class="p-2">Acceptée</span>
+                      </div>
+                      <% elsif rental.status == "refused" %>
+                      <div class="status-refused">
+                        <span class="p-2">Refusée</span>
+                      </div>
+                      <% end %>
+                      <% if User.find(rental.user_id).image.attached? %>
+                      <%= image_tag(User.find(rental.user_id).image) %>
+                      <% else %>
+                      <img src="https://img.freepik.com/photos-gratuite/portrait-etudiante-afro-americaine-heureuse-tenant-cahiers-sac-dos-souriant-debout-fond-jaune_1258-54844.jpg" />
+                      <% end %>
+
+                      <div class="card-candidat-infos">
+                        <h2><%= User.find(rental.user_id).first_name %></h2>
+                        <p>Ce candidat est à
+                          <strong>
+                            <% @matching.each do |m| %>
+                              <%if m[:id] == rental.id %>
+                                <%= m[:match] %>
+                              <% end %>
+                            <% end %>
+                          %</strong>
+                        compatible avec vos critères</p>
+                      </div>
+                    </div>
+                  <% end %>
+              <% end %>
+            </div>
+            <div class="col-4 prevent-link-deco">
+              <% @odd_rentals.each do |rental| %>
+                  <%= link_to pages_candidat_path(rental) do %>
+                    <div class="card-candidat">
+                      <div class="see-more">
+                        <%= image_tag "play-btn.png" %>
+                      </div>
+                      <% if rental.status == "pending" %>
+                      <div class="status-pending">
+                        <span class="p-2">En attente</span>
+                      </div>
+                      <% elsif rental.status == "accepted" %>
+                      <div class="status-accepted">
+                        <span class="p-2">Acceptée</span>
+                      </div>
+                      <% elsif rental.status == "refused" %>
+                      <div class="status-refused">
+                        <span class="p-2">Refusée</span>
+                      </div>
+                      <% end %>
+                      <% if User.find(rental.user_id).image.attached? %>
+                      <%= image_tag(User.find(rental.user_id).image) %>
+                      <% else %>
+                      <img src="https://img.freepik.com/photos-gratuite/portrait-etudiante-afro-americaine-heureuse-tenant-cahiers-sac-dos-souriant-debout-fond-jaune_1258-54844.jpg" />
+                      <% end %>
+
+                      <div class="card-candidat-infos">
+                        <h2><%= User.find(rental.user_id).first_name %></h2>
+                        <p>Ce candidat est à
+                          <strong>
+                            <% @matching.each do |m| %>
+                              <%if m[:id] == rental.id %>
+                                <%= m[:match] %>
+                              <% end %>
+                            <% end %>
+                          %</strong>
+                        compatible avec vos critères</p>
+                      </div>
+                    </div>
+                  <% end %>
+              <% end %>
+            </div>
           <% end %>
-          <div class="col-4">
-            <% @even_rentals.each do |rental| %>
-                <div class="card-candidat">
-                  <div class="see-more">
-                    <%= link_to image_tag("play-btn.png"), pages_candidat_path(rental) %>
-                  </div>
-                  <% if rental.status == "pending" %>
-                  <div class="status-pending">
-                    <span class="p-2">En attente</span>
-                  </div>
-                  <% elsif rental.status == "accepted" %>
-                  <div class="status-accepted">
-                    <span class="p-2">Acceptée</span>
-                  </div>
-                  <% elsif rental.status == "refused" %>
-                  <div class="status-refused">
-                    <span class="p-2">Refusée</span>
-                  </div>
-                  <% end %>
-                  <% if User.find(rental.user_id).image.attached? %>
-                  <%= image_tag(User.find(rental.user_id).image) %>
-                  <% else %>
-                  <img src="https://img.freepik.com/photos-gratuite/portrait-etudiante-afro-americaine-heureuse-tenant-cahiers-sac-dos-souriant-debout-fond-jaune_1258-54844.jpg" />
-                  <% end %>
 
-                  <div class="card-candidat-infos">
-                    <h2><%= User.find(rental.user_id).first_name %></h2>
-                    <p>Ce candidat est à
-                      <strong>
-                        <% @matching.each do |m| %>
-                          <%if m[:id] == rental.id %>
-                            <%= m[:match] %>
-                          <% end %>
-                        <% end %>
-                      </strong>
-                    compatible avec vos critères</p>
-                  </div>
-                </div>
-            <% end %>
-          </div>
-          <div class="col-4">
-            <% @odd_rentals.each do |rental| %>
-                <div class="card-candidat">
-                  <div class="see-more">
-                    <%= link_to image_tag("play-btn.png"), pages_candidat_path(rental) %>
-                  </div>
-                  <% if rental.status == "pending" %>
-                  <div class="status-pending">
-                    <span class="p-2">En attente</span>
-                  </div>
-                  <% elsif rental.status == "accepted" %>
-                  <div class="status-accepted">
-                    <span class="p-2">Acceptée</span>
-                  </div>
-                  <% elsif rental.status == "refused" %>
-                  <div class="status-refused">
-                    <span class="p-2">Refusée</span>
-                  </div>
-                  <% end %>
-                  <% if User.find(rental.user_id).image.attached? %>
-                  <%= image_tag(User.find(rental.user_id).image) %>
-                  <% else %>
-                  <img src="https://img.freepik.com/photos-gratuite/portrait-etudiante-afro-americaine-heureuse-tenant-cahiers-sac-dos-souriant-debout-fond-jaune_1258-54844.jpg" />
-                  <% end %>
 
-                  <div class="card-candidat-infos">
-                    <h2><%= User.find(rental.user_id).first_name %></h2>
-                    <p>Ce candidat est à
-                      <strong>
-                        <% @matching.each do |m| %>
-                          <%if m[:id] == rental.id %>
-                            <%= m[:match] %>
-                          <% end %>
-                        <% end %>
-                      </strong>
-                    compatible avec vos critères</p>
-                  </div>
-                </div>
-            <% end %>
-          </div>
+
         <% end %>
 
 
 
-      <% end %>
+
+    </div>
+
+  <% else %>
+    <% if @flat.present? %>
+      <div class="container-xxl">
+        <div class="mt-5 mb-3 text-center"><h2>Salut <%= current_user.first_name %>!</h2></div>
+        <div class="d-flex justify-content-around">
+          <div class="dashboard-quizz-explications  mt-3 col-8 p-4">
+            <p class="mb-0">💬   <i>Pour nous aider à vous trouver un locataire, faisons connaissance! Cliquez sur le lien ci-dessous pour répondre à notre questionnaire </i> </p>
+          </div>
+        </div>
+
+          <div class="d-flex justify-content-around">
+            <div class="mt-3 col-6 card-quizz-links">
+              <%= link_to new_quizz_path do %>
+                <div class="junior-quizz-link" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(https://assets-us-01.kc-usercontent.com/469992e5-7cbd-0032-ead4-f2db9237053a/94f3726c-0aa3-4eea-9afe-8717b0de35c5/2021-03-05_XL_should-employers-use-personality-test.jpg)">
+                  <p class="m-0">Je passe mon quizz</p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+      </div>
+    <% elsif @quizz.present? %>
+      <div class="container-xxl">
+        <div class="mt-5 mb-3 text-center"><h2>Salut <%= current_user.first_name %>!</h2></div>
+        <div class="d-flex justify-content-around">
+          <div class="dashboard-quizz-explications  mt-3 col-8 p-4 text-center">
+            <p class="mb-0">💬   <i>Il est maintenant temps d'ajouter votre logement, cliquez sur le lien ci-dessous! </i> </p>
+          </div>
+        </div>
+
+          <div class="d-flex justify-content-around">
+            <div class="mt-3 col-6 card-quizz-links">
+              <%= link_to new_flat_path do %>
+                <div class="junior-quizz-link" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(https://www.deco.fr/sites/default/files/styles/article_970x500/public/2019-11/0_1.jpg?itok=B8k1vqEd)">
+                  <p class="m-0">J'ajoute mon logement</p>
+                </div>
+              <% end %>
+            </div>
+          </div>
+
+      </div>
+
+    <% else %>
+      <div class="container-xxl">
+        <div class="mt-5 mb-5 text-center"><h2>Bonjour <%= current_user.first_name %>!</h2></div>
+        <div class="d-flex justify-content-around">
+          <div class="col-6 border-end">
+            <div class="text-center">
+              <h3>1️⃣ Passez notre quizz</h3>
+            </div>
+            <div class="d-flex justify-content-around">
+              <div class="mt-3 col-6 card-quizz-links">
+                <%= link_to new_quizz_path do %>
+                  <div class="junior-quizz-link" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(https://assets-us-01.kc-usercontent.com/469992e5-7cbd-0032-ead4-f2db9237053a/94f3726c-0aa3-4eea-9afe-8717b0de35c5/2021-03-05_XL_should-employers-use-personality-test.jpg)">
+                    <p class="m-0">Je passe mon quizz</p>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="d-flex justify-content-around">
+              <div class="dashboard-quizz-explications  mt-3 col-8 p-4">
+                <p class="mb-0">💬   <i>Pour nous aider à vous trouver un locataire, faisons connaissance! Cliquez sur le lien ci-dessus pour répondre à notre questionnaire</i> </p>
+              </div>
+            </div>
 
 
+          </div>
+          <div class="col-6 border-start">
+            <div class="text-center">
+              <h3>2️⃣ Ajouter votre logement</h3>
+            </div>
+            <div class="d-flex justify-content-around">
+              <div class="mt-3 col-6 card-quizz-links">
+                <%= link_to new_flat_path do %>
+                  <div class="junior-quizz-link" style="background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url(https://www.deco.fr/sites/default/files/styles/article_970x500/public/2019-11/0_1.jpg?itok=B8k1vqEd)">
+                    <p class="m-0">J'ajoute mon logement</p>
+                  </div>
+                <% end %>
+              </div>
+            </div>
+            <div class="d-flex justify-content-around">
+              <div class="dashboard-quizz-explications  mt-3 col-8 p-4">
+                <p class="mb-0">💬   <i>Il est maintenant temps d'ajouter votre logement, cliquez sur le lien ci-dessus!</i> </p>
+              </div>
+            </div>
 
 
-  </div>
+          </div>
+        </div>
+
+      </div>
+
+
+    <% end %>
+
+
+  <% end %>
+
 </div>

@@ -181,8 +181,8 @@ paul_flat = Flat.create(
 
 marie_flat = Flat.create(
   title: "Petit appartement en bord de mer",
-  address: "1 Rue Albert de Mun",
-  city: "Roscoff",
+  address: "41 quai Pierre Scize",
+  city: "Lyon",
   user_id: marie[:id],
   monthly_price: 100,
   type_of_flat: "appartement",
@@ -222,8 +222,8 @@ jacques_flat = Flat.create(
 
 emile_flat = Flat.create(
   title: "Admire la vue",
-  address: "13 rue baudelique",
-  city: "Paris",
+  address: "5, rue de la Fromagerie",
+  city: "Lyon",
   user_id: emile[:id],
   monthly_price: 300,
   type_of_flat: "appartement",
@@ -308,15 +308,15 @@ leo_quizz = Quizz.create(
 )
 
 roger_quizz = Quizz.create(
-  smoker: "D",
-  motivation: "E",
+  smoker: "E",
+  motivation: "A",
   gender: "A",
-  animal: "E",
-  guest_animal: "E",
+  animal: "D",
+  guest_animal: "D",
   junior_smoker: "D",
-  talker: "B",
+  talker: "A",
   guest: "A",
-  music: "C",
+  music: "B",
   user_id: roger[:id]
 )
 
@@ -348,13 +348,13 @@ jean_quizz = Quizz.create(
 
 marie_quizz = Quizz.create(
   smoker: "E",
-  motivation: "D",
-  gender: "C",
+  motivation: "A",
+  gender: "A",
   animal: "D",
   guest_animal: "D",
   junior_smoker: "D",
-  talker: "A",
-  guest: "A",
+  talker: "B",
+  guest: "B",
   music: "A",
   user_id: marie[:id]
 )

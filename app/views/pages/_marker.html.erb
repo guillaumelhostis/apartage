@@ -2,9 +2,9 @@
 
 
   <%= image_tag "home.png", height: 30, width: 30, alt: "Logo" %>
-  <% @matching.each do |m| %>
+  <% @matching_filtered.each do |m| %>
       <%if m[:id] == flat.id %>
-        <p class="btn-primary text-white p-1 mt-1"><%= m[:match] %></p>
+        <p class="btn-primary text-white p-1 mt-1"><%= m[:match] %> %</p>
       <% end %>
   <% end %>
 </div>

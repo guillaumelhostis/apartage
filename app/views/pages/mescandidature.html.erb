@@ -13,79 +13,91 @@
             <% @odd_rentals << rentals %>
           <% end %>
         <% end %>
-        <div class="col-4">
+        <div class="col-4 prevent-link-deco">
           <% @even_rentals.each do |rental| %>
-            <div class="card-candidat">
-              <div class="see-more">
-                <%= link_to image_tag("play-btn.png"), pages_macandidature_path(rental) %>
-              </div>
+            <%= link_to pages_macandidature_path(rental) do %>
+              <div class="card-candidat">
+                <div class="see-more">
+                    <%= image_tag "play-btn.png"   %>
+                </div>
 
-                <% if rental.status == "pending" %>
-                <div class="status-pending">
-                  <span class="p-2">En attente</span>
-                </div>
-                <% elsif rental.status == "accepted" %>
-                <div class="status-accepted">
-                  <span class="p-2">Acceptée</span>
-                </div>
-                <% elsif rental.status == "refused" %>
-                <div class="status-refused">
-                  <span class="p-2">Refusée</span>
-                </div>
+                  <% if rental.status == "pending" %>
+                  <div class="status-pending">
+                    <span class="p-2">En attente</span>
+                  </div>
+                  <% elsif rental.status == "accepted" %>
+                  <div class="status-accepted">
+                    <span class="p-2">Acceptée</span>
+                  </div>
+                  <% elsif rental.status == "refused" %>
+                  <div class="status-refused">
+                    <span class="p-2">Refusée</span>
+                  </div>
+                  <% end %>
+                <% if Flat.find(rental.flat_id).photos.attached? %>
+                  <%= cl_image_tag Flat.find(rental.flat_id).photos.first.key,  crop: :fill, :class => "profile-image" %>
+                <% else %>
+                  <%= image_tag "https://static.cotemaison.fr/medias_11749/w_2048,h_1146,c_crop,x_0,y_164/w_640,h_360,c_fill,g_north/v1518095166/chambre-parentale-avec-mur-bleu_6015724.jpg",  crop: :fill, :class => "profile-image" %>
                 <% end %>
 
-              <%= cl_image_tag Flat.find(rental.flat_id).photos.first.key,  crop: :fill, :class => "profile-image" %>
-              <div class="card-candidat-infos">
-                <h2><%=Flat.find(rental.flat_id).title  %> - <%= User.find(Flat.find(rental.flat_id).user_id).first_name %></h2>
-                <p>Ce candidat est à
-                  <strong>
-                    <% @matching.each do |m| %>
-                        <%if m[:id] == rental.flat_id %>
-                          <%= m[:match] %>
+                <div class="card-candidat-infos">
+                  <h2><%=Flat.find(rental.flat_id).title  %> - <%= User.find(Flat.find(rental.flat_id).user_id).first_name %></h2>
+                  <p>Ce candidat est à
+                    <strong>
+                      <% @matching.each do |m| %>
+                          <%if m[:id] == rental.flat_id %>
+                            <%= m[:match] %>
+                          <% end %>
                         <% end %>
-                      <% end %>
-
-                  </strong>
-                compatible avec vos critères</p>
+                        %
+                    </strong>
+                  compatible avec vos critères</p>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
 
         </div>
-        <div class="col-4">
+        <div class="col-4 prevent-link-deco">
           <% @odd_rentals.each do |rental| %>
-            <div class="card-candidat">
-              <div class="see-more">
-                <%= link_to image_tag("play-btn.png"), pages_macandidature_path(rental)  %>
-              </div>
-                <% if rental.status == "pending" %>
-                <div class="status-pending">
-                  <span class="p-2">En attente</span>
+            <%= link_to pages_macandidature_path(rental) do %>
+              <div class="card-candidat">
+                <div class="see-more">
+                    <%= image_tag "play-btn.png"   %>
                 </div>
-                <% elsif rental.status == "accepted" %>
-                <div class="status-accepted">
-                  <span class="p-2">Acceptée</span>
-                </div>
-                <% elsif rental.status == "refused" %>
-                <div class="status-refused">
-                  <span class="p-2">Refusée</span>
-                </div>
+                  <% if rental.status == "pending" %>
+                  <div class="status-pending">
+                    <span class="p-2">En attente</span>
+                  </div>
+                  <% elsif rental.status == "accepted" %>
+                  <div class="status-accepted">
+                    <span class="p-2">Acceptée</span>
+                  </div>
+                  <% elsif rental.status == "refused" %>
+                  <div class="status-refused">
+                    <span class="p-2">Refusée</span>
+                  </div>
+                  <% end %>
+                <% if Flat.find(rental.flat_id).photos.attached? %>
+                  <%= cl_image_tag Flat.find(rental.flat_id).photos.first.key,  crop: :fill, :class => "profile-image" %>
+                <% else %>
+                  <%= image_tag "https://static.cotemaison.fr/medias_11749/w_2048,h_1146,c_crop,x_0,y_164/w_640,h_360,c_fill,g_north/v1518095166/chambre-parentale-avec-mur-bleu_6015724.jpg",  crop: :fill, :class => "profile-image" %>
                 <% end %>
-              <%= cl_image_tag Flat.find(rental.flat_id).photos.first.key,  crop: :fill, :class => "profile-image" %>
-              <div class="card-candidat-infos">
-                <h2><%=Flat.find(rental.flat_id).title  %> - <%= User.find(Flat.find(rental.flat_id).user_id).first_name %></h2>
-                <p>Ce candidat est à
-                  <strong>
-                    <% @matching.each do |m| %>
-                        <%if m[:id] == rental.flat_id %>
-                          <%= m[:match] %>
-                        <% end %>
-                      <% end %>
+                <div class="card-candidat-infos">
+                  <h2><%=Flat.find(rental.flat_id).title  %> - <%= User.find(Flat.find(rental.flat_id).user_id).first_name %></h2>
+                  <p>Ce candidat est à
+                    <strong>
+                      <% @matching.each do |m| %>
+                          <%if m[:id] == rental.flat_id %>
+                            <%= m[:match] %>
+                          <% end %>
+                        <% end %> %
 
-                  </strong>
-                compatible avec vos critères</p>
+                    </strong>
+                  compatible avec vos critères</p>
+                </div>
               </div>
-            </div>
+            <% end %>
           <% end %>
 
         </div>

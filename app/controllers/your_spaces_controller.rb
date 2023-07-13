@@ -16,7 +16,7 @@ class YourSpacesController < ApplicationController
     authorize @yourspace
 
     @yourspace.save
-    redirect_to new_quizz_path
+    redirect_to pages_senior_dashboard_path
   end
 
   # def show
