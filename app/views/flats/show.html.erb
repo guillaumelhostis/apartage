@@ -8,27 +8,53 @@
     <div class="d-flex justify-content-around m-0">
 
           <div class=" focus-space  col-6 p-1 mb-0">
-            <div id="flatCarousel" class="carousel slide" data-bs-ride="carousel">
-              <div class="carousel-inner">
-                <% @flat.photos.each do |photo| %>
-                <div class="carousel-item active">
-                  <%= cl_image_tag photo.key,  crop: :fill, :class => "d-block w-100 img-responsive center-block" %>
-                </div>
-                <div class="carousel-item">
-                  <%= cl_image_tag photo.key,  crop: :fill, :class => "d-block w-100 img-responsive center-block" %>
-                </div>
-                <% end %>
-              </div>
-              <button class="carousel-control-prev" type="button" data-bs-target="#flatCarousel" data-bs-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button class="carousel-control-next" type="button" data-bs-target="#flatCarousel" data-bs-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="visually-hidden">Next</span>
-              </button>
-            </div>
+            <% if @flat.photos.attached? %>
 
+              <div id="flatCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+                  <% @flat.photos.each do |photo| %>
+
+                  <div class="carousel-item active">
+                    <%= cl_image_tag photo.key,  crop: :fill, :class => "d-block w-100 img-responsive center-block" %>
+                  </div>
+                  <div class="carousel-item">
+                    <%= cl_image_tag photo.key,  crop: :fill, :class => "d-block w-100 img-responsive center-block" %>
+                  </div>
+                  <% end %>
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#flatCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#flatCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+            <% else %>
+              <div id="flatCarousel" class="carousel slide" data-bs-ride="carousel">
+                <div class="carousel-inner">
+
+
+                  <div class="carousel-item active">
+                    <%= image_tag "https://st.hzcdn.com/simgs/pictures/facades-de-maisons/extension-reamenagement-d-une-maison-m-associes-architectes-img~03f1163e0f76db26_14-1762-1-646c429.jpg",  crop: :fill, :class => "d-block w-100 img-responsive center-block" %>
+                  </div>
+                  <div class="carousel-item">
+                    <%= image_tag "https://static.cotemaison.fr/medias_11749/w_2048,h_1146,c_crop,x_0,y_164/w_640,h_360,c_fill,g_north/v1518095166/chambre-parentale-avec-mur-bleu_6015724.jpg",  crop: :fill, :class => "d-block w-100 img-responsive center-block" %>
+                  </div>
+
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#flatCarousel" data-bs-slide="prev">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Previous</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#flatCarousel" data-bs-slide="next">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                  <span class="visually-hidden">Next</span>
+                </button>
+              </div>
+
+            <% end %>
           </div>
           <div class=" col-5">
             <div class=""> <!-- css : height :  100px -->

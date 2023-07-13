@@ -1,11 +1,21 @@
 <div class="prevent-link-deco">
   <%= link_to flat_path(flat) do %>
-    <div class="card-marker" style="background-image: url(<%= cl_image_path flat.photos.first.key%>)">
+    <% if flat.photos.attached? %>
+      <div class="card-marker" style="background-image: url(<%= cl_image_path flat.photos.first.key%>)">
 
-      <div class="info-card-marker ">
-        <h4 class="text-white"><%= flat.title %></h4>
+        <div class="info-card-marker ">
+          <h4 class="text-white"><%= flat.title %></h4>
 
+        </div>
       </div>
-    </div>
+    <% else %>
+        <div class="card-marker" style="background-image: url(https://static.cotemaison.fr/medias_11749/w_2048,h_1146,c_crop,x_0,y_164/w_640,h_360,c_fill,g_north/v1518095166/chambre-parentale-avec-mur-bleu_6015724.jpg)">
+
+        <div class="info-card-marker ">
+          <h4 class="text-white"><%= flat.title %></h4>
+
+        </div>
+      </div>
+    <% end %>
   <% end %>
 </div>
