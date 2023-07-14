@@ -24,7 +24,7 @@
                           <% end %>
                       </div>
                       <div class="my-3 d-flex justify-content-between">
-                        <% ['0-300€', '300€-500€', '+ 500€'].each do |price_range| %>
+                        <% ['0-100€', '100€-200€', '+ 200€'].each do |price_range| %>
                           <%= radio_button_tag  'query[price_range]', price_range %>
                           <%= price_range %>
                         <% end %>

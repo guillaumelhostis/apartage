@@ -5,9 +5,9 @@
       <div class="progress-bar bg-success" role="progressbar" style="width: 5%" aria-valuenow="5" aria-valuemin="0" aria-valuemax="100"></div>
        <span class="progress-percentage">5%</span>
     </div>
-    <label class="title-label">Pour quelles raisons cherches tu une colocation intergénérationnelle?</label>
+    <label class="title-label">Pour quelles raisons cherches-tu une colocation intergénérationnelle?</label>
     <div class="quizz-questions">
-      <%= f.input :motivation, legend_tag: false, as: :radio_buttons, collection: [["J'ai besoin d'un logement pas cher!",'A'], ["J'aime bien avoir de la compagnie, ne pas rester tout seul",'B'], ["Aider un senior dans ses tâches quotidiennes (ménage, courses, faire à manger)",'D'],["je déteste être seul",'C']] %>
+      <%= f.input :motivation, legend_tag: false, as: :radio_buttons, collection: [["J'ai besoin d'un logement pas cher!",'A'], ["J'aime bien avoir de la compagnie, ne pas rester tout seul",'B'], ["Aider un senior dans ses tâches quotidiennes (ménage, courses, faire à manger)",'D'],["Je déteste être seul",'C']] %>
     </div>
     <div class="text-center">
       <button type="button" class="btn btn-primary text-white p-3" data-action="click->quizz-wizzard#next">Suivant </button>
@@ -58,9 +58,9 @@
       <div class="progress-bar bg-success" role="progressbar" style="width: 36%" aria-valuenow="36" aria-valuemin="0" aria-valuemax="100"></div>
        <span class="progress-percentage">36%</span>
     </div>
-    <label class="title-label">Souhaites tu venir avec ton propre animal de compagnie ?</label>
+    <label class="title-label">Souhaites-tu venir avec ton propre animal de compagnie ?</label>
     <div class="quizz-questions">
-      <%= f.input :guest_animal, legend_tag: false, as: :radio_buttons, collection: [["Oui, c'est impératif car c'est mon meilleur ami",'D'], ["non, je viens seul et non accompagné",'E']]%>
+      <%= f.input :guest_animal, legend_tag: false, as: :radio_buttons, collection: [["Oui, c'est impératif car c'est mon meilleur ami",'D'], ["Non, je viens seul et non accompagné",'E']]%>
     </div>
     <div class="d-flex justify-content-center">
         <div class="text-center" data-quizz-wizzard-target="previous">
@@ -77,7 +77,7 @@
       <div class="progress-bar bg-success" role="progressbar" style="width: 48%" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100"></div>
       <span class="progress-percentage">48%</span>
     </div>
-    <label class="title-label">Est ce que tu fumes??</label>
+    <label class="title-label">Est-ce que tu fumes??</label>
     <div class="quizz-questions">
       <%= f.input :junior_smoker,legend_tag: false, as: :radio_buttons, collection: [["Oui, comme un pompier !",'E'], ['Non ou alors de manière exceptionnelle en soirée','D']]%>
     </div>
@@ -98,7 +98,7 @@
       </div>
     <label class="title-label">Si ton hôte fume : c'est un problème?</label>
     <div class="quizz-questions">
-      <%= f.input :smoker,legend_tag: false, as: :radio_buttons, collection: [['Enorme problème, je déteste la cigarette','E'], ["Non, il fait ce qu'il veut, ca ne me dérangera pas",'D']]%>
+      <%= f.input :smoker,legend_tag: false, as: :radio_buttons, collection: [['Enorme problème, je déteste la cigarette','E'], ["Non, il fait ce qu'il veut, ça ne me dérangera pas",'D']]%>
     </div>
     <div class="d-flex justify-content-center">
         <div class="text-center" data-quizz-wizzard-target="previous">
@@ -115,7 +115,7 @@
       <div class="progress-bar bg-success" role="progressbar" style="width: 72%" aria-valuenow="72" aria-valuemin="0" aria-valuemax="100"></div>
       <span class="progress-percentage">72%</span>
     </div>
-    <label class="title-label">Ramènes tu souvent des potes chez toi ?</label>
+    <label class="title-label">Ramènes-tu souvent des potes chez toi ?</label>
     <div class="quizz-questions">
       <%= f.input :guest, legend_tag: false, as: :radio_buttons, collection: [["Oui souvent! j'adore être avec du monde!",'A'], ["Oui occasionnellement si ça ne dérange personne",'B'], ["Oui mais uniquement pour étudier.",'C'],["Non, je suis un solitaire",'D']]%>
     </div>
@@ -135,7 +135,7 @@
       <div class="progress-bar bg-success" role="progressbar" style="width: 84%" aria-valuenow="84" aria-valuemin="0" aria-valuemax="100"></div>
       <span class="progress-percentage">84%</span>
     </div>
-    <label class="title-label">Comment définirais tu ton rapport aux autres?</label>
+    <label class="title-label">Comment définirais-tu ton rapport aux autres?</label>
     <div class="quizz-questions">
       <%= f.input :talker,  legend_tag: false, as: :radio_buttons, collection: [["J'adore parler de tout, tout le temps !",'A'], ['Un petit café de temps en temps pour bavarder','B'], ["Je suis plutôt introverti",'C']]%>
     </div>
@@ -154,7 +154,7 @@
       <div class="progress-bar bg-success" role="progressbar" style="width: 95%" aria-valuenow="95" aria-valuemin="0" aria-valuemax="100"></div>
        <span class="progress-percentage">95%</span>
     </div>
-    <label class="title-label">Quelle place à la musique dans ton quotidien?</label>
+    <label class="title-label">Quelle place a la musique dans ton quotidien?</label>
     <div class="quizz-questions">
       <%= f.input :music, legend_tag: false, as: :radio_buttons, collection: [["Franchement je kiffe tous les plus gros bangers du rap",'A'], ["Elle m'accompagne en fonction de mes besoins : meditation, jazz, classique.",'B'], ["Je ne peux pas m'en passer. J'en écoute du matin au soir, sans me restreindre dans mes choix",'C']]%>
     </div>
@@ -181,7 +181,7 @@
     </div>
     <h2>C'est fait 🎉</h2>
     <div class="quizz-questions">
-      <h3>Valides tes réponses pour passer à la prochaine étape</h3>
+      <h3>Valide tes réponses pour passer à la prochaine étape</h3>
     </div>
     <%= f.submit 'Valider mes réponses', class: "btn btn-primary text-white p-3"%>
   </li>
